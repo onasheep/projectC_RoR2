@@ -1,0 +1,2 @@
+C:\Users\홍성제\Desktop\GitHub\ProjectRoR22\ProjectRoR2\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\홍성제\Desktop\GitHub\ProjectRoR22\ProjectRoR2\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

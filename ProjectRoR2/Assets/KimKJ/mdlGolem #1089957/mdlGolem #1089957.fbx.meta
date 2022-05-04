@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 7a5fbec1e7cce6e4a81bd12cc1822844
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 7045826818120529566
+    second: GolemArmature|RunLeftRM
+  - first:
+      74: -765275983181679080
+    second: GolemArmature|RunForwardRM
+  - first:
+      74: 5303052785669600556
+    second: GolemArmature|RunRightRM
+  - first:
+      74: 5723704121362379587
+    second: GolemArmature|RunBackwardRM
+  - first:
+      74: 4457310441469560916
+    second: GolemArmature|Hurt1
+  - first:
+      74: 2030298368462350399
+    second: GolemArmature|Death
+  - first:
+      74: -6334359206281630133
+    second: GolemArmature|Spawn
+  - first:
+      74: 569507521740530370
+    second: GolemArmature|Idle, Single
+  - first:
+      74: -3540618317404458185
+    second: GolemArmature|Smack
+  - first:
+      74: 6963496661292636447
+    second: GolemArmature|RunToIdleLeft
+  - first:
+      74: 1315987879731417680
+    second: GolemArmature|RunToIdleRight
+  - first:
+      74: -3729860840390178914
+    second: GolemArmature|AirLoopDown
+  - first:
+      74: 8156138400974374870
+    second: GolemArmature|AirLoopUp
+  - first:
+      74: 563256613774694354
+    second: GolemArmature|Jump
+  - first:
+      74: 1364804751070475139
+    second: GolemArmature|lookHorizontal
+  - first:
+      74: -5106315120339701193
+    second: GolemArmature|lookVertical
+  - first:
+      74: 2362239765841482990
+    second: GolemArmature|FireLaser
+  - first:
+      74: -1823735716455314391
+    second: GolemArmature|Flinch2
+  - first:
+      74: 5075590928834371342
+    second: GolemArmature|Flinch1
+  - first:
+      74: 3268654408438866481
+    second: GolemArmature|Idle, Additive
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

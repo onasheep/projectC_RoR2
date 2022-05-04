@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: bc94ad9b6ae64984db056afdf78a5ba3
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 8050972764587121694
+    second: CommandoArmature|IdleIn
+  - first:
+      74: -9211592847773980805
+    second: CommandoArmature|RunForward
+  - first:
+      74: 3307365045823054885
+    second: CommandoArmature|RunBackwards
+  - first:
+      74: 3869417491578188524
+    second: CommandoArmature|Idle Loop, Additive
+  - first:
+      74: 6183355801506670382
+    second: CommandoArmature|RunLeft
+  - first:
+      74: 1423150517901705806
+    second: CommandoArmature|RunRight
+  - first:
+      74: 8988804816069076436
+    second: CommandoArmature|Idle, Single
+  - first:
+      74: -7107612989182620092
+    second: CommandoArmature|SprintForward
+  - first:
+      74: -7553427106655668991
+    second: CommandoArmature|SlideForward
+  - first:
+      74: -2904811903141287681
+    second: CommandoArmature|RollLeft
+  - first:
+      74: 9038562548600887858
+    second: CommandoArmature|RollRight
+  - first:
+      74: -940146412037765765
+    second: CommandoArmature|RollForward
+  - first:
+      74: -3005523608663371082
+    second: CommandoArmature|RollBackward
+  - first:
+      74: -8273329877378427399
+    second: CommandoArmature|AirDown
+  - first:
+      74: 3824670334503753186
+    second: CommandoArmature|AirUp
+  - first:
+      74: -3520220821268396290
+    second: CommandoArmature|Jump
+  - first:
+      74: -3475563741519997042
+    second: CommandoArmature|lightImpact
+  - first:
+      74: -3568270807582201806
+    second: CommandoArmature|FireFMJ, Override
+  - first:
+      74: -8581710206815198726
+    second: CommandoArmature|ThrowGrenade, Override
+  - first:
+      74: -9200192910954445967
+    second: CommandoArmature|FireBarrage, Override
+  - first:
+      74: -5442014166512888941
+    second: CommandoArmature|ReloadPistols, Override
+  - first:
+      74: 4630185748573789972
+    second: CommandoArmature|ReloadPistolsExit, Override
+  - first:
+      74: -3438281345571745364
+    second: CommandoArmature|FireFMJ, Additive
+  - first:
+      74: 7756243155485628260
+    second: CommandoArmature|FireBarrage, Additive
+  - first:
+      74: -5682659077502553807
+    second: CommandoArmature|ThrowGrenade, Additive
+  - first:
+      74: -37030913823782923
+    second: CommandoArmature|ReloadPistols, Additive
+  - first:
+      74: -7360063276560392510
+    second: CommandoArmature|ReloadPistolsExit, Additive
+  - first:
+      74: -699728643219669613
+    second: CommandoArmature|aimVertical
+  - first:
+      74: 2233857210163445256
+    second: CommandoArmature|aimHorizontal
+  - first:
+      74: 3060569887511698684
+    second: CommandoArmature|FirePistol, Left
+  - first:
+      74: 7882812607796479930
+    second: CommandoArmature|FirePistol, Right
+  - first:
+      74: -2869457208735151489
+    second: CommandoArmature|Flinch3
+  - first:
+      74: 5955768867966465266
+    second: CommandoArmature|Flinch2
+  - first:
+      74: 5705760623954380668
+    second: CommandoArmature|Flinch1
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

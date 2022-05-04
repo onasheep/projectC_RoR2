@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 53e6baf453ca64f448d7ea612b24769f
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -502081135380038547
+    second: LemurianArm|RunToWalk
+  - first:
+      74: -6809441210922390857
+    second: LemurianArm|RunLeftRM
+  - first:
+      74: 1300086163100948399
+    second: LemurianArm|RunRightRM
+  - first:
+      74: -2531965445123197182
+    second: LemurianArm|RunForwardRM
+  - first:
+      74: -5415348608924508817
+    second: LemurianArm|RunBackwardRM
+  - first:
+      74: 6621255464463868237
+    second: LemurianArm|Idle, Single
+  - first:
+      74: 7302752764469186236
+    second: LemurianArm|Death2
+  - first:
+      74: 7203364711169444175
+    second: LemurianArm|Hit1
+  - first:
+      74: 8066408097816550420
+    second: LemurianArm|Spawn
+  - first:
+      74: 3942005748886317822
+    second: LemurianArm|Surprise
+  - first:
+      74: 66523498526954736
+    second: LemurianArm|bite
+  - first:
+      74: 2226257816009618623
+    second: LemurianArm|AirLoopDown
+  - first:
+      74: 2719989765829944182
+    second: LemurianArm|AirLoopUp
+  - first:
+      74: 2405853379319630707
+    second: LemurianArm|Jump
+  - first:
+      74: -6111714370931486494
+    second: LemurianArm|aimHorizontal
+  - first:
+      74: 5587650720110574658
+    second: LemurianArm|aimVertical
+  - first:
+      74: -415460912543133635
+    second: LemurianArm|ChargeFireball
+  - first:
+      74: -3528188488481617793
+    second: LemurianArm|FireFireball
+  - first:
+      74: -4795466959283867295
+    second: LemurianArm|Ping
+  - first:
+      74: 8755338771215116568
+    second: LemurianArm|lightImpact
+  - first:
+      74: 1729605251868446710
+    second: LemurianArm|Flinch3
+  - first:
+      74: -8217071150366680084
+    second: LemurianArm|Flinch2
+  - first:
+      74: 7617775270238394184
+    second: LemurianArm|Flinch1
+  - first:
+      74: 6243987962168344095
+    second: LemurianArm|Idle, Additive Loop
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
