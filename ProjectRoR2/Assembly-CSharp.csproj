@@ -59,6 +59,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Character.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CameraArm.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
     <Compile Include="Assets\ShiftState.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\AttackStateL.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharacSelect.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\InGameUI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\Player.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
