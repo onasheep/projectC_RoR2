@@ -59,7 +59,10 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Character.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CameraArm.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
+    <Compile Include="Assets\Minjun\Script\Teleport.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
     <Compile Include="Assets\ShiftState.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CSkillPanel.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
+    <Compile Include="Assets\Minjun\Script\WaterJump.cs" />
     <Compile Include="Assets\Minjun\Script\Player.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
@@ -80,14 +84,19 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\RootMotion.cs" />
+    <Compile Include="Assets\Minjun\Script\SceneLoder.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
+    <Compile Include="Assets\Minjun\Script\Map1.cs" />
+    <Compile Include="Assets\Minjun\Script\Map2.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\Minjun\Script\Item.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GrappleFist.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
+    <Compile Include="Assets\Minjun\Script\Jump.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
+    <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -124,11 +133,13 @@
     <None Include="Assets\HSJ\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Minjun\Shader\DissolveEmission.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Minjun\Outline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -136,6 +147,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Minjun\Shader\Outline.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
   </ItemGroup>
   <ItemGroup>

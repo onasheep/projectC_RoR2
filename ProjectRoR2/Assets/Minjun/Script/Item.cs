@@ -11,7 +11,6 @@ public class Item : MonoBehaviour
     float SyringeClusterSpeed;
     void Start()
     {
-        //myPlayer = GameObject.Find("mdlCommandoDualies");
         playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<Player>();
         SyringeClusterSpeed = playerStat.AttackSpeed * 0.15f;
         HoofSpeed = playerStat.MoveSpeed * 0.14f;
@@ -28,40 +27,97 @@ public class Item : MonoBehaviour
         //1티어
         if (this.gameObject.name.Contains("Bullet"))
         {
-            playerStat.eqiup[0]++;
+            if (playerStat.eqiup[0] == 0)
+            {
+                playerStat.eqiup[0]++;
+            }
+            else
+            {
+                playerStat.eqiup[0]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (오른쪽 허벅지)
         }
         if (this.gameObject.name.Contains("Crowbar"))
         {
-            playerStat.eqiup[1]++;
+            if (playerStat.eqiup[1] == 0)
+            {
+                playerStat.eqiup[1]++;
+            }
+            else
+            {
+                playerStat.eqiup[1]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (등 오른쪽)
         }
         if (this.gameObject.name.Contains("Glasses"))
         {
-            playerStat.eqiup[2]++;
+            if (playerStat.eqiup[2] == 0)
+            {
+                playerStat.eqiup[2]++;
+            }
+            else
+            {
+                playerStat.eqiup[2]++;
+                Destroy(this.gameObject);
+            }
             playerStat.critical += 0.1f;
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (얼굴)
         }
         if (this.gameObject.name.Contains("Goat_Hoof")) 
         {
-            playerStat.eqiup[3]++;
             playerStat.MoveSpeed += HoofSpeed;
+            if (playerStat.eqiup[3] == 0)
+            {
+                playerStat.eqiup[3]++;
+            }
+            else
+            {
+                playerStat.eqiup[3]++;
+                Destroy(this.gameObject);
+            }
+            
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (오른쪽 발)
         }
         if (this.gameObject.name.Contains("Medkit"))
         {
-            playerStat.eqiup[4]++;
+            if (playerStat.eqiup[4] == 0)
+            {
+                playerStat.eqiup[4]++;
+            }
+            else
+            {
+                playerStat.eqiup[4]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (허리 오른쪽)
         }
         if (this.gameObject.name.Contains("Steak")) 
         {
-            playerStat.eqiup[5]++;
+            if (playerStat.eqiup[5] == 0)
+            {
+                playerStat.eqiup[5]++;
+            }
+            else
+            {
+                playerStat.eqiup[5]++;
+                Destroy(this.gameObject);
+            }
             playerStat.Hp += 25.0f;
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (가슴)
         }
         if (this.gameObject.name.Contains("SyringeCluster"))
         {
-            playerStat.eqiup[6]++;
+            if (playerStat.eqiup[6] == 0)
+            {
+                playerStat.eqiup[6]++;
+            }
+            else
+            {
+                playerStat.eqiup[6]++;
+                Destroy(this.gameObject);
+            }
             playerStat.AttackSpeed += SyringeClusterSpeed;
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기(오른쪽 허벅지)
         }
@@ -69,28 +125,69 @@ public class Item : MonoBehaviour
         //2티어
         if (this.gameObject.name.Contains("Guillotine"))
         {
-            playerStat.eqiup[7]++;
+            if (playerStat.eqiup[7] == 0)
+            {
+                playerStat.eqiup[7]++;
+            }
+            else
+            {
+                playerStat.eqiup[7]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기  (등 가운데)
         }
         if (this.gameObject.name.Contains("Hopoo_Feather"))
         {
-            playerStat.eqiup[8]++;
             playerStat.JumpCount += 1;
+            if (playerStat.eqiup[8] == 0)
+            {
+                playerStat.eqiup[8]++;
+            }
+            else
+            {
+                playerStat.eqiup[8]++;
+                Destroy(this.gameObject);
+            }
+            
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (왼쪽 팔)
         }
         if (this.gameObject.name.Contains("MissileLauncher"))
         {
-            playerStat.eqiup[9]++;
+            if (playerStat.eqiup[9] == 0)
+            {
+                playerStat.eqiup[9]++;
+            }
+            else
+            {
+                playerStat.eqiup[9]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (왼쪽 어꺠)
         }
         if (this.gameObject.name.Contains("Seed"))
         {
-            playerStat.eqiup[10]++;
+            if (playerStat.eqiup[10] == 0)
+            {
+                playerStat.eqiup[10]++;
+            }
+            else
+            {
+                playerStat.eqiup[10]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (왼쪽 허리)
         }
         if (this.gameObject.name.Contains("Time_Bubble"))
         {
-            playerStat.eqiup[11]++;
+            if (playerStat.eqiup[11] == 0)
+            {
+                playerStat.eqiup[11]++;
+            }
+            else
+            {
+                playerStat.eqiup[11]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기 (오른쪽 허벅지)
         }
 
@@ -120,7 +217,15 @@ public class Item : MonoBehaviour
         }
         if (this.gameObject.name.Contains("LightningStrike"))
         {
-            playerStat.eqiup[13]++;
+            if(playerStat.eqiup[13] == 0)
+            {
+                playerStat.eqiup[13]++;
+            }
+            else
+            {
+                playerStat.eqiup[13]++;
+                Destroy(this.gameObject);
+            }
             //아이템 먹으면 플레이어에게 붙게끔 위치 잡아주기(왼쪽 어깨)
         }
 
