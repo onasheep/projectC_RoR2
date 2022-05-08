@@ -1,0 +1,2096 @@
+fileFormatVersion: 2
+guid: c2bc4f00ba0b09d4894d45e7ccfd1c08
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -5525964960950588866
+    second: CommandoArmature|Tpose
+  - first:
+      74: 4630185748573789972
+    second: CommandoArmature|ReloadPistolsExit, Override
+  - first:
+      74: 5955768867966465266
+    second: CommandoArmature|Flinch2
+  - first:
+      74: 5705760623954380668
+    second: CommandoArmature|Flinch1
+  - first:
+      74: 3060569887511698684
+    second: CommandoArmature|FirePistol, Left
+  - first:
+      74: -8273329877378427399
+    second: CommandoArmature|AirDown
+  - first:
+      74: 2233857210163445256
+    second: aimHorizontal_Right
+  - first:
+      74: -699728643219669613
+    second: CommandoArmature|aimVertical
+  - first:
+      74: 3824670334503753186
+    second: CommandoArmature|AirUp
+  - first:
+      74: 7756243155485628260
+    second: CommandoArmature|FireBarrage, Additive
+  - first:
+      74: 8050972764587121694
+    second: CommandoArmature|IdleIn
+  - first:
+      74: 2062380298913625559
+    second: Display
+  - first:
+      74: 3869417491578188524
+    second: CommandoArmature|Idle Loop, Additive
+  - first:
+      74: 5124119823479440152
+    second: CommandoArmature|Pose, Loop
+  - first:
+      74: -3568270807582201806
+    second: CommandoArmature|FireFMJ, Override
+  - first:
+      74: -940146412037765765
+    second: CommandoArmature|RollForward
+  - first:
+      74: 9038562548600887858
+    second: CommandoArmature|RollRight
+  - first:
+      74: -9200192910954445967
+    second: CommandoArmature|FireBarrage, Override
+  - first:
+      74: -3005523608663371082
+    second: CommandoArmature|RollBackward
+  - first:
+      74: 3307365045823054885
+    second: CommandoArmature|RunBackwards
+  - first:
+      74: -3520220821268396290
+    second: CommandoArmature|Jump
+  - first:
+      74: -5442014166512888941
+    second: CommandoArmature|ReloadPistols, Override
+  - first:
+      74: -37030913823782923
+    second: CommandoArmature|ReloadPistols, Additive
+  - first:
+      74: 1423150517901705806
+    second: CommandoArmature|RunRight
+  - first:
+      74: -2869457208735151489
+    second: CommandoArmature|Flinch3
+  - first:
+      74: -7553427106655668991
+    second: CommandoArmature|SlideForward
+  - first:
+      74: -3438281345571745364
+    second: CommandoArmature|FireFMJ, Additive
+  - first:
+      74: 6183355801506670382
+    second: CommandoArmature|RunLeft
+  - first:
+      74: -8581710206815198726
+    second: CommandoArmature|ThrowGrenade, Override
+  - first:
+      74: -7360063276560392510
+    second: CommandoArmature|ReloadPistolsExit, Additive
+  - first:
+      74: -9211592847773980805
+    second: CommandoArmature|RunForward
+  - first:
+      74: -3475563741519997042
+    second: CommandoArmature|lightImpact
+  - first:
+      74: -5682659077502553807
+    second: CommandoArmature|ThrowGrenade, Additive
+  - first:
+      74: 7882812607796479930
+    second: CommandoArmature|FirePistol, Right
+  - first:
+      74: -2904811903141287681
+    second: CommandoArmature|RollLeft
+  - first:
+      74: 5351847137549845469
+    second: CommandoArmature|Cutscene, Sittin Chillin  Loop
+  - first:
+      74: 8988804816069076436
+    second: CommandoArmature|Idle, Single
+  - first:
+      74: -7107612989182620092
+    second: CommandoArmature|SprintForward
+  - first:
+      74: -6681028292220851764
+    second: CommandoArmature|aimHorizontal
+  - first:
+      74: 827035798103153802
+    second: aimHorizontal_Front
+  - first:
+      74: 6813330752902805926
+    second: aimHorizontal_Left
+  - first:
+      74: 1750256093202259982
+    second: CommandoArmature|aimVertical (1)
+  - first:
+      74: -8507514361170797589
+    second: aimVertical_Up
+  - first:
+      74: -6587464192623227830
+    second: aimVertical_Down
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'CommandoArmature|FirePistol, Left' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'upper_arm.l' has translation
+      animation that will be discarded.\n\nClip 'CommandoArmature|IdleIn' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
+      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
+      animation that will be discarded.\n\nClip 'CommandoArmature|FireFMJ, Override'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'upper_arm.l'
+      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
+      animation that will be discarded.\n\nClip 'CommandoArmature|RunBackwards' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'CommandoArmature|Jump' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
+      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
+      animation that will be discarded.\n\nClip 'CommandoArmature|RunRight' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'CommandoArmature|SlideForward'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
+      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
+      animation that will be discarded.\n\nClip 'CommandoArmature|RunLeft' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'CommandoArmature|RunForward'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'CommandoArmature|FirePistol, Right' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'upper_arm.r' has translation animation that will be
+      discarded.\n\nClip 'CommandoArmature|Cutscene, Sittin Chillin  Loop' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'upper_arm.l' has translation
+      animation that will be discarded.\n\t'upper_arm.r' has translation animation
+      that will be discarded.\n\nClip 'CommandoArmature|SprintForward' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CommandoArmature|Tpose
+      takeName: CommandoArmature|Tpose
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ReloadPistolsExit, Override
+      takeName: CommandoArmature|ReloadPistolsExit, Override
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Flinch2
+      takeName: CommandoArmature|Flinch2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Flinch1
+      takeName: CommandoArmature|Flinch1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FirePistol, Left
+      takeName: CommandoArmature|FirePistol, Left
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|AirDown
+      takeName: CommandoArmature|AirDown
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimHorizontal_Right
+      takeName: CommandoArmature|aimHorizontal
+      internalID: 0
+      firstFrame: 59
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|aimVertical
+      takeName: CommandoArmature|aimVertical
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|AirUp
+      takeName: CommandoArmature|AirUp
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FireBarrage, Additive
+      takeName: CommandoArmature|FireBarrage, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|IdleIn
+      takeName: CommandoArmature|IdleIn
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 106
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Display
+      takeName: Display
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 84
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Idle Loop, Additive
+      takeName: CommandoArmature|Idle Loop, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000000000000000000001000000010000000000000000000000000000000000000000000000000000000000000000000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: 02c82544a5d45f549a47a0e5f0fad01c, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Pose, Loop
+      takeName: CommandoArmature|Pose, Loop
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FireFMJ, Override
+      takeName: CommandoArmature|FireFMJ, Override
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RollForward
+      takeName: CommandoArmature|RollForward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RollRight
+      takeName: CommandoArmature|RollRight
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FireBarrage, Override
+      takeName: CommandoArmature|FireBarrage, Override
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RollBackward
+      takeName: CommandoArmature|RollBackward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RunBackwards
+      takeName: CommandoArmature|RunBackwards
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Jump
+      takeName: CommandoArmature|Jump
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ReloadPistols, Override
+      takeName: CommandoArmature|ReloadPistols, Override
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ReloadPistols, Additive
+      takeName: CommandoArmature|ReloadPistols, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RunRight
+      takeName: CommandoArmature|RunRight
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Flinch3
+      takeName: CommandoArmature|Flinch3
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 87
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|SlideForward
+      takeName: CommandoArmature|SlideForward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FireFMJ, Additive
+      takeName: CommandoArmature|FireFMJ, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RunLeft
+      takeName: CommandoArmature|RunLeft
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ThrowGrenade, Override
+      takeName: CommandoArmature|ThrowGrenade, Override
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ReloadPistolsExit, Additive
+      takeName: CommandoArmature|ReloadPistolsExit, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RunForward
+      takeName: CommandoArmature|RunForward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 62
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000000000000000000001000000010000000000000000000000000000000000000000000000000000000000000000000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 02c82544a5d45f549a47a0e5f0fad01c, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|lightImpact
+      takeName: CommandoArmature|lightImpact
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|ThrowGrenade, Additive
+      takeName: CommandoArmature|ThrowGrenade, Additive
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|FirePistol, Right
+      takeName: CommandoArmature|FirePistol, Right
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|RollLeft
+      takeName: CommandoArmature|RollLeft
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Cutscene, Sittin Chillin  Loop
+      takeName: CommandoArmature|Cutscene, Sittin Chillin  Loop
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 899
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|Idle, Single
+      takeName: CommandoArmature|Idle, Single
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 899
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|SprintForward
+      takeName: CommandoArmature|SprintForward
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 899
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CommandoArmature|aimHorizontal
+      takeName: CommandoArmature|aimHorizontal
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimHorizontal_Front
+      takeName: CommandoArmature|aimHorizontal
+      internalID: 0
+      firstFrame: 29
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimHorizontal_Left
+      takeName: CommandoArmature|aimHorizontal
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimVertical_Up
+      takeName: CommandoArmature|aimVertical
+      internalID: 0
+      firstFrame: 59
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: aimVertical_Down
+      takeName: CommandoArmature|aimVertical
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: mdlCommandoDualies (merge)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mdlCommandoDualies (merge)
+      parentName: mdlCommandoDualies (merge)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mdlCommandoDualies
+      parentName: mdlCommandoDualies (merge)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CommandoArmature
+      parentName: mdlCommandoDualies
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ROOT
+      parentName: CommandoArmature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.7071041, y: -0.0019955677, z: 0.0019912324, w: 0.7071039}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: base
+      parentName: ROOT
+      position: {x: 0.000066166154, y: 0.010323262, z: -0.0026590833}
+      rotation: {x: 0.7071039, y: -0.0019907574, z: -0.0019950932, w: 0.7071041}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999999}
+    - name: stomach
+      parentName: base
+      position: {x: -3.1810082e-13, y: 0.0025790269, z: 1.7356006e-11}
+      rotation: {x: -0.7481402, y: 0.004675821, z: -0.00037204794, w: 0.66352415}
+      scale: {x: 1, y: 1, z: 1}
+    - name: chest
+      parentName: stomach
+      position: {x: 1.2441887e-11, y: 0.0015331402, z: 4.766548e-11}
+      rotation: {x: -0.033106886, y: 0.000005048, z: -0.0034707398, w: 0.9994458}
+      scale: {x: 1, y: 0.9999998, z: 1}
+    - name: upper_arm.l
+      parentName: chest
+      position: {x: -0.0020490168, y: 0.0035966805, z: 0.000048284608}
+      rotation: {x: 0.06477813, y: -0.072057, z: 0.7116903, w: 0.69577914}
+      scale: {x: 0.9999994, y: 1, z: 0.99999857}
+    - name: lower_arm.l
+      parentName: upper_arm.l
+      position: {x: -1.862645e-10, y: 0.00414456, z: -7.0780515e-10}
+      rotation: {x: 0.028851258, y: -0.73866814, z: -0.01734611, w: 0.6732281}
+      scale: {x: 0.9999999, y: 1.0000005, z: 1.0000006}
+    - name: hand.l
+      parentName: lower_arm.l
+      position: {x: 0.000000001117587, y: 0.0030965258, z: -6.3329936e-10}
+      rotation: {x: 0.047049314, y: 0.99773127, z: 0.034829114, w: 0.033250805}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000004}
+    - name: finger1IKBender.l
+      parentName: hand.l
+      position: {x: -0.00037802936, y: 0.0024546594, z: -0.000412739}
+      rotation: {x: 0.9439027, y: -0.088882945, z: -0.31197828, w: 0.06178427}
+      scale: {x: 0.7094496, y: 0.7094491, z: 0.7094491}
+    - name: finger1IKTarget.l
+      parentName: finger1IKBender.l
+      position: {x: -4.2840836e-10, y: 0.0010487392, z: -1.8626451e-11}
+      rotation: {x: 0.042993054, y: -0.51225954, z: -0.010864637, w: 0.8576851}
+      scale: {x: 0.99999964, y: 1.0000002, z: 1.0000007}
+    - name: finger1IKTarget.l_end
+      parentName: finger1IKTarget.l
+      position: {x: -0, y: 0.0003147608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger2IKBender.l
+      parentName: hand.l
+      position: {x: -0.0000172057, y: 0.0024420486, z: -0.00046412987}
+      rotation: {x: 0.94390255, y: -0.088882856, z: -0.31197825, w: 0.06178425}
+      scale: {x: 0.9999984, y: 0.9999998, z: 0.9999962}
+    - name: finger2IKTarget.l
+      parentName: finger2IKBender.l
+      position: {x: 2.6426278e-10, y: 0.0010487394, z: 0}
+      rotation: {x: 0.04299311, y: -0.51225954, z: -0.010864585, w: 0.8576851}
+      scale: {x: 0.9999996, y: 1.0000001, z: 1.0000005}
+    - name: finger2IKTarget.l_end
+      parentName: finger2IKTarget.l
+      position: {x: -0, y: 0.0003147608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger3IKBender.l
+      parentName: hand.l
+      position: {x: 0.00021526191, y: 0.0022357635, z: -0.0004711483}
+      rotation: {x: 0.94424534, y: -0.081445016, z: -0.3127045, w: 0.06311424}
+      scale: {x: 0.7955966, y: 0.79559475, z: 0.7955983}
+    - name: finger3IKTarget.l
+      parentName: finger3IKBender.l
+      position: {x: 8.1257895e-10, y: 0.0010072403, z: 7.4505804e-11}
+      rotation: {x: 0.042987894, y: -0.51184946, z: -0.010885266, w: 0.85792994}
+      scale: {x: 0.99999934, y: 0.99999964, z: 1.0000002}
+    - name: finger3IKTarget.l_end
+      parentName: finger3IKTarget.l
+      position: {x: -0, y: 0.0003023069, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger4IKBender.l
+      parentName: hand.l
+      position: {x: 0.00045119412, y: 0.0020484298, z: -0.00048830756}
+      rotation: {x: 0.9451465, y: -0.03893094, z: -0.31650287, w: 0.07077001}
+      scale: {x: 0.6763277, y: 0.676328, z: 0.67632437}
+    - name: finger4IKTarget.l
+      parentName: finger4IKBender.l
+      position: {x: 0.0000000029848888, y: 0.0010072401, z: 0}
+      rotation: {x: 0.04295762, y: -0.5095108, z: -0.01100216, w: 0.8593208}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.000001}
+    - name: finger4IKTarget.l_end
+      parentName: finger4IKTarget.l
+      position: {x: -0, y: 0.00030230643, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumbIKBender.l
+      parentName: hand.l
+      position: {x: -0.00045693194, y: 0.0016335879, z: -0.0006416678}
+      rotation: {x: 0.83242786, y: -0.018849917, z: -0.40211624, w: 0.38080323}
+      scale: {x: 1.0000005, y: 1.0000002, z: 0.9999997}
+    - name: thumbIKTarget.l
+      parentName: thumbIKBender.l
+      position: {x: 2.0954757e-10, y: 0.0007639794, z: 0.0000000012293457}
+      rotation: {x: 0.12838918, y: -0.35995746, z: -0.2802734, w: 0.88056445}
+      scale: {x: 0.99999946, y: 0.99999994, z: 1.0000006}
+    - name: thumbIKTarget.l_end
+      parentName: thumbIKTarget.l
+      position: {x: -0, y: 0.00031476098, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger1.1.l
+      parentName: hand.l
+      position: {x: -0.0004965188, y: 0.0011326235, z: 0.00019090118}
+      rotation: {x: 0.00051128946, y: 0.00580385, z: 0.014514983, w: 0.9998777}
+      scale: {x: 1.0000002, y: 1.000001, z: 0.99999917}
+    - name: finger1.2.l
+      parentName: finger1.1.l
+      position: {x: -7.0780515e-10, y: 0.00070596463, z: -0.0000000013783574}
+      rotation: {x: -0.0019351147, y: -0.99658126, z: 0.035484232, w: 0.074585654}
+      scale: {x: 1.0000012, y: 0.99999684, z: 1.0000004}
+    - name: finger1.3.l
+      parentName: finger1.2.l
+      position: {x: 3.72529e-10, y: 0.0003410653, z: -0.000000001695007}
+      rotation: {x: 0.0412097, y: -0.000029876814, z: -0.000018702694, w: 0.9991506}
+      scale: {x: 1.0000002, y: 1.0000007, z: 1.0000004}
+    - name: finger1.3.l_end
+      parentName: finger1.3.l
+      position: {x: -0, y: 0.00027526962, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger2.1.l
+      parentName: hand.l
+      position: {x: -0.00013569795, y: 0.0011200106, z: 0.0001395114}
+      rotation: {x: 0.0005101329, y: 0.0058033657, z: 0.014516007, w: 0.99987775}
+      scale: {x: 1.0000004, y: 1.0000011, z: 0.9999992}
+    - name: finger2.2.l
+      parentName: finger2.1.l
+      position: {x: 8.9406965e-10, y: 0.0007059679, z: -3.352761e-10}
+      rotation: {x: -0.001936462, y: -0.99658155, z: 0.03547815, w: 0.074585155}
+      scale: {x: 1.0000007, y: 0.9999955, z: 1.0000025}
+    - name: finger2.3.l
+      parentName: finger2.2.l
+      position: {x: -3.1664968e-10, y: 0.00034106476, z: 0.0000000010617077}
+      rotation: {x: 0.041210648, y: -0.000029891708, z: -0.000018928886, w: 0.99915045}
+      scale: {x: 0.9999997, y: 1.000003, z: 1.0000001}
+    - name: finger2.3.l_end
+      parentName: finger2.3.l
+      position: {x: -0, y: 0.00027526962, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger3.1.l
+      parentName: hand.l
+      position: {x: 0.000121329795, y: 0.00096321705, z: 0.00010597245}
+      rotation: {x: -0.0008818842, y: 0.006823272, z: 0.01591077, w: 0.9998498}
+      scale: {x: 1.0000006, y: 1.0000012, z: 0.99999946}
+    - name: finger3.2.l
+      parentName: finger3.1.l
+      position: {x: 1.4901161e-10, y: 0.00067803473, z: -7.0780515e-10}
+      rotation: {x: -0.0020684262, y: -0.99640477, z: 0.03545686, w: 0.07691692}
+      scale: {x: 1.0000019, y: 0.9999977, z: 1.0000021}
+    - name: finger3.3.l
+      parentName: finger3.2.l
+      position: {x: 0.0000000012293457, y: 0.00032757147, z: -6.7520883e-10}
+      rotation: {x: 0.04120051, y: 0.00061981333, z: 0.0002730631, w: 0.9991507}
+      scale: {x: 0.99999994, y: 1.0000007, z: 1.0000006}
+    - name: finger3.3.l_end
+      parentName: finger3.3.l
+      position: {x: -0, y: 0.00026437707, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger4.1.l
+      parentName: hand.l
+      position: {x: 0.0004712681, y: 0.00076560955, z: 0.00007315403}
+      rotation: {x: -0.00899406, y: 0.012470606, z: 0.026404714, w: 0.9995331}
+      scale: {x: 1.0000007, y: 1.0000011, z: 0.99999934}
+    - name: finger4.2.l
+      parentName: finger4.1.l
+      position: {x: -0.000000001695007, y: 0.00067803304, z: 3.72529e-10}
+      rotation: {x: -0.0028942213, y: -0.9952929, z: 0.035390727, w: 0.09017275}
+      scale: {x: 1.0000008, y: 0.99999803, z: 1.0000002}
+    - name: finger4.3.l
+      parentName: finger4.2.l
+      position: {x: 1.4901161e-10, y: 0.00032757243, z: -3.9115547e-10}
+      rotation: {x: 0.041162875, y: 0.004331073, z: 0.0019365738, w: 0.9991413}
+      scale: {x: 0.99999964, y: 0.9999986, z: 1}
+    - name: finger4.3.l_end
+      parentName: finger4.3.l
+      position: {x: -0, y: 0.00026437777, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb.1.l
+      parentName: hand.l
+      position: {x: -0.0007196133, y: 0.00056755595, z: -0.00041588358}
+      rotation: {x: 0.034599792, y: 0.08851873, z: 0.39819774, w: 0.91236275}
+      scale: {x: 1.000002, y: 1.000001, z: 0.99999774}
+    - name: thumb.2.l
+      parentName: thumb.1.l
+      position: {x: 8.9930835e-10, y: 0.00053257187, z: -0.0000000012409873}
+      rotation: {x: 0.005753554, y: -0.9970999, z: -0.035837993, w: 0.066891685}
+      scale: {x: 1.0000004, y: 1.0000006, z: 0.99999887}
+    - name: thumb.2.l_end
+      parentName: thumb.2.l
+      position: {x: -0, y: 0.00051367783, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gun.l
+      parentName: hand.l
+      position: {x: 0.0005387328, y: 0.0009515281, z: 0.0017631125}
+      rotation: {x: 0.12395412, y: -0.24664572, z: -0.6184572, w: -0.73573905}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: gun.l_end
+      parentName: gun.l
+      position: {x: 1.4901161e-10, y: 0.0023720253, z: -0.0000000013411044}
+      rotation: {x: -0.0000000018626456, y: 0.00018685496, z: 0.00000000745058, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: GunMesh.001
+      parentName: gun.l
+      position: {x: 1.4901161e-10, y: 0.0023720248, z: 0}
+      rotation: {x: -0.00000013630381, y: 0.7071068, z: -0.7071067, w: 0.000000052010115}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: upper_arm.r
+      parentName: chest
+      position: {x: 0.0020521963, y: 0.0035966816, z: 0.00007517382}
+      rotation: {x: -0.069443315, y: -0.06749496, z: 0.7112503, w: -0.6962364}
+      scale: {x: 1.0000021, y: 1.0000002, z: 1.0000015}
+    - name: lower_arm.r
+      parentName: upper_arm.r
+      position: {x: -0.0000000011920929, y: 0.004144561, z: 4.1909515e-10}
+      rotation: {x: -0.028851297, y: -0.73866796, z: -0.017344363, w: -0.6732284}
+      scale: {x: 1.0000005, y: 1.0000007, z: 0.9999997}
+    - name: hand.r
+      parentName: lower_arm.r
+      position: {x: 0.0000000015646219, y: 0.0030965253, z: 3.7252902e-11}
+      rotation: {x: -0.047048945, y: 0.99773145, z: 0.034825273, w: -0.033250265}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000011}
+    - name: finger1IKBender.r
+      parentName: hand.r
+      position: {x: 0.00037802864, y: 0.0024546583, z: -0.00041273807}
+      rotation: {x: -0.17473279, y: -0.09663119, z: -0.9786479, w: 0.04877824}
+      scale: {x: 0.71321714, y: 0.7132171, z: 0.7132172}
+    - name: finger1IKTarget.r
+      parentName: finger1IKBender.r
+      position: {x: -5.401671e-10, y: 0.0010487378, z: 0.0000000014808028}
+      rotation: {x: 0.010900869, y: -0.5106255, z: 0.04298423, w: 0.85865897}
+      scale: {x: 1.0000004, y: 1.0000001, z: 0.9999998}
+    - name: finger1IKTarget.r_end
+      parentName: finger1IKTarget.r
+      position: {x: -0, y: 0.0003147608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger2IKBender.r
+      parentName: hand.r
+      position: {x: 0.000017207152, y: 0.0024420463, z: -0.0004641269}
+      rotation: {x: -0.17473052, y: -0.09663098, z: -0.97864825, w: 0.048778847}
+      scale: {x: 0.99999803, y: 0.9999996, z: 0.9999965}
+    - name: finger2IKTarget.r
+      parentName: finger2IKBender.r
+      position: {x: 8.0093737e-10, y: 0.0010487383, z: -0.000000002104789}
+      rotation: {x: 0.010900165, y: -0.51062685, z: 0.04298457, w: 0.8586582}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1}
+    - name: finger2IKTarget.r_end
+      parentName: finger2IKTarget.r
+      position: {x: -0, y: 0.0003147608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger3IKBender.r
+      parentName: hand.r
+      position: {x: -0.00021526044, y: 0.0022357632, z: -0.00047114506}
+      rotation: {x: -0.17519589, y: -0.09430163, z: -0.97912735, w: 0.041512925}
+      scale: {x: 0.8150772, y: 0.8150777, z: 0.81507564}
+    - name: finger3IKTarget.r
+      parentName: finger3IKBender.r
+      position: {x: -6.3329936e-10, y: 0.0010072392, z: 0.0000000018440186}
+      rotation: {x: 0.010922122, y: -0.5102136, z: 0.042978264, w: 0.85890377}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: finger3IKTarget.r_end
+      parentName: finger3IKTarget.r
+      position: {x: -0, y: 0.0003023069, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger4IKBender.r
+      parentName: hand.r
+      position: {x: -0.0004511923, y: 0.0020484284, z: -0.00048830453}
+      rotation: {x: -0.17763764, y: -0.080768906, z: -0.9807759, w: 0.000049509097}
+      scale: {x: 0.66233814, y: 0.66233796, z: 0.6623371}
+    - name: finger4IKTarget.r
+      parentName: finger4IKBender.r
+      position: {x: 4.4703483e-10, y: 0.0010072389, z: 0.0000000018253922}
+      rotation: {x: 0.011038352, y: -0.5078661, z: 0.042949375, w: 0.86029387}
+      scale: {x: 0.9999998, y: 1.0000004, z: 0.99999994}
+    - name: finger4IKTarget.r_end
+      parentName: finger4IKTarget.r
+      position: {x: -0, y: 0.00030230643, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumbIKBender.r
+      parentName: hand.r
+      position: {x: 0.00045693337, y: 0.0016335868, z: -0.00064166373}
+      rotation: {x: -0.33820298, y: -0.27236322, z: -0.86038053, w: -0.2668002}
+      scale: {x: 1.0000006, y: 1, z: 1.0000004}
+    - name: thumbIKTarget.r
+      parentName: thumbIKBender.r
+      position: {x: -3.1664968e-10, y: 0.0007639785, z: -2.4796462e-10}
+      rotation: {x: -0.091593266, y: -0.34687677, z: 0.29435858, w: 0.88579917}
+      scale: {x: 0.9999997, y: 1.0000014, z: 1.0000001}
+    - name: thumbIKTarget.r_end
+      parentName: thumbIKTarget.r
+      position: {x: -0, y: 0.00031476098, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger1.1.r
+      parentName: hand.r
+      position: {x: 0.0004965179, y: 0.0011326215, z: 0.0001909016}
+      rotation: {x: 0.014447727, y: 0.98951805, z: -0.001497417, w: 0.14367694}
+      scale: {x: 0.9999984, y: 0.99999994, z: 1.0000021}
+    - name: finger1.2.r
+      parentName: finger1.1.r
+      position: {x: -8.9406965e-10, y: 0.0007059644, z: -0.0000000010430813}
+      rotation: {x: -0.006767095, y: -0.99734634, z: -0.034816414, w: 0.06357951}
+      scale: {x: 1.0000011, y: 1.0000007, z: 0.99999994}
+    - name: finger1.3.r
+      parentName: finger1.2.r
+      position: {x: -0.0000000021234154, y: 0.00034106648, z: -0.0000000046472994}
+      rotation: {x: -0.041210312, y: 0.000030055638, z: -0.000017899552, w: 0.9991506}
+      scale: {x: 0.99999994, y: 0.9999997, z: 0.9999998}
+    - name: finger1.3.r_end
+      parentName: finger1.3.r
+      position: {x: -0, y: 0.00027526962, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger2.1.r
+      parentName: hand.r
+      position: {x: 0.00013569812, y: 0.001120012, z: 0.0001395157}
+      rotation: {x: 0.014447011, y: 0.9895181, z: -0.0014978835, w: 0.14367694}
+      scale: {x: 0.9999979, y: 0.9999997, z: 1.0000026}
+    - name: finger2.2.r
+      parentName: finger2.1.r
+      position: {x: -0.0000000020302833, y: 0.0007059657, z: -3.72529e-10}
+      rotation: {x: -0.006772711, y: -0.99734604, z: -0.034824133, w: 0.063579224}
+      scale: {x: 1.0000012, y: 1.0000025, z: 0.99999624}
+    - name: finger2.3.r
+      parentName: finger2.2.r
+      position: {x: 6.519258e-10, y: 0.00034106747, z: -0.0000000010523945}
+      rotation: {x: -0.04120991, y: 0.000030212086, z: -0.000019364514, w: 0.9991506}
+      scale: {x: 0.9999997, y: 0.99999744, z: 1.0000007}
+    - name: finger2.3.r_end
+      parentName: finger2.3.r
+      position: {x: -0, y: 0.00027526962, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger3.1.r
+      parentName: hand.r
+      position: {x: -0.00012133144, y: 0.00096321886, z: 0.000105976855}
+      rotation: {x: 0.015643243, y: 0.9896034, z: -0.0030414786, w: 0.14293772}
+      scale: {x: 0.9999978, y: 0.9999996, z: 1.000002}
+    - name: finger3.2.r
+      parentName: finger3.1.r
+      position: {x: -2.1420418e-10, y: 0.0006780333, z: -3.72529e-10}
+      rotation: {x: -0.006649397, y: -0.99719286, z: -0.034883127, w: 0.06591969}
+      scale: {x: 1.0000013, y: 1.0000023, z: 0.99999946}
+    - name: finger3.3.r
+      parentName: finger3.2.r
+      position: {x: -0.00000000115484, y: 0.0003275677, z: 6.984919e-12}
+      rotation: {x: -0.04121162, y: 0.0006810127, z: -0.0003107031, w: 0.99915016}
+      scale: {x: 1.0000001, y: 0.9999996, z: 0.9999998}
+    - name: finger3.3.r_end
+      parentName: finger3.3.r
+      position: {x: -0, y: 0.00026437707, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: finger4.1.r
+      parentName: hand.r
+      position: {x: -0.00047126724, y: 0.00076561107, z: 0.00007315732}
+      rotation: {x: 0.025062226, y: 0.98996645, z: -0.012251053, w: 0.13852143}
+      scale: {x: 0.9999979, y: 0.9999992, z: 1.0000013}
+    - name: finger4.2.r
+      parentName: finger4.1.r
+      position: {x: 2.2351741e-10, y: 0.00067802944, z: -4.4703483e-10}
+      rotation: {x: -0.0058316686, y: -0.9962254, z: -0.035026394, w: 0.07920987}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000001}
+    - name: finger4.3.r
+      parentName: finger4.2.r
+      position: {x: -9.49949e-10, y: 0.00032757194, z: -8.381903e-10}
+      rotation: {x: -0.041165046, y: 0.004396086, z: -0.0019777673, w: 0.9991408}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000007}
+    - name: finger4.3.r_end
+      parentName: finger4.3.r
+      position: {x: -0, y: 0.00026437777, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb.1.r
+      parentName: hand.r
+      position: {x: 0.00071961404, y: 0.00056755607, z: -0.0004158788}
+      rotation: {x: 0.3991104, y: 0.89088964, z: -0.021665394, w: 0.21577123}
+      scale: {x: 0.99999744, y: 0.9999996, z: 1.0000029}
+    - name: thumb.2.r
+      parentName: thumb.1.r
+      position: {x: -0.0000000023515894, y: 0.00053256913, z: -1.862645e-10}
+      rotation: {x: 0.01068845, y: -0.9965017, z: 0.034692887, w: 0.07527733}
+      scale: {x: 1.0000005, y: 0.9999988, z: 1.0000014}
+    - name: thumb.2.r_end
+      parentName: thumb.2.r
+      position: {x: -0, y: 0.00051367783, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: gun.r
+      parentName: hand.r
+      position: {x: -0.00053873105, y: 0.00095153076, z: 0.0017631112}
+      rotation: {x: -0.12395315, y: -0.24664183, z: -0.61845803, w: 0.7357398}
+      scale: {x: 1, y: 0.9999997, z: 1.0000004}
+    - name: gun.r_end
+      parentName: gun.r
+      position: {x: 6.3329936e-10, y: 0.0023720227, z: -2.9802322e-10}
+      rotation: {x: -0.000000016763812, y: -0.0007837753, z: 0.000000022351752, w: 0.9999997}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: GunMesh
+      parentName: gun.r
+      position: {x: -4.4703483e-10, y: 0.0023720225, z: 5.9604643e-10}
+      rotation: {x: 0.7071062, y: 6.585441e-10, z: -0.000000010536704, w: 0.70710737}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: head
+      parentName: chest
+      position: {x: -1.7462298e-12, y: 0.003776618, z: 7.5380056e-11}
+      rotation: {x: 0.2099182, y: -0.0038238114, z: -0.0013405676, w: 0.97771055}
+      scale: {x: 0.9999995, y: 0.9999995, z: 0.9999998}
+    - name: head_end
+      parentName: head
+      position: {x: -0, y: 0.002689732, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pelvis
+      parentName: base
+      position: {x: 1.4281286e-12, y: 0.002579027, z: 1.7355985e-11}
+      rotation: {x: 0.7071069, y: -0.0000005589677, z: 0.000000390457, w: 0.7071067}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: thigh.l
+      parentName: pelvis
+      position: {x: -0.0010418703, y: 0.0005087542, z: -0.0002031964}
+      rotation: {x: -0.048359334, y: 0.99876595, z: -0.010714381, w: -0.003616345}
+      scale: {x: 1.0000002, y: 0.9999998, z: 0.9999999}
+    - name: calf.l
+      parentName: thigh.l
+      position: {x: 3.5855918e-10, y: 0.00475679, z: -5.5879353e-11}
+      rotation: {x: 0.0043052766, y: -0.99049944, z: 0.13721319, w: -0.008064506}
+      scale: {x: 0.9999979, y: 1, z: 1}
+    - name: foot.l
+      parentName: calf.l
+      position: {x: -1.6298145e-11, y: 0.005116869, z: 1.2107193e-10}
+      rotation: {x: -0.7949405, y: 0.029279366, z: -0.03181568, w: 0.6051447}
+      scale: {x: 0.9999999, y: 0.99999905, z: 0.99999994}
+    - name: toe.l
+      parentName: foot.l
+      position: {x: -5.6482017e-11, y: 0.0010438025, z: 1.706212e-11}
+      rotation: {x: 0.000000024214387, y: 0.99997216, z: 0.007471025, w: -0.0000052005053}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: toe.l_end
+      parentName: toe.l
+      position: {x: -0, y: 0.0007006987, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thigh.r
+      parentName: pelvis
+      position: {x: 0.0010259158, y: 0.0005087542, z: -0.00020319689}
+      rotation: {x: 0.048359323, y: 0.99876595, z: -0.010714498, w: 0.0036161202}
+      scale: {x: 1.0000005, y: 0.99999994, z: 0.99999964}
+    - name: calf.r
+      parentName: thigh.r
+      position: {x: 2.7939677e-11, y: 0.004756791, z: 7.4505804e-11}
+      rotation: {x: -0.004305254, y: -0.9904994, z: 0.13721311, w: 0.0080645485}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000006}
+    - name: foot.r
+      parentName: calf.r
+      position: {x: -2.3283063e-11, y: 0.0051168674, z: -7.683411e-11}
+      rotation: {x: -0.7949405, y: -0.0292794, z: 0.031815663, w: 0.60514474}
+      scale: {x: 0.99999976, y: 0.9999995, z: 0.9999996}
+    - name: toe.r
+      parentName: foot.r
+      position: {x: 6.1078807e-12, y: 0.0010438022, z: -4.5474732e-14}
+      rotation: {x: -0.000000018626451, y: 0.99997216, z: 0.0074711144, w: 0.000005206093}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: toe.r_end
+      parentName: toe.r
+      position: {x: -0, y: 0.0007006987, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKArmTarget.l
+      parentName: base
+      position: {x: -0.010723573, y: 0.0017796991, z: -0.004980862}
+      rotation: {x: -1, y: -1.1641532e-10, z: -0.0000006714836, w: 0.00000014901525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKArmPole.l
+      parentName: IKArmTarget.l
+      position: {x: 0.000018320095, y: 0.010944899, z: 0.0029438778}
+      rotation: {x: -0.00000005960511, y: -1.1647214e-10, z: 1.1637531e-10, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: IKArmPole.l_end
+      parentName: IKArmPole.l
+      position: {x: -0, y: 0.001213342, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKArmTarget.r
+      parentName: base
+      position: {x: 0.011369149, y: 0.0017796992, z: -0.0052941833}
+      rotation: {x: -1, y: -1.1641532e-10, z: -0.0000006714836, w: 0.00000014901525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKArmPole.r
+      parentName: IKArmTarget.r
+      position: {x: -0.00001832007, y: 0.010944899, z: 0.0029438778}
+      rotation: {x: -0.00000005960511, y: -1.1647214e-10, z: 1.1637531e-10, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: IKArmPole.r_end
+      parentName: IKArmPole.r
+      position: {x: -0, y: 0.001213342, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKLegTarget.l
+      parentName: ROOT
+      position: {x: -0.0019280238, y: 0.00017451763, z: -0.0010716993}
+      rotation: {x: -0.70710397, y: 0.002003973, z: -0.001982828, w: 0.707104}
+      scale: {x: 0.9999998, y: 1, z: 1}
+    - name: IKLegPole.l
+      parentName: IKLegTarget.l
+      position: {x: -0.00000015494795, y: -0.006508344, z: 0.00014757215}
+      rotation: {x: -0.12317405, y: -0.021392953, z: 0.9921509, w: 0.0026678282}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000142}
+    - name: IKLegPole.l_end
+      parentName: IKLegPole.l
+      position: {x: -0, y: 0.0012839455, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKLegTarget.r
+      parentName: ROOT
+      position: {x: 0.0019298566, y: 0.0001527661, z: -0.0010717231}
+      rotation: {x: -0.707104, y: 0.0019871513, z: -0.0019996483, w: 0.707104}
+      scale: {x: 0.9999998, y: 1, z: 0.9999999}
+    - name: IKLegPole.r
+      parentName: IKLegTarget.r
+      position: {x: 0.00000015518441, y: -0.006508345, z: 0.00014757128}
+      rotation: {x: 0.12317395, y: -0.02139326, z: 0.99215096, w: -0.002667819}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000225}
+    - name: IKLegPole.r_end
+      parentName: IKLegPole.r
+      position: {x: -0, y: 0.0012839455, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CommandoMesh
+      parentName: mdlCommandoDualies
+      position: {x: -0, y: 0, z: -0.00012856722}
+      rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
