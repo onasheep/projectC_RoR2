@@ -1973,8 +1973,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   myState: 0
-  WalkSpeed: 10
-  RunSpeed: 20
+  WalkSpeed: 7
+  RunSpeed: 14
   JumpForce: 10
   HookStart: {fileID: 1026605864}
   LoaderFist: {fileID: 7279028719121950401, guid: 0a4cf9ed9adba384a9e16fd10a4be484, type: 3}

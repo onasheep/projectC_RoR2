@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public struct CharacterStat
-{
-    
-}
+//[Serializable]
+//public struct CharacterStat
+//{
+
+//}
 
 public interface CombatSystem
 {
