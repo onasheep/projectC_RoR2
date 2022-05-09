@@ -6,13 +6,13 @@ public class Item : MonoBehaviour
 {
     public GameObject myPlayer;
     public LayerMask playerLayer;
-    Player playerStat;
+    JMJ.Player playerStat;
     float HoofSpeed;
     float SyringeClusterSpeed;
     void Start()
     {
         //myPlayer = GameObject.Find("mdlCommandoDualies");
-        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<Player>();
+        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<JMJ.Player>();
         SyringeClusterSpeed = playerStat.AttackSpeed * 0.15f;
         HoofSpeed = playerStat.MoveSpeed * 0.14f;
     }

@@ -27,7 +27,7 @@ public class KJH_Skill : Character
         }
     }
 
-    public static void TryRoll(Vector3 dir, CharacterData myCharacterdata, Rigidbody myRigid, Animator myAnim, CharacterStat myCharacterStat)
+    public static void TryRoll(Vector3 dir, GameUtilKJH.CharacterData myCharacterdata, Rigidbody myRigid, Animator myAnim, CharacterStat myCharacterStat)
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -60,7 +60,7 @@ public class KJH_Skill : Character
         }
     }
     
-    public static void Roll(string Name, Vector3 dir, Rigidbody myRigid, Animator myAnim, CharacterData myCharacterdata)
+    public static void Roll(string Name, Vector3 dir, Rigidbody myRigid, Animator myAnim, GameUtilKJH.CharacterData myCharacterdata)
     {
         myCharacterdata.ismove = false;
         myCharacterdata.isRoll = true;
@@ -68,7 +68,7 @@ public class KJH_Skill : Character
         myAnim.SetTrigger("RollForward");
         Debug.Log("true");
     }
-    public static void Rollout(CharacterData myCharacterdata, CharacterStat myCharacterStat)
+    public static void Rollout(GameUtilKJH.CharacterData myCharacterdata, CharacterStat myCharacterStat)
     {
         myCharacterdata.isRoll = false;
         myCharacterdata.ismove = true;

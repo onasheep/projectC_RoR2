@@ -1667,16 +1667,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 761449502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d438c4a7fed1041842dcae605f36ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 152f9372de4e5e34d85138edc6a82d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionOffset: 1
-  MouseSpeed: 200
-  myPlayer: {fileID: 1082723655}
-  myCamera: {fileID: 653951331}
-  ZoomInMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &795032293
 GameObject:
   m_ObjectHideFlags: 0

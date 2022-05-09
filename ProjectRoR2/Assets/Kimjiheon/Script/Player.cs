@@ -26,8 +26,8 @@ public class Player : Character
     private LayerMask Onground;
     float GroundDist = 0f;
     //State//
-    public CharacterData myCharacterdata;
-    public CharacterStat myCharacterStat;
+    public GameUtilKJH.CharacterData myCharacterdata;
+    public GameUtilKJH.CharacterStat myCharacterStat;
     //////////////////MoveInput//////////////////     
     Vector3 moveDir;
     Vector3 lookForward;
@@ -142,7 +142,7 @@ public class Player : Character
     IEnumerator Rotating(Vector3 pos)
     {
         Vector3 dir = (pos - this.transform.position).normalized;
-        GameUtil.CalAngle(myAnim.transform.forward, dir, myAnim.transform.right, out ROTATEDATA data);
+        GameUtilKJH.GameUtil.CalAngle(myAnim.transform.forward, dir, myAnim.transform.right, out GameUtilKJH.ROTATEDATA data);
         while (data.Angle > Mathf.Epsilon)
         {
             float delta = 360.0f * Time.deltaTime;
