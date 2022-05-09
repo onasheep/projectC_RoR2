@@ -59,7 +59,9 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Character.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\RootAnimation.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CameraArm.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
@@ -68,9 +70,11 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
     <Compile Include="Assets\ShiftState.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CSkillPanel.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\KJH_MoveMent.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AttackStateL.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharacSelect.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Property.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\Player.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\Lemurian.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
@@ -81,8 +85,10 @@
     <Compile Include="Assets\Minjun\Script\Player.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\KJH_Skill.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
     <Compile Include="Assets\HSJ\Data\Effect\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
@@ -99,20 +105,25 @@
     <Compile Include="Assets\Minjun\Script\Map1.cs" />
     <Compile Include="Assets\Minjun\Script\Map2.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
     <Compile Include="Assets\Minjun\Script\Item.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Monster.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
     <Compile Include="Assets\Minjun\Script\Jump.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\CameraArm.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\MoveMove.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
-    <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Minjun\test.txt" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\HanJongSu\TestHJS.txt" />
@@ -145,11 +156,13 @@
     <None Include="Assets\HSJ\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Minjun\Shader\DissolveEmission.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Minjun\Outline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -157,6 +170,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Minjun\Shader\Outline.shader" />
     <None Include="Assets\HSJ\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
   </ItemGroup>
   <ItemGroup>
