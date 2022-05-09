@@ -65,6 +65,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\CameraArm.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
     <Compile Include="Assets\Minjun\Script\Teleport.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\WaterJump.cs" />
-    <Compile Include="Assets\Minjun\Script\Player.cs" />
+    <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
     <Compile Include="Assets\Minjun\Script\Item.cs" />
+    <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Monster.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
@@ -118,8 +120,6 @@
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
-    <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
-    <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

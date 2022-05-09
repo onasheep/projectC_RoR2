@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         //myPlayer = GameObject.Find("mdlCommandoDualies");
-        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<Player>();
+        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<Player>(); //스탯을 받아주기 위해 
         SyringeClusterSpeed = playerStat.AttackSpeed * 0.15f;
         HoofSpeed = playerStat.MoveSpeed * 0.14f;
     }
