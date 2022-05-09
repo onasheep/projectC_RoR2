@@ -34,7 +34,7 @@ public class LemurianFireball : MonoBehaviour
     {
    if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.gameObject.GetComponent<TesterPlayer>()?.OnDamage(damage);
+            other.gameObject.GetComponent<TesterPlayer>()?.OnDamagekkj(damage);
         Destroy(gameObject);
             Debug.Log("공격중입니다.");
         }

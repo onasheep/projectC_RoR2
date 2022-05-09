@@ -23,41 +23,27 @@ public class Lemurian : MoveMove , BattleSystem
             return _aiperception;
         }
     }
-
-    float _curHP = 0.0f;
-    public float HPChange
-    {
-        get
-        {
-            return _curHP;
-        }
-        set
-        {
-            _curHP += value;
-            if (_curHP < 0.0f) _curHP = 0.0f;
-         //   myStarBar.myHP.value = _curHP / myStat.HP;
-        }
-    }
+       
 
     public STATE mystate = STATE.NONE;
     public GameObject Target;
-  public  CharacterStat LemuData;
+  public  CharacterStatkkj LemuData;
  // public CharacterStat myStat;
     public Transform firemouth; //입에서 파이리 마냥 불덩이가 나옴 (5개나!) 
     public GameObject FireBoom;
 
     Vector3 StartPos;
 
-    void FindTarget()
+    void FindTargetkkj()
     {
         ChangeState(STATE.BATTLE);
     }
 
-    public bool IsLive()
+    public bool IsLivekkj()
     {
         return mystate == STATE.RUN || mystate == STATE.BATTLE;
     }
-    public void OnDamage(float Damage)
+    public void OnDamagekkj(float Damage)
     {
        if (mystate == STATE.DEAD) 
           return;
@@ -68,7 +54,8 @@ public class Lemurian : MoveMove , BattleSystem
         {
                    Debug.Log("레무리안이 죽었습니다. 테스트 종료");
             ChangeState(STATE.DEAD);
-         //   myAnim.SetTrigger("Dead");
+            CancelInvoke("Firekkj");
+            myAnim.SetTrigger("Dead");
            
         }
         else
@@ -77,17 +64,17 @@ public class Lemurian : MoveMove , BattleSystem
         }
        }
 
-    void Fire()
+    void Firekkj()
     {
         myAnim.SetTrigger("Attack");
         GameObject Firebool = Instantiate(FireBoom, firemouth.position, firemouth.rotation);
      
     }
 
-    void OnAttack()
+    void OnAttackkkj()
     {
-        if (myperceptions.Target.IsLive())
-            myperceptions.Target.OnDamage(LemuData.AP);
+        if (myperceptions.Target.IsLivekkj())
+            myperceptions.Target.OnDamagekkj(LemuData.AP);
     }
  
     void Start()
@@ -104,7 +91,7 @@ public class Lemurian : MoveMove , BattleSystem
         ProcessSTATE();
        }
 
-    IEnumerator DeadDisappeer()
+    IEnumerator DeadDisappeerkkj()
     {
         yield return new WaitForSeconds(1.0f);
         float dist = 1.0f;
@@ -125,7 +112,7 @@ public class Lemurian : MoveMove , BattleSystem
         switch(mystate)
         {
             case STATE.CREATE:
-            myperceptions.FindTarget = FindTarget;
+            myperceptions.FindTarget = FindTargetkkj;
                 myAnim.SetTrigger("Spawn");
                 LemuData.HP = 80.0f;
                 LemuData.AP = 12.0f;
@@ -143,18 +130,17 @@ public class Lemurian : MoveMove , BattleSystem
                 break;
             case STATE.BATTLE:
              StopAllCoroutines();
-              base.AttackTarget(myperceptions.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
+              base.AttackTargetkkj(myperceptions.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
                          
                Debug.Log("플레이어를감지했습니다. 공격 모드로 들어갑니다.");
-              InvokeRepeating("Fire", 3.0f, 1.5f);
+              InvokeRepeating("Firekkj", 3.0f, 1.5f);
                 break;
             case STATE.DEAD:
                 StopAllCoroutines();
-                CancelInvoke("Fire");
+                CancelInvoke("Firekkj");
                 myAnim.SetTrigger("Dead");
                 Debug.Log("LEMU is DEAD");
-       
-                    StartCoroutine(DeadDisappeer());
+                StartCoroutine(DeadDisappeerkkj());
                break;
 
         }
@@ -171,7 +157,7 @@ public class Lemurian : MoveMove , BattleSystem
                 }
                 break;
             case STATE.RUN:
-                base.StartRun(Target.transform.position, LemuData.MoveSpeed, LemuData.AttackRange);
+                base.StartRunkkj(Target.transform.position, LemuData.MoveSpeed, LemuData.AttackRange);
                 break;
             case STATE.BATTLE:
                                     break;

@@ -37,35 +37,35 @@ public class MoveMove : MonoBehaviour
     Coroutine moveRoutine = null;
     Coroutine rotRoutine = null;
 
-    protected void StartRun(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f)
+    protected void StartRunkkj(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f)
     {
-        if (rotRoutine != null) StopCoroutine(rotRoutine);
-        rotRoutine = StartCoroutine(Rotating(pos));
+      if (rotRoutine != null) StopCoroutine(rotRoutine);
+       rotRoutine = StartCoroutine(Rotatingkkj(pos));
      if (moveRoutine != null) StopCoroutine(moveRoutine);
-       moveRoutine = StartCoroutine(Moving(pos, Mms, Mar));
+      moveRoutine = StartCoroutine(Movingkkj(pos, Mms, Mar));
     }
 
-    protected void AttackTarget(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack)
+    protected void AttackTargetkkj(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack)
     {
         if (moveRoutine != null) StopCoroutine(moveRoutine);
-        moveRoutine = StartCoroutine(Attacking(Target, AttackRange, AttackDelay, EndAttack));
+        moveRoutine = StartCoroutine(Attackingkkj(Target, AttackRange, AttackDelay, EndAttack));
        if (rotRoutine != null) StopCoroutine(rotRoutine);
-        rotRoutine = StartCoroutine(LookingAtTarget(Target));
+        rotRoutine = StartCoroutine(LookingAtTargetkkj(Target));
     }
 
-    protected void MoveToPosition(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f)
+    protected void MoveToPositionkkj(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f)
     {
         if (moveRoutine != null) StopCoroutine(moveRoutine);
-        moveRoutine = StartCoroutine(Moving(pos, Mms, Mar));
+        moveRoutine = StartCoroutine(Movingkkj(pos, Mms, Mar));
         if (rotRoutine != null) StopCoroutine(rotRoutine);
-        rotRoutine = StartCoroutine(Rotating(pos));
+        rotRoutine = StartCoroutine(Rotatingkkj(pos));
     }
 
-    IEnumerator Moving(Vector3 pos, float Mms, float Mar)
+    IEnumerator Movingkkj(Vector3 pos, float Mms, float Mar)
     {
 
         float Dist = Vector3.Distance(pos, this.transform.position) - Mar;
-         Debug.Log("레무리안이 달린다!!!!");
+         Debug.Log("몬스터가 이동합니다.");
         while (!myAnim.GetBool("Running") && Dist > Mathf.Epsilon)
 
         {
@@ -79,12 +79,13 @@ public class MoveMove : MonoBehaviour
     
     }
 
-    IEnumerator Rotating(Vector3 pos)
+    IEnumerator Rotatingkkj(Vector3 pos)
     {
         Vector3 dir = (pos - this.transform.position).normalized;
         float r = Mathf.Acos(Vector3.Dot(this.transform.forward, dir));
-        float Rot = 180.0f * (r / Mathf.PI);
+        float Rot = 360.0f * (r / Mathf.PI);
         float rotDir = 1.0f;
+    //    dir.normalized;
         if (Vector3.Dot(this.transform.right, dir) < -Mathf.Epsilon)
         {
             rotDir = -1.0f;
@@ -102,7 +103,7 @@ public class MoveMove : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator LookingAtTarget(BattleSystem Target)
+    IEnumerator LookingAtTargetkkj(BattleSystem Target)
     {
         while (true)
         {
@@ -118,12 +119,12 @@ public class MoveMove : MonoBehaviour
     }
 
 
-    IEnumerator Attacking(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
+    IEnumerator Attackingkkj(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
     {
         float playTime = AttackDelay;
         while (true)
         {
-            if (Target.IsLive() == false) break;
+            if (Target.IsLivekkj() == false) break;
             Vector3 dir = Target.transform.position - this.transform.position;
          //   Debug.Log("플레이어 공격");
             float dist = dir.magnitude;
