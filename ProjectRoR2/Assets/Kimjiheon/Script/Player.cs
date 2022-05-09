@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public int[] equip = new int[14];
     public enum STATE
     {
         CREATE, PLAY, DEAD
