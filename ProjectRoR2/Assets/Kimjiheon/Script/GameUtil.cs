@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+ namespace GameUtilKJH
+{ 
 [Serializable]
 public struct CharacterStat
 {
@@ -50,5 +51,5 @@ public class GameUtil : MonoBehaviour
         }
     }
 }
-    
+}
 

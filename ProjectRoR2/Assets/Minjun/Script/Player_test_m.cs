@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Player_test_m : MonoBehaviour
+namespace JMJ
+{
+
+
+public class Player : MonoBehaviour
 {
     public float MoveSpeed=10.0f;
     public float Hp = 100.0f;
@@ -41,4 +45,6 @@ public class Player_test_m : MonoBehaviour
             this.transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
         }
     }
+}
+
 }
