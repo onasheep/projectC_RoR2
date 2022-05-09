@@ -77,7 +77,6 @@ public class Item : MonoBehaviour
             //이동 속도가 14%(중첩당 +14%) 증가합니다.[합연산]
             playerStat.myCharacterStat.WalkSpeed += HoofWalkSpeed;
             playerStat.myCharacterStat.RunSpeed += HoofRunSpeed;
-
             if (playerStat.equip[3] == 0)
             {
                 playerStat.equip[3]++;
@@ -92,7 +91,6 @@ public class Item : MonoBehaviour
         if (this.gameObject.name.Contains("Medkit"))
         {
             //피해를 받으면 2초 후 체력이 20 치유되고, 추가로 최대 체력의 5%(중첩당 +5%)가 치유됩니다.[합연산]
-
             if (playerStat.equip[4] == 0)
             {
                 playerStat.equip[4]++;
@@ -108,7 +106,6 @@ public class Item : MonoBehaviour
         {
             //최대 체력이 25(중첩당 + 25) 증가합니다.[합연산]
             playerStat.myCharacterStat.Hp += 25.0f;
-
             if (playerStat.equip[5] == 0)
             {
                 playerStat.equip[5]++;
@@ -124,7 +121,6 @@ public class Item : MonoBehaviour
         {
             //공격 속도가 15 % (중첩당 + 15 %) 증가합니다.[합연산]
             playerStat.myCharacterStat.AttackSpeed += SyringeClusterSpeed;
-
             if (playerStat.equip[6] == 0)
             {
                 playerStat.equip[6]++;
@@ -141,7 +137,6 @@ public class Item : MonoBehaviour
         if (this.gameObject.name.Contains("Guillotine"))
         {
             //체력이 13%(중첩당 +13%) 이하인 엘리트 몬스터들을 즉시 처치합니다.[곱연산][ 계산식 : 1 - 1 / (1 + 0.13 * 단두대 개수) ]
-
             if (playerStat.equip[7] == 0)
             {
                 playerStat.equip[7]++;
@@ -157,7 +152,6 @@ public class Item : MonoBehaviour
         {
             //최대 점프 횟수가 1(중첩당 +1)회 증가합니다.[합연산]
             playerStat.myCharacterStat.JumpCount += 1;
-
             if (playerStat.equip[8] == 0)
             {
                 playerStat.equip[8]++;
