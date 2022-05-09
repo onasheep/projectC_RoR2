@@ -95,7 +95,12 @@
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
     <Compile Include="Assets\Minjun\Script\Jump.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
+=======
+    <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
+    <Compile Include="Assets\KimKJ\Data\Scripts\MoveMove.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\code\GameUtil.cs" />
   </ItemGroup>
