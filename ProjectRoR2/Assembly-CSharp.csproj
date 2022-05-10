@@ -81,7 +81,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\WaterJump.cs" />
-    <Compile Include="Assets\Minjun\Script\Player.cs" />
+    <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
@@ -115,7 +115,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\MoveMove.cs" />
-    <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
   </ItemGroup>
