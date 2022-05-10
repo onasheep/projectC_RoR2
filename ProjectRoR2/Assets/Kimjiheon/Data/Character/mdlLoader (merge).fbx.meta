@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 6656020573a8bb144960e71ab9306e23
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -7365381178180240355
+    second: LoaderArmature|ChargePunchLoop, Override
+  - first:
+      74: 5743797613523303146
+    second: LoaderArmature|aimGrappleArmPitch
+  - first:
+      74: -3977586401947885731
+    second: LoaderArmature|RunToIdle
+  - first:
+      74: -5270513011104077379
+    second: LoaderArmature|ChargePunchIntro, Additive
+  - first:
+      74: 1448165905945409351
+    second: LoaderArmature|AirLoopDown
+  - first:
+      74: 977040891593982228
+    second: LoaderArmature|SprintForward
+  - first:
+      74: -8778109370369705618
+    second: LoaderArmature|FireHookLoop, Additive
+  - first:
+      74: -3496900929007974830
+    second: LoaderArmature|FireHookIntro, Additive
+  - first:
+      74: 9171256353146561421
+    second: LoaderArmature|ChargePunchFireDown, Full Override
+  - first:
+      74: -8672971959543386267
+    second: LoaderArmature|SwingFists
+  - first:
+      74: 4839159393242413201
+    second: LoaderArmature|RunLeft
+  - first:
+      74: -3834396387206341663
+    second: LoaderArmature|Pose
+  - first:
+      74: 8068822806230965107
+    second: LoaderArmature|IdleSingle
+  - first:
+      74: -4713988703900556998
+    second: LoaderArmature|GroundSlamAirLoop
+  - first:
+      74: -1797614507978192572
+    second: LoaderArmature|RunForward
+  - first:
+      74: 1130412386665587134
+    second: LoaderArmature|aimPitch
+  - first:
+      74: 286749912178867490
+    second: LoaderArmature|aimYaw
+  - first:
+      74: -792428949388310084
+    second: LoaderArmature|SwingFists, Left, Override
+  - first:
+      74: -3941858066635258774
+    second: LoaderArmature|Idle, Additive Loop
+  - first:
+      74: 9096971474289453700
+    second: LoaderArmature|RunRight
+  - first:
+      74: -1519987014663646589
+    second: LoaderArmature|RunBackward
+  - first:
+      74: -1378150104704041923
+    second: LoaderArmature|GroundSlamEnter
+  - first:
+      74: 5322441419257471024
+    second: LoaderArmature|Jump
+  - first:
+      74: 6239847496376389012
+    second: LoaderArmature|ChargePunchLoop, Additive
+  - first:
+      74: -1974760908442609611
+    second: LoaderArmature|SwingFists, Right, Override
+  - first:
+      74: 7955597146594960960
+    second: LoaderArmature|FireHookExit, Additive
+  - first:
+      74: -3897764824078720533
+    second: LoaderArmature|ChargePunchFireUp, Full Override
+  - first:
+      74: 6090329658034121351
+    second: LoaderArmature|SwingFists, Right, Additive
+  - first:
+      74: -8962828611699011442
+    second: LoaderArmature|SwingFists, Left, Additive
+  - first:
+      74: -9040532218095065753
+    second: LoaderArmature|aimGrappleArmYaw
+  - first:
+      74: -5107040582757501519
+    second: LoaderArmature|BigPunch, FullOverride
+  - first:
+      74: -3525534096633022982
+    second: LoaderArmature|lightImpact
+  - first:
+      74: -6471526552360781414
+    second: LoaderArmature|ChargePunchFire, Full Override
+  - first:
+      74: 3271830243530495299
+    second: LoaderArmature|ChargePunchIntro, Override
+  - first:
+      74: -7407897622469756303
+    second: LoaderArmature|AirLoopUp
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
