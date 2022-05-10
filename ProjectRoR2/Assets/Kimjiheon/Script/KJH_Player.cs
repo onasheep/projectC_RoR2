@@ -226,6 +226,7 @@ public class KJH_Player : Character
         myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
         myAnim.SetBool("isSprint", false);       
     }
+    //구르기
     public void TryRoll()
     {       
         if (Input.GetKeyDown(KeyCode.LeftShift) && myCharacterdata.isRoll == false && RollTimeCheck >= myCharacterStat.RollTime)
@@ -280,6 +281,7 @@ public class KJH_Player : Character
             //transform.position += moveDir * 5.0f;
         }
     }
+    
     IEnumerator Rolling(Vector3 dir)
     {
         float dist = dir.magnitude;
@@ -307,7 +309,7 @@ public class KJH_Player : Character
     public void Jump()
     {   
         
-        if (Input.GetKeyDown("space") /*&& myCharacterdata.isGround*/)
+        if (Input.GetKeyDown("space"))
         {
             if (myCharacterStat.JumpCount < myCharacterStat.JumpItem)
             {
@@ -320,6 +322,7 @@ public class KJH_Player : Character
             }           
         }       
     }
+    //땅체크
     void GroundCheck()
     {
         RaycastHit hit;
@@ -334,6 +337,20 @@ public class KJH_Player : Character
         {
             myAnim.SetBool("OnAir", true);
         }
+    }
+    //왼쪽마우스공격
+    void LMB()
+    { 
+        //기본공격
+    }
+    //오른쪽 마우스 공격
+    void RMB()
+    { 
+        //강공격
+    }
+    void RKB()
+    { 
+        //특수공격
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 

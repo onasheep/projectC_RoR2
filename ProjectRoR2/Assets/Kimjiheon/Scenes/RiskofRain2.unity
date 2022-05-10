@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 1137599192}
   - component: {fileID: 1137599191}
   - component: {fileID: 1137599190}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ MonoBehaviour:
   CamFollow: {fileID: 5172907}
   ZoomInMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
 --- !u!1 &1522947865
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,8 +699,8 @@ GameObject:
   - component: {fileID: 1522947868}
   - component: {fileID: 1522947867}
   - component: {fileID: 1522947866}
-  m_Layer: 3
-  m_Name: Cube (1)
+  m_Layer: 6
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   myPelvis: {fileID: 6265493414609813017}
   Onground:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   myCharacterdata:
     isRun: 0
     isGround: 1

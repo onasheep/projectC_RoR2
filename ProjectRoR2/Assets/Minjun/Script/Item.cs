@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour
-{
+{/*
     public GameObject myPlayer;
     public LayerMask playerLayer;
     JMJ.Player playerStat;
@@ -255,4 +255,5 @@ public class Item : MonoBehaviour
             Equip();
         }
     }
+    */
 }
