@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class HsjInventory : MonoBehaviour
 {
-    public Sprite DefaulImage;
-    public int MaxCount;
-    public bool[] fullCheck;
-    public GameObject[] slots;
+    
 
     private HsjInventory Iv;
     void Start()

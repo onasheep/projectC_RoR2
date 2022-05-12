@@ -222,17 +222,7 @@ public class Loader : Character
             
             
             myAnim.SetBool("OnAir",true);
-            Ray ray = new Ray();
-            ray.origin = this.transform.position;
-            ray.direction = -this.transform.up;
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000.0f, CrashMask))
-            {
-                float Dist = (this.transform.position - hit.point).magnitude;
-                if (Dist < 20.0f)
-                myRigid.AddForce(Vector3.down * 80.0f, ForceMode.Impulse);
-                myAnim.SetBool("OnAir", true);
-                
-            }
+           
             
 
             //if (Dist == 1.0f)      // 바닥에 닿기전에 잠시 공중에 뜨고 충격파 부분;
@@ -243,10 +233,7 @@ public class Loader : Character
             //}
 
         }
-        if (!isGround & Input.GetKeyDown(KeyCode.R))
-            {
-
-        }
+        
 
 
 

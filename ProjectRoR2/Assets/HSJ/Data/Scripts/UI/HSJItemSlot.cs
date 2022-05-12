@@ -19,9 +19,6 @@ public class HSJItemSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.childCount <= 0)
-        {
-            inventory.fullCheck[i] = false;
-        }
+      
     }
 }
