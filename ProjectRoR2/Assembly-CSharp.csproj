@@ -84,13 +84,16 @@
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\HsjInventory.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_Skill.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItemSlot.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
     <Compile Include="Assets\HSJ\Data\Effect\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BattleAnimEvents.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\LemurianFireball.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox.cs" />
@@ -113,9 +116,6 @@
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HsjInventory.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItemSlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
