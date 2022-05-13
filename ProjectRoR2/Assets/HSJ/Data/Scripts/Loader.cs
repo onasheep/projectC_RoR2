@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Loader : Character
 {
@@ -36,15 +37,36 @@ public class Loader : Character
     /// <summary>
     /// 스탯관련 
     /// </summary>
-    IEnumerator CoolTime(int i)
+    /// 쿨타임 및 스킬 UI 쿨타임 //
+    public Image M2Img;
+    public Image ShiftImg;
+    public Image RImg;
+    /// <summary>
+    ///  각 스킬 들의 쿨타입 
+    /// </summary>
+    private float RMBCool = 5.0f;
+    private float ShiftCool = 8.0f;
+    private float RCool = 8.0f;
+    /// <summary>
+    ///  스킬UI에 쿨타임을 적용시키는 코루틴 
+    /// </summary>
+    /// <param name="_image"></param>
+    /// <param name="t"></param>
+    /// <returns></returns>
+    IEnumerator CoolTime(Image _image, float t)
     {
-        float Attackdelay = Time.deltaTime * i;
-        yield return new WaitForSeconds(Attackdelay);
+        _image.fillAmount = 0.0f;
+        float speed = 1.0f / t;
+        while (_image.fillAmount < 1.0f)
+        {
+            _image.fillAmount += Time.deltaTime * speed;
+            yield return null;
+        }
     }
-    
-  
 
-    void ChangeState(STATE s)
+
+
+void ChangeState(STATE s)
     {
         if (myState == s) return;
         myState = s;
@@ -142,6 +164,7 @@ public class Loader : Character
         
         if (Input.GetMouseButtonDown(1))
         {
+            StartCoroutine(CoolTime(M2Img, RMBCool));
             myAnim.SetBool("IsRMB", false);
             myAnim.SetTrigger("RMB");
             //주먹 생성
@@ -194,6 +217,7 @@ public class Loader : Character
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             
+
             myAnim.SetBool("IsShift", false);
             myAnim.SetTrigger("ShiftAtk");
             
@@ -202,8 +226,8 @@ public class Loader : Character
        
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            
-            
+            StartCoroutine(CoolTime(ShiftImg, ShiftCool));
+
 
             myAnim.SetBool("IsShift", true);
             myRigid.AddForce(MySpringArm.forward * 80.0f, ForceMode.Impulse);
@@ -214,6 +238,8 @@ public class Loader : Character
     {
         if (isGround & Input.GetKeyDown(KeyCode.R))
         {
+            StartCoroutine(CoolTime(RImg, RCool));
+
             Dist = Dir.magnitude;
             Dir.Normalize();
             myRigid.AddForce(Vector3.zero);
@@ -222,17 +248,7 @@ public class Loader : Character
             
             
             myAnim.SetBool("OnAir",true);
-            Ray ray = new Ray();
-            ray.origin = this.transform.position;
-            ray.direction = -this.transform.up;
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000.0f, CrashMask))
-            {
-                float Dist = (this.transform.position - hit.point).magnitude;
-                if (Dist < 20.0f)
-                myRigid.AddForce(Vector3.down * 80.0f, ForceMode.Impulse);
-                myAnim.SetBool("OnAir", true);
-                
-            }
+           
             
 
             //if (Dist == 1.0f)      // 바닥에 닿기전에 잠시 공중에 뜨고 충격파 부분;
@@ -243,10 +259,7 @@ public class Loader : Character
             //}
 
         }
-        if (!isGround & Input.GetKeyDown(KeyCode.R))
-            {
-
-        }
+        
 
 
 
