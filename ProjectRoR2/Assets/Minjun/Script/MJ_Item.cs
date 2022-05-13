@@ -2,21 +2,22 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 
-public class MJ_Item : MonoBehaviour
-{
-    public GameObject myPlayer;
-    public LayerMask playerLayer;
-    KJH_Player playerStat;
-    float HoofSpeed;
-    float SyringeClusterSpeed;
-    public int[] equip = new int[14];
-    void Start()
-    {
-        //myPlayer = GameObject.Find("mdlCommandoDualies");
-        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<KJH_Player>();
-        //SyringeClusterSpeed = playerStat.myCharacterStat.AttackSpeed * 0.15f;
-        //HoofSpeed = playerStat.MoveSpeed * 0.14f;
-    }
+//public class MJ_Item : MonoBehaviour
+//{
+//    public GameObject myPlayer;
+//    public LayerMask playerLayer;
+//    KJH_Player playerStat;
+//    float HoofSpeed;
+//    float SyringeClusterSpeed;
+//    public int[] equip = new int[14];
+//    void Start()
+//    {
+//        //myPlayer = GameObject.Find("mdlCommandoDualies");
+//        playerStat = GameObject.Find("mdlCommandoDualies").GetComponent<KJH_Player>();
+//        //SyringeClusterSpeed = playerStat.myCharacterStat.AttackSpeed * 0.15f;
+////        //HoofSpeed = playerStat.MoveSpeed * 0.14f;
+////    }
+//}
 
 //    // Update is called once per frame
 //    void Update()

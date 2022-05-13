@@ -341,7 +341,7 @@ void ChangeState(STATE s)
             if (Input.GetKeyDown("space"))
             {
                 myAnim.SetTrigger("Jump");
-                myAnim.SetBool("Jumping", true);
+                myAnim.SetBool("OnAir", true);
                 RunningCancel();
                 if (JumpCount == JumpItem)
                     myRigid.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
@@ -349,15 +349,19 @@ void ChangeState(STATE s)
                 JumpCount = 0;
             }
         }
+        else
+        {
+
+        }
     }
     //∂•ø° ¥Í¿ª∂ß ¡°«¡∞°¥…
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.name == "Ground")
         {
+            Debug.Log("On");
             isGround = true;
             myAnim.SetBool("OnAir", false);
-            myAnim.SetBool("Jumping", false);
             JumpCount = 1;
         }
     }
@@ -366,6 +370,7 @@ void ChangeState(STATE s)
         if (col.gameObject.name == "Ground")
         {
             myAnim.SetBool("OnAir", true);
+            Debug.Log("Off");
         }
     }
     ////////////////////////////////////////////////////////////////////////////////////////

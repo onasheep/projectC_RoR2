@@ -81,7 +81,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\InGameUI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
-    <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
@@ -89,7 +88,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HsjInventory.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Map1.cs" />
-    <Compile Include="Assets\Kimjiheon\Script\KJH_Skill.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItemSlot.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
@@ -121,7 +119,6 @@
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
-    <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
