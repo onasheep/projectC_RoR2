@@ -30,7 +30,7 @@ public class KJH_CameraArm : MonoBehaviour
         CamCollision();
         FollowCam();
     }
-
+    
     public void LookAround()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));

@@ -17,15 +17,7 @@ public class Loader : Character
     //////////////////MoveInput//////////////////
     Vector3 Dir;
     float Dist;
-    public float WalkSpeed = 7.0f;
-    public float RunSpeed = 10.0f;
-    float ApplySpeed;
-    float rx;
-    float ry;
     //////////////////JumpInput//////////////////
-    int JumpCount = 0;  
-    public float JumpForce = 10.0f;
-    int JumpItem = 1;
     //////////////////AttackInput//////////////////     
     public Transform HookStart;
     public GameObject LoaderFist;
@@ -36,6 +28,31 @@ public class Loader : Character
     /// <summary>
     /// 스탯관련 
     /// </summary>
+    [SerializeField]
+    private Transform myCamArm;
+    [SerializeField]
+    private Transform myFrontAim;
+    [SerializeField]
+    private Transform myLeftAim;
+    [SerializeField]
+    private Transform myRightAim;
+    [SerializeField]
+    private Transform myChest;
+    [SerializeField]
+    private Transform myPelvis;
+    [SerializeField]
+    private LayerMask Onground;
+    [SerializeField]
+    private Transform ShotPos;
+
+    Vector3 moveDir;
+    Vector3 lookForward;
+    Vector3 lookRight;
+    Vector3 moveInput;
+    Vector3 camAngle;
+    Vector2 mouseDelta;
+    public KJH_CharacterData myCharacterdata;
+    public KJH_CharacterStat myCharacterStat;
     IEnumerator CoolTime(int i)
     {
         float Attackdelay = Time.deltaTime * i;
@@ -64,9 +81,9 @@ public class Loader : Character
         {
             case STATE.CREATE:
                 break;
-            case STATE.PLAY:
-                PlayerMoving();               
+            case STATE.PLAY:              
                 Jump();
+                TryRun();
                 Attack();
                 break;
             case STATE.DEAD:
@@ -75,7 +92,7 @@ public class Loader : Character
     }
     public void Start()
     {
-        ApplySpeed = WalkSpeed;
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
         if (myState == STATE.CREATE)
         {
             ChangeState(STATE.PLAY);
@@ -87,16 +104,141 @@ public class Loader : Character
 
 
     }
-
+    private void FixedUpdate()
+    {
+        if (myState == STATE.PLAY)
+        {
+            PlayerMovement();
+        }
+    }
+    private void LateUpdate()
+    {
+        if (myCharacterdata.isLookAround)
+        {
+            LookAround();
+        }
+    }
+    public void LookAround()
+    {
+        float Angle = Vector3.Angle(myChest.forward, -myPelvis.forward);
+        float y = camAngle.y;
+        float x = camAngle.x - mouseDelta.y;
+        if (x < 180.0f)
+        {
+            x = Mathf.Clamp(x, -1.0f, 90.0f);
+        }
+        else
+        {
+            x = Mathf.Clamp(x, 295.0f, 361f);
+        }
+        /*
+        if (Angle < 180.0f)
+        {
+            Angle = Mathf.Clamp(x, -1.0f, 60.0f);
+        }
+        else
+        {
+            Angle = Mathf.Clamp(x, 295.0f, 361f);
+        }
+        */
+        myChest.transform.LookAt(myFrontAim);
+        //myChest.transform.rotation = Quaternion.Euler(x, y, camAngle.z);
+        Debug.Log(camAngle);
+    }
     void Update()
     {
         StateProcess();
-        
+        GroundCheck();
+        GetInput();
+
     }
-   
+    void GetInput()
+    {
+        mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        camAngle = myChest.transform.rotation.eulerAngles;
+        //키보드 WSAD 값
+        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        //카메라 정면 방향값
+        lookForward = new Vector3(myCamArm.forward.x, Mathf.Epsilon, myCamArm.forward.z).normalized;
+        //카메라 오른쪽 방향값
+        lookRight = new Vector3(myCamArm.right.x, Mathf.Epsilon, myCamArm.right.z).normalized;
+        //카메라 기준/키보드 값으로 이동 방향
+        moveDir = lookForward * moveInput.z + lookRight * moveInput.x;
+        //움직임 판단 값
+        myCharacterdata.ismove = moveInput.magnitude != 0.0f;
+        //공격 판단 값
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(DelayTime(3.0f));
+        }
+        //정면 방향으로 이동 판단 값
+        myCharacterdata.onforward = Input.GetKey(KeyCode.W);
+        //애니메이션 공격 판단 값
+        //myAnim.SetBool("isAttack", myCharacterdata.isAttack);
+        //애니메이션 움직임 판단 값
+        //myAnim.SetBool("ismove", myCharacterdata.ismove);
+        //쿨타임 시간 체크
+        //RollTimeCheck += Time.deltaTime;
+        //AttackTimeCheck += Time.deltaTime;
+        //Debug.Log(RollTimeCheck);
 
+    }
+    IEnumerator DelayTime(float cool)
+    {
+        while (cool > 0.0f)
+        {
+            cool -= Time.deltaTime;
+            myCharacterdata.isAttack = true;
+            yield return new WaitForFixedUpdate();
+        }
+        myCharacterdata.isAttack = false;
+    }
+    Coroutine RotRoutine = null;
+    IEnumerator Rotating(Vector3 pos)
+    {
+        Vector3 dir = (pos - this.transform.position).normalized;
+        KJH_GameUtil.CalAngle(myAnim.transform.forward, dir, myAnim.transform.right, out KJH_ROTATEDATA data);
+        while (data.Angle > Mathf.Epsilon)
+        {
+            float delta = 360.0f * Time.deltaTime;
+            if (data.Angle <= delta)
+            {
+                delta = data.Angle;
+            }
+            transform.Rotate(Vector3.up * delta * data.Dir);
+            data.Angle -= delta;
+            yield return null;
+        }
+        RotRoutine = null;
+    }
+    public void PlayerMovement()
+    {
+        if (RotRoutine != null) StopCoroutine(RotRoutine);
+        //공격할 때
+        if (myCharacterdata.isAttack)
+        {
+            //공격 할때 달리기 취소
+            RunningCancel();
+            //카메라 기준 조준 방향으로 전환
+            //myChest.transform.rotation = Quaternion.LookRotation(new Vector3(lookForward.x, Mathf.Epsilon, lookForward.z));
+            transform.rotation = Quaternion.LookRotation(new Vector3(lookForward.x, Mathf.Epsilon, lookForward.z));
+            myAnim.SetFloat("Dir.x", moveInput.x, 0.1f, Time.deltaTime);
+            myAnim.SetFloat("Dir.y", moveInput.z, 0.1f, Time.deltaTime);
 
-
+        }
+        //공격하지 않을 때
+        else
+        {
+            //this.transform.LookAt(this.transform.position + moveDir);           
+        }
+        //움직일 때       
+        if (myCharacterdata.ismove)
+        {
+            if (!myCharacterdata.isAttack) RotRoutine = StartCoroutine(Rotating(this.transform.position + moveDir));
+            transform.position += myCharacterStat.ApplySpeed * Time.deltaTime * moveDir;
+            //Debug.Log(myCharacterStat.ApplySpeed);
+        }
+    }
 
     /// <summary>
     /// 공격 관련 
@@ -254,50 +396,25 @@ public class Loader : Character
 
     }
 
-   /// <summary>
-   ///  이동 관련 
-   /// </summary>
-    public void PlayerMoving()
-    {
+    /// <summary>
+    ///  이동 관련 
+    /// </summary>
 
-
-        float _moveDirX = Input.GetAxisRaw("Horizontal");
-        float _moveDirY = Input.GetAxisRaw("Vertical");
-
-        Vector3 _moveHorizontal = transform.right * _moveDirX;
-        Vector3 _moveVertical = transform.forward * _moveDirY;
-        Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * ApplySpeed;
-        Vector3 dir = (_moveHorizontal + _moveVertical).normalized;
-        //이동
-        myRigid.MovePosition(transform.position + _velocity * 7f * Time.deltaTime);
-        //방향대로 걷는 애니메이션
-        if(isGround)
-        {
-            myAnim.SetFloat("x", _moveDirX, 0.1f, Time.deltaTime);
-            myAnim.SetFloat("y", _moveDirY, 0.1f, Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                TryRun();
-            }
-
-        }
-        else
-        {
-            RunningCancel();
-        }
-    }
     // 특정 조건에 맞게 달리기
     public void TryRun()
     {
-        if (!isRun)
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            Runing();
+            if (!myCharacterdata.isRun && myCharacterdata.onforward)
+            {
+                Runing();
+            }
+            else
+            {
+                RunningCancel();
+            }
         }
-        else
+        else if (!myCharacterdata.onforward)
         {
             RunningCancel();
         }
@@ -305,52 +422,47 @@ public class Loader : Character
     // 달리기
     public void Runing()
     {
-        isRun = true;
-        myAnim.SetTrigger("Sprint");
+        myCharacterdata.isRun = true;
+        myCharacterdata.isLookAround = false;
         myAnim.SetBool("isSprint", true);
-        ApplySpeed = RunSpeed;
+        myAnim.SetTrigger("Sprint");
+        myCharacterStat.ApplySpeed = myCharacterStat.RunSpeed;
     }
-
     // 달리기 중지
     public void RunningCancel()
     {
-        isRun = false;
+        myCharacterdata.isRun = false;
+        myCharacterdata.isLookAround = true;
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
         myAnim.SetBool("isSprint", false);
-        ApplySpeed = WalkSpeed;
     }
     // 점프
     public void Jump()
-
     {
-        if (isGround)
+        if (Input.GetKeyDown("space"))
         {
-            JumpCount = 1;
-            if (Input.GetKeyDown("space"))
+            if (myCharacterStat.JumpCount < myCharacterStat.JumpItem)
             {
+                myCharacterdata.isLookAround = false;
                 myAnim.SetTrigger("Jump");
-                myAnim.SetBool("Jumping", true);
+                //myAnim.SetBool("Jumping", true);
                 RunningCancel();
-                if (JumpCount == JumpItem)
-                    myRigid.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
-                isGround = false;
-                JumpCount = 0;
+                myRigid.velocity = Vector3.up * myCharacterStat.JumpForce;
+                myCharacterStat.JumpCount++;
             }
         }
     }
-    //땅에 닿을때 점프가능
-    private void OnCollisionEnter(Collision col)
+    //땅체크
+    void GroundCheck()
     {
-        if (col.gameObject.name == "Ground")
+        RaycastHit hit;
+        if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out hit, 0.6f, Onground))
         {
-            isGround = true;
             myAnim.SetBool("OnAir", false);
-            myAnim.SetBool("Jumping", false);
-            JumpCount = 1;
+            //myAnim.SetBool("Jumping", false);
+            myCharacterStat.JumpCount = 0;
         }
-    }
-    private void OnCollisionExit(Collision col)
-    {
-        if (col.gameObject.name == "Ground")
+        else
         {
             myAnim.SetBool("OnAir", true);
         }

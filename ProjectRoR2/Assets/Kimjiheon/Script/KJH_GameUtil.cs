@@ -17,7 +17,9 @@ public struct KJH_CharacterStat
     public float JumpForce;
     public int JumpCount;
     public int JumpItem;
-    public float RollTime;   
+    public float RollTime;
+    public float AttackDelay;
+    public float RMBTime;
 }
 [Serializable]
 public class KJH_CharacterData
@@ -29,6 +31,7 @@ public class KJH_CharacterData
     public bool ismove = false;
     public bool isAttack = false;
     public bool onforward = false;
+    public bool GunSwitch = false;
 }
 
 public struct KJH_ROTATEDATA

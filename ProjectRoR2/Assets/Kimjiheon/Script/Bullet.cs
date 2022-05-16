@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public LayerMask CrushMask;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == CrushMask)
+        if ((CrushMask & 1 << collision.transform.gameObject.layer)!=0)
         {
             Destroy(gameObject);
         }
