@@ -176,7 +176,7 @@ public class Loader : Character
         //애니메이션 공격 판단 값
         //myAnim.SetBool("isAttack", myCharacterdata.isAttack);
         //애니메이션 움직임 판단 값
-        //myAnim.SetBool("ismove", myCharacterdata.ismove);
+        myAnim.SetBool("ismove", myCharacterdata.ismove);
         //쿨타임 시간 체크
         //RollTimeCheck += Time.deltaTime;
         //AttackTimeCheck += Time.deltaTime;
