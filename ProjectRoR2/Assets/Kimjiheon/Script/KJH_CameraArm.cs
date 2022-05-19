@@ -55,7 +55,7 @@ public class KJH_CameraArm : MonoBehaviour
 
     public void CamCollision()
     {       
-        Debug.DrawRay(transform.position, myCamera.transform.position - transform.position, Color.red);
+        //Debug.DrawRay(transform.position, myCamera.transform.position - transform.position, Color.red);
         Ray ray = new Ray(this.transform.position, myCamera.transform.position - this.transform.position);
         if (Physics.Raycast(ray, out RaycastHit hit, myZoom, ZoomInMask))
         {

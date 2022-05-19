@@ -10,16 +10,26 @@ public struct KJH_CharacterStat
     public float HP;
     public int Level;
     public float HP_Heal;
-    public float AttackDamage;
+    public float AttackDelay;
+    [Header("MoveSpeed")]
     public float ApplySpeed;
     public float WalkSpeed;
     public float RunSpeed; 
+    [Header("Jump")]
     public float JumpForce;
     public int JumpCount;
     public int JumpItem;
-    public float RollTime;
-    public float AttackDelay;
+    [Header("CoolTime")]
+    public float RollTime;  
     public float RMBTime;
+    public float RKBTime;
+    public int RKBNumber;
+}
+[Serializable]
+public struct KJH_BulletStat
+{
+    public float BulletRange;
+    public float BulletDamage;
 }
 [Serializable]
 public class KJH_CharacterData
