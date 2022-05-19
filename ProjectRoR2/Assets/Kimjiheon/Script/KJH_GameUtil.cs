@@ -20,6 +20,10 @@ public struct KJH_CharacterStat
     public float RollTime;
     public float AttackDelay;
     public float RMBTime;
+    // Loader ½ºÅ³ ¼Â
+    public float GrappleCoolTime;
+    public float PunchCoolTime;
+    public float SlamCoolTime;
 }
 [Serializable]
 public class KJH_CharacterData

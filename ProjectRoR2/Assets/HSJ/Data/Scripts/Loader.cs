@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Loader : Character
 {
     public LayerMask CrashMask;
@@ -17,6 +18,7 @@ public class Loader : Character
     //////////////////MoveInput//////////////////
     Vector3 Dir;
     float Dist;
+    
     //////////////////JumpInput//////////////////
     float forceGarvity = 10.0f;
     //////////////////AttackInput//////////////////     
@@ -33,13 +35,11 @@ public class Loader : Character
     [SerializeField]
     private LayerMask Onground;
 
-    Vector3 lookForward;
-
     public KJH_CharacterData myCharacterdata;
     public KJH_CharacterStat myCharacterStat;
 
-
-
+    // 쿨타임 UI;
+    public KeyInputControl myKeyControl;
 
     void ChangeState(STATE s)
     {
@@ -63,7 +63,7 @@ public class Loader : Character
                 break;
             case STATE.PLAY:
                 Jump();
-                TryRun();
+                PlayerMoving();
                 Attack();
                 break;
             case STATE.DEAD:
@@ -73,6 +73,9 @@ public class Loader : Character
     public void Start()
     {
         myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+        myCharacterStat.GrappleCoolTime = 6.0f;
+        myCharacterStat.PunchCoolTime = 6.0f;
+        myCharacterStat.SlamCoolTime = 6.0f;
         if (myState == STATE.CREATE)
         {
             ChangeState(STATE.PLAY);
@@ -84,13 +87,13 @@ public class Loader : Character
 
 
     }
-    private void FixedUpdate()
-    {
-        if (myState == STATE.PLAY)
-        {
-            PlayerMovement();
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (myState == STATE.PLAY)
+    //    {
+    //        PlayerMoving();
+    //    }
+    //}
     private void LateUpdate()
     {
         //if (myCharacterdata.isLookAround)
@@ -152,7 +155,6 @@ public class Loader : Character
         //    StartCoroutine(DelayTime(3.0f));
         //}
         //정면 방향으로 이동 판단 값
-        myCharacterdata.onforward = Input.GetKey(KeyCode.W);
         //애니메이션 공격 판단 값
         //myAnim.SetBool("isAttack", myCharacterdata.isAttack);
         //애니메이션 움직임 판단 값
@@ -201,53 +203,44 @@ public class Loader : Character
 
 
 
-    public void PlayerMovement()
+    public void PlayerMoving()
     {
-        float _moveDirx = Input.GetAxisRaw("Horizontal");
-        float _moveDiry = Input.GetAxisRaw("Vertical");
 
-        Vector3 _moveHorizontal = transform.right * _moveDirx;
-        Vector3 _moveVertical = transform.forward * _moveDiry;
+
+        float _moveDirX = Input.GetAxisRaw("Horizontal");
+        float _moveDirY = Input.GetAxisRaw("Vertical");
+
+        Vector3 _moveHorizontal = transform.right * _moveDirX;
+        Vector3 _moveVertical = transform.forward * _moveDirY;
         Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * myCharacterStat.ApplySpeed;
+        //이동
+        myRigid.MovePosition(transform.position + _velocity * Time.deltaTime);
+        myRigid.rotation = MySpringArm.rotation;
+        //방향대로 걷는 애니메이션
+        myAnim.SetFloat("Dir.x", _moveDirX, 0.1f, Time.deltaTime);
+        myAnim.SetFloat("Dir.y", _moveDirY, 0.1f, Time.deltaTime);
 
-        myRigid.MovePosition(this.transform.position + _velocity * Time.deltaTime);
-        lookForward = new Vector3(MySpringArm.forward.x, Mathf.Epsilon, MySpringArm.forward.z).normalized;
-        transform.rotation = Quaternion.LookRotation(new Vector3(lookForward.x, Mathf.Epsilon, lookForward.z));
-        //this.transform.eulerAngles = MySpringArm.eulerAngles;
-        if (isGround)
-        {
-            myAnim.SetFloat("Dir.x", _moveDirx, 0.1f, Time.deltaTime);
-            myAnim.SetFloat("Dir.y", _moveDiry, 0.1f, Time.deltaTime);
-        }
         if (Input.GetKey(KeyCode.W))
         {
-
-            TryRun();
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                TryRun();
+            }
 
         }
         else
         {
             RunningCancel();
         }
-
     }
-
-
     // 특정 조건에 맞게 달리기
     public void TryRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (!isRun)
         {
-            if (!myCharacterdata.isRun && myCharacterdata.onforward)
-            {
-                Runing();
-            }
-            else
-            {
-                RunningCancel();
-            }
+            Runing();
         }
-        else if (!myCharacterdata.onforward)
+        else
         {
             RunningCancel();
         }
@@ -255,19 +248,18 @@ public class Loader : Character
     // 달리기
     public void Runing()
     {
-        myCharacterdata.isRun = true;
-        myCharacterdata.isLookAround = false;
-        myAnim.SetBool("isSprint", true);
+        isRun = true;
         myAnim.SetTrigger("Sprint");
+        myAnim.SetBool("isSprint", true);
         myCharacterStat.ApplySpeed = myCharacterStat.RunSpeed;
     }
+
     // 달리기 중지
     public void RunningCancel()
     {
-        myCharacterdata.isRun = false;
-        myCharacterdata.isLookAround = true;
-        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+        isRun = false;
         myAnim.SetBool("isSprint", false);
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
     }
     // 점프
     public void Jump()
@@ -356,6 +348,7 @@ public class Loader : Character
 
         if (Input.GetMouseButtonDown(1))
         {
+            myKeyControl.LM2CoolTime();
             myAnim.SetBool("IsRMB", false);
             myAnim.SetTrigger("RMB");
             //주먹 생성
@@ -439,7 +432,7 @@ public class Loader : Character
             Ray ray = new Ray();
             ray.origin = this.transform.position;
             ray.direction = -this.transform.up;
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000.0f, CrashMask))
+            if (Physics.Raycast(ray, out RaycastHit hit, 10.0f, CrashMask))
             {
                 float Dist = (this.transform.position - hit.point).magnitude;
                 if (Dist < 20.0f)
