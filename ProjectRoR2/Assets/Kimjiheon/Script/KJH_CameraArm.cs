@@ -7,9 +7,7 @@ public class KJH_CameraArm : MonoBehaviour
     float myZoom;
     Vector3 StartCam;
     public float CollisionOffset = 1.0f;
-    public float MouseSpeed = 200.0f;
-    [SerializeField]
-    private Transform myPlayer;
+    public float MouseSpeed = 200.0f;   
     [SerializeField]
     private Transform myCamera;
     [SerializeField]
