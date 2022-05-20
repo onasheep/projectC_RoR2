@@ -10,27 +10,28 @@ public class KeyInputControl : MonoBehaviour
     [SerializeField] Image LRShiftImg;
 
     
-    public void LM2CoolTime()
+    public void LM2CoolTime(float cooltime)
     {
-        StartCoroutine(CoolTime(LM2Img, 6.0f));
+        StartCoroutine(CoolTime(LM2Img, cooltime));
     }
 
-    public void LShiftCoolTime()
+    public void LShiftCoolTime(float cooltime)
     {
-        StartCoroutine(CoolTime(LShiftImg, 6.0f));
+        StartCoroutine(CoolTime(LShiftImg, cooltime));
     }
-    public void LRCoolTime()
+    public void LRCoolTime(float cooltime)
     {
-        StartCoroutine(CoolTime(LRShiftImg, 6.0f));
+        StartCoroutine(CoolTime(LRShiftImg, cooltime));
     }
-    
-    IEnumerator CoolTime(Image skillimg,float cool)
+
+    IEnumerator CoolTime(Image _image, float t)
     {
-        while(cool > 0.0f)
+        _image.fillAmount = 0.0f;
+        float speed = 1.0f / t;
+        while (_image.fillAmount < 1.0f)
         {
-            cool -= Time.deltaTime;
-            skillimg.fillAmount = (1.0f/cool);
-            yield return new WaitForSeconds(cool);
+            _image.fillAmount += Time.deltaTime * speed;
+            yield return null;
         }
     }
 }

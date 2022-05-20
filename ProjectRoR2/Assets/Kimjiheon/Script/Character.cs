@@ -68,4 +68,20 @@ public class Character : MonoBehaviour
             return _CapsuleCol;
         }
     }
+    #region 스프링조인트
+    SpringJoint _mySpring = null;
+    protected SpringJoint _SJoint
+    {
+        get
+        {
+            if( _mySpring == null)
+            {
+                _mySpring = this.GetComponent<SpringJoint>();
+                
+            }
+            return _mySpring;
+        }
+    }
+    #endregion
+
 }
