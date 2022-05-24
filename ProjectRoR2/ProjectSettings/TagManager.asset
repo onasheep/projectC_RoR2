@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - LoaderHook
+  - 
   - Water
   - UI
   - Ground
@@ -16,7 +16,7 @@ TagManager:
   - Item
   - Wall
   - Bullet
-  - 
+  - Enemy
   - 
   - 
   - 

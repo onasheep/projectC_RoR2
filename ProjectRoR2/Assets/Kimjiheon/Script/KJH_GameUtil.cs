@@ -25,6 +25,12 @@ public struct KJH_CharacterStat
     public float LShiftCoolTime;
     public float LRCoolTime;
     public float LM1CoolTime;
+    public float LAtk;
+    public float LDef;
+    public float LHP;
+    public float LLevel;
+    public float LHpRegen;
+
 }
 [Serializable]
 public class KJH_CharacterData

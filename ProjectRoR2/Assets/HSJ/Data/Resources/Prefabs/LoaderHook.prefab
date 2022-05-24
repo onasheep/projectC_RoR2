@@ -482,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 7279028719121950401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2527443751585005940}
   m_Father: {fileID: 0}
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e77b79d83c22cb4991f7e0d12474efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FistCam: {fileID: 0}
+  Loader: {fileID: 7279028719121950401}
   Crashmask:
     serializedVersion: 2
     m_Bits: 576
@@ -627,8 +627,8 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
-    shadowBias: 0.5
+    textureMode: 1
+    shadowBias: 0.3
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 1

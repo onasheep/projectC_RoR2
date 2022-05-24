@@ -14,10 +14,7 @@ public class Loader : Character
     public STATE myState = STATE.CREATE;
     //State//
     bool isRun = false;
-    bool isGround = true;
-    //////////////////MoveInput//////////////////
-    Vector3 Dir;
-    float Dist;
+    //////////////////MoveInput//////////////////  
     
     //////////////////JumpInput//////////////////
     float forceGarvity = 0.0f;
@@ -28,19 +25,20 @@ public class Loader : Character
     public Transform MySpringArm;
     public Transform LeftArm;
     public Transform RightArm;
-    /// <summary>
-    /// 스탯관련 
-    /// </summary> 
+    public GrappleFist myGrapple;
+
     [SerializeField]
     private Transform myFrontAim;
     [SerializeField]
     private LayerMask Onground;
 
+    // 스탯 가져오기
     public KJH_CharacterData myCharacterdata;
     public KJH_CharacterStat myCharacterStat;
 
     // 쿨타임 UI;
     public KeyInputControl myKeyControl;
+    
     
 
     void ChangeState(STATE s)
@@ -50,22 +48,29 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+              
                 break;
             case STATE.PLAY:
                 break;
+
             case STATE.DEAD:
                 break;
         }
     }
+   
     void StateProcess()
     {
         switch (myState)
         {
-            case STATE.CREATE:
+            case STATE.CREATE:              
                 break;
             case STATE.PLAY:
-                
-                Jump();               
+                M1checkT += Time.deltaTime;
+                M2checkT += Time.deltaTime;
+                ShiftcheckT += Time.deltaTime;
+                RcheckT += Time.deltaTime;
+                ChargingTime += Time.deltaTime;
+                Jump();
                 Attack();
                 break;
             case STATE.DEAD:
@@ -74,18 +79,23 @@ public class Loader : Character
     }
     public void Start()
     {
-        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
-        myCharacterStat.LM2CoolTime = 6.0f;
-        myCharacterStat.LShiftCoolTime = 6.0f;
-        myCharacterStat.LRCoolTime = 6.0f;
+        // 쿨타임 잴 float 값 저장
+        M1checkT = M1Cool;
+        M2checkT = M2Cool;
+        ShiftcheckT = ShiftCool;
+        RcheckT = RCool;
+
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;       
+        
         if (myState == STATE.CREATE)
         {
             ChangeState(STATE.PLAY);
         }
 
+        // 콤보이벤트 함수에서 애니메이션에 콤보체크에 해당 되면 콤보블을 treu 아니면 false를 반환하게 함
         this.GetComponentInChildren<ComboEvent>().ComboCheck += (value) => Comboable = value;
 
-        // 캐릭터로 부터 화면 정중앙으로 나아가는 선
+        
 
 
     }
@@ -95,90 +105,19 @@ public class Loader : Character
         {
             PlayerCrashCheck();
             PlayerMoving();
-
+            GroundCheck();
         }
     }
-    private void LateUpdate()
-    {
-        //if (myCharacterdata.isLookAround)
-        //{
-        //    LookAround();
-        //}
-    }
-    //public void LookAround()
-    //{
-    //    float Angle = Vector3.Angle(myChest.forward, -myPelvis.forward);
-    //    float y = camAngle.y;
-    //    float x = camAngle.x - mouseDelta.y;
-    //    if (x < 180.0f)
-    //    {
-    //        x = Mathf.Clamp(x, -1.0f, 90.0f);
-    //    }
-    //    else
-    //    {
-    //        x = Mathf.Clamp(x, 295.0f, 361f);
-    //    }
-    //    /*
-    //    if (Angle < 180.0f)
-    //    {
-    //        Angle = Mathf.Clamp(x, -1.0f, 60.0f);
-    //    }
-    //    else
-    //    {
-    //        Angle = Mathf.Clamp(x, 295.0f, 361f);
-    //    }
-    //    */
-    //    myChest.transform.LookAt(myFrontAim);
-    //    myChest.transform.rotation = Quaternion.Euler(x, y, camAngle.z);
-    //    Debug.Log(camAngle);
-    //}
+    
     void Update()
     {
         StateProcess();
-        GroundCheck();
+        
         //GetInput();
-
+        Debug.Log(ChargingTime);
     }
-    void GetInput()
-    {
-        //mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        //camAngle = myChest.transform.rotation.eulerAngles;
-        ////키보드 WSAD 값
-        //moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        ////카메라 정면 방향값
-        //lookForward = new Vector3(myCamArm.forward.x, Mathf.Epsilon, myCamArm.forward.z).normalized;
-        ////카메라 오른쪽 방향값
-        //lookRight = new Vector3(myCamArm.right.x, Mathf.Epsilon, myCamArm.right.z).normalized;
-        ////카메라 기준/키보드 값으로 이동 방향
-        //moveDir = lookForward * moveInput.z + lookRight * moveInput.x;
-        ////움직임 판단 값
-        //myCharacterdata.ismove = moveInput.magnitude != 0.0f;
-        ////공격 판단 값
-        //if (Input.GetMouseButton(0))
-        //{
-        //    StartCoroutine(DelayTime(3.0f));
-        //}
-        //정면 방향으로 이동 판단 값
-        //애니메이션 공격 판단 값
-        //myAnim.SetBool("isAttack", myCharacterdata.isAttack);
-        //애니메이션 움직임 판단 값
-        //myAnim.SetBool("ismove", myCharacterdata.ismove);   // 코만도 공격시 회전 범위 적용 로더는 필요없어서 생략
-        //쿨타임 시간 체크
-        //RollTimeCheck += Time.deltaTime;
-        //AttackTimeCheck += Time.deltaTime;
-        //Debug.Log(RollTimeCheck);
-
-    }
-    IEnumerator DelayTime(float cool)
-    {
-        while (cool > 0.0f)
-        {
-            cool -= Time.deltaTime;
-            myCharacterdata.isAttack = true;
-            yield return new WaitForFixedUpdate();
-        }
-        myCharacterdata.isAttack = false;
-    }
+    
+ 
   
 
 
@@ -270,8 +209,8 @@ public class Loader : Character
                 //myAnim.SetBool("Jumping", true);
                 RunningCancel();
                 myRigid.velocity = Vector3.up * myCharacterStat.JumpForce;
-                
-            
+
+
         }
     }
     //땅체크
@@ -285,30 +224,21 @@ public class Loader : Character
             myCharacterStat.JumpCount = 0;
             forceGarvity = 0;
             myAnim.SetBool("IsRun", true);
-            
+
         }
         else
         {
-            
+
             myAnim.SetBool("OnAir", true);
             myAnim.SetBool("IsRun", false);
             // 중력 조정           
 
-            
-                delta = forceGarvity * 5.0f * Time.deltaTime;
-                forceGarvity ++;
-                myRigid.AddForce(Vector3.down * delta, ForceMode.Force);
-            Debug.Log(delta);
-               
-            
-           
-            //Debug.Log(delta);
-
-
-
+            delta = forceGarvity * 5.0f * Time.deltaTime;
+            forceGarvity++;
+            myRigid.AddForce(Vector3.down * delta, ForceMode.Force);
         }
     }
-  
+
 
 
     /// <summary>
@@ -317,145 +247,151 @@ public class Loader : Character
     public void Attack()
     {
 
-
         // LMB
         LMB();
-
-        // RMB;
+        // RMB;      
         RMB();
-        // Shift
+        // Shift    
+        if(ShiftcheckT >= ShiftCool)
+        { 
         Shift();
-
-        // R
+        }
+        // R      
         R();
+
+
     }
 
-    IEnumerator AttackCool(float cool)
-    {
-        yield return new WaitForSeconds(cool * Time.deltaTime);
-    }
+
     bool Comboable = false;
     void LMB()
     {
-        
-        if (!myAnim.GetBool("IsLMBR") && Input.GetMouseButtonDown(0))
+
+        if (M1checkT >= M1Cool && Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(AttackCool(10.0f));
-            myAnim.SetBool("isSprint", false);
-            myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
-            myAnim.SetTrigger("LMBAtkR");
-            
-        }
-        if (myAnim.GetBool("IsLMBR") && Comboable && !myAnim.GetBool("IsLMBL"))
-        {
-            
-            if (Input.GetMouseButtonDown(0))
+
+
+            if (!myAnim.GetBool("IsLMBR"))
             {
                 myAnim.SetBool("isSprint", false);
                 myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
-                myAnim.SetTrigger("LMBAtkL");
-                
+                myAnim.SetTrigger("LMBAtkR");
+
             }
+            if (myAnim.GetBool("IsLMBR") && Comboable && !myAnim.GetBool("IsLMBL"))
+            {
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    myAnim.SetBool("isSprint", false);
+                    myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+                    myAnim.SetTrigger("LMBAtkL");
+
+                }
+            }
+            M1checkT = 0.0f;
         }
-        
+
     }
-    
+
     void RMB()
     {
-
-        if (Input.GetMouseButtonDown(1))
+        if (M2checkT >= M2Cool && Input.GetMouseButtonDown(1))
         {
-            myKeyControl.LM2CoolTime(myCharacterStat.LM2CoolTime);
-            myAnim.SetBool("IsRMB", false);
-            myAnim.SetTrigger("RMB");
-            //주먹 생성
-            GameObject obj = Instantiate(LoaderFist, HookStart);
-            //부모해제 후 캐릭터 각도로 주먹 각도 변경
-            obj.GetComponent<Transform>().parent = null;
-            obj.GetComponent<Transform>().transform.eulerAngles = this.transform.eulerAngles;
-
-            //에임 방향으로 주먹 발사
-            obj.GetComponent<Rigidbody>().AddForce(MySpringArm.forward * 80.0f, ForceMode.VelocityChange);
-
-            //로더의 오브젝트에 스프링조인트를 생성하고 오브젝트인 주먹과 연결함
-
-            _SJoint.connectedBody = obj.GetComponent<Rigidbody>();
-            _SJoint.maxDistance = 10.0f;
             
+            myAnim.SetBool("IsRMB", true);
+            
+           
+            if (myAnim.GetBool("IsRMB"))
+            {
+                myAnim.SetTrigger("RMB");
+                myKeyControl.LM2CoolTime(M2Cool);
+                //주먹 생성
+                GameObject obj = Instantiate(LoaderFist, HookStart);
+                //부모해제 후 캐릭터 각도로 주먹 각도 변경
+                obj.GetComponent<Transform>().parent = null;
+                obj.GetComponent<Transform>().transform.eulerAngles = this.transform.eulerAngles;
 
-            // 주먹 되돌아오게 만듬 
-            //if (!(MySpringArm.position - S < 10.0f))
-            //    {
+                //에임 방향으로 주먹 발사
+                obj.GetComponent<Rigidbody>().AddForce(MySpringArm.forward * 80.0f, ForceMode.VelocityChange);
 
-            //}
+                //로더의 오브젝트에 스프링조인트를 생성하고 오브젝트인 주먹과 연결함
+                
+                
+                _SJoint.connectedBody = obj.GetComponent<Rigidbody>();
+                _SJoint.maxDistance = 8.0f;
+
+
+
+            }
+
+           
+
+            M2checkT = 0.0f;
         }
-        //if (Input.GetMouseButton(1))
-        //{
-        //    myAnim.SetBool("IsFistOnCollid", true);
-        //}
 
         if (Input.GetMouseButtonUp(1))
         {
-            // 주먹 프리팹을 이름으로 찾아서 가져온뒤
+            //// 주먹 프리팹을 이름으로 찾아서 가져온뒤
             GameObject LHK = GameObject.Find("LoaderHook(Clone)");
-            // 로더와 주먹 거리를 재서 
-            float Dist = (LHK.transform.position - this.transform.position).magnitude;
-            LHK.GetComponent<Rigidbody>().AddForce(-MySpringArm.forward * 80.0f, ForceMode.VelocityChange);
-
-            Debug.Log(Dist);
-
-            myAnim.SetBool("IsRMB", true);
+            // RMB 애니메이션 끝내고 파괴
+            myAnim.SetBool("IsRMB", false);
             Destroy(LHK);
-            //_SJoint.
-        }
 
+        }
 
 
     }
     void Shift()
     {
 
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-
-            myAnim.SetBool("IsShift", false);
+            ChargingTime = 0.0f;
             myAnim.SetTrigger("ShiftAtk");
-            if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
-            {
-                myAnim.SetBool("OnAir", false);
-
-
-            }
-            else myAnim.SetBool("OnAir", true);
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            myKeyControl.LShiftCoolTime(myCharacterStat.LShiftCoolTime);
-
-           
             myAnim.SetBool("IsShift", true);
+            myAnim.SetBool("IsPunchLoop", true);
+            //if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
+            //{
+            //    myAnim.SetBool("OnAir", false);
+            //}
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime <= 1.0f)
+        {
+            myAnim.SetBool("IsPunchLoop", false);
+            myRigid.AddForce(Vector3.zero);
+            myRigid.AddForce(MySpringArm.forward * 50.0f, ForceMode.Impulse);
+            myKeyControl.LShiftCoolTime(ShiftCool);         
+            ShiftcheckT = 0.0f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && 1.0f < ChargingTime && ChargingTime <= 3.0f)
+        {
+            myAnim.SetBool("IsPunchLoop", false);
+            myRigid.AddForce(Vector3.zero);
+            myRigid.AddForce(MySpringArm.forward * 100.0f, ForceMode.Impulse);
+            myKeyControl.LShiftCoolTime(ShiftCool);
+            ShiftcheckT = 0.0f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime >= 5.0f)
+        {
+            myAnim.SetBool("IsPunchLoop", false);
             myRigid.AddForce(Vector3.zero);
             myRigid.AddForce(MySpringArm.forward * 150.0f, ForceMode.Impulse);
-            if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
-            {
-                myAnim.SetBool("OnAir", false);
-
-
-            }
-            else myAnim.SetBool("OnAir", true);
+            myKeyControl.LShiftCoolTime(ShiftCool);
+            ShiftcheckT = 0.0f;
         }
+        myAnim.SetBool("IsShift", false);
+    }
+
+    void ShiftMovement()
+    {
 
     }
-    bool IsRCheck = false;
     void R()
     {
         if (Input.GetKeyDown(KeyCode.R) && myAnim.GetBool("OnAir") == false)
         {
-            IsRCheck = true;
-            myKeyControl.LRCoolTime(myCharacterStat.LRCoolTime);           
+            myKeyControl.LRCoolTime(RCool);           
             
             myRigid.AddForce(Vector3.up * 10.0f, ForceMode.VelocityChange);
             myAnim.SetTrigger("RAtk");
