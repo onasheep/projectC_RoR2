@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class HPEvent : UnityEngine.Events.UnityEvent<float, float> { }
+
 public class AttackSystem : MonoBehaviour
 {
     private Camera myCamera;
+    public HPEvent onHPEvent = new HPEvent();
     public KJH_BulletStat myBulletStat;
+    public KJH_CharacterStat myCharacterStat;
     [SerializeField]
     private AudioClip LMBSound;
     [SerializeField]
@@ -17,6 +21,10 @@ public class AttackSystem : MonoBehaviour
     private AudioSource audioSource;
     public LayerMask DamageMask;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        myCharacterStat.curHP = myCharacterStat.maxHP;
+    }
     void Start()
     {
         myCamera = Camera.main;
@@ -33,7 +41,7 @@ public class AttackSystem : MonoBehaviour
     {
         GameObject intantBullet = Instantiate(Resources.Load("Prefeb/"+ BulletName), bulletSpawnPoint.position, Quaternion.identity) as GameObject;
         intantBullet.GetComponent<Bullet>().Shotting(attackDir, attackRange);
-        GunSound(BulletName, bulletSpawnPoint);
+        Debug.Log("shot");
     }
     //카메라Ray 총구 Ray 계산
     public void TwoStepRaycast(Transform bulletSpawnPoint, string BulletName)
@@ -61,17 +69,23 @@ public class AttackSystem : MonoBehaviour
         float attackRange = attackDirection.magnitude;
         attackDirection.Normalize();
         //총구좌표에서 타격좌표까지 Ray를 사용하여 Aim 정확도 계산
-        if (Physics.Raycast(bulletSpawnPoint.position, attackDirection, out hit, myBulletStat.BulletRange, DamageMask))
+        if (Physics.Raycast(bulletSpawnPoint.position, attackDirection, out hit, myBulletStat.BulletRange))
         {
             //타격이펙트
             HitEffect(hit, BulletName);
+            //총 발사
+            
             //OnDamage
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Monster"))
+            {
+               //hit.transform.GetComponent<Lemurian>().OnDamagekkj(myBulletStat.BulletDamage);
+            }
         }
-        //총 발사
         ShotBullet(attackDirection, BulletName, bulletSpawnPoint, attackRange);
+        GunSound(BulletName, bulletSpawnPoint);      
         //Debug.DrawRay(bulletSpawnPoint.position, attackDirection * myBulletStat.BulletRange, Color.blue);
     }
-
+    //피격 이팩트
     public void HitEffect(RaycastHit hit, string BulletName)
     {
         if (BulletName == "BulletMouse0")
@@ -83,7 +97,6 @@ public class AttackSystem : MonoBehaviour
             Instantiate(effectSource1, hit.point, Quaternion.identity);
         }
     }
-
     //총소리 구현
     public void GunSound(string BulletName, Transform bulletSpawnPoint)
     {
@@ -113,5 +126,17 @@ public class AttackSystem : MonoBehaviour
         {
             _ps.Play();
         }
+    }
+
+    public bool DecreaseHP(float damage)
+    {
+        float previousHP = myCharacterStat.curHP;
+        myCharacterStat.curHP = myCharacterStat.curHP - damage > 0 ? myCharacterStat.curHP - damage : 0;
+        onHPEvent.Invoke(previousHP, myCharacterStat.curHP);
+        if (myCharacterStat.curHP == 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

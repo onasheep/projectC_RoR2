@@ -5,13 +5,28 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float BulletSpeed;
-    bool Move = false;
     public LayerMask CrushMask;
+    Vector3 Checkdir = Vector3.zero;
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if ((CrushMask & 1 << collision.transform.gameObject.layer) != 0)
         {
             Destroy(gameObject);
+        }
+    }
+    */
+    private void Update()
+    {
+        
+    }
+    void CheckCrush(Vector3 dir)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, dir, out hit, 1f, CrushMask))
+        {
+            Debug.Log("Hit");
+            Destroy(this.gameObject);
         }
     }
     IEnumerator Moving(Vector3 dir, float myBulletRange)
@@ -21,6 +36,7 @@ public class Bullet : MonoBehaviour
         {
             float delta = BulletSpeed * Time.deltaTime;
             dist += delta;
+            CheckCrush(dir);
             this.transform.Translate(dir * delta, Space.World);
             yield return null;
         }

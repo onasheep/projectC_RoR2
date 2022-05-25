@@ -60,7 +60,6 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\RootAnimation.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
-    <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
@@ -72,14 +71,11 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharacSelect.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Property.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_Player.cs" />
-    <Compile Include="Assets\KimKJ\Data\Scripts\Lemurian.cs" />
-    <Compile Include="Assets\KimKJ\Data\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\InGameUI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
-    <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
@@ -89,7 +85,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BattleAnimEvents.cs" />
-    <Compile Include="Assets\KimKJ\Data\Scripts\LemurianFireball.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\RootMotion.cs" />
     <Compile Include="Assets\Minjun\Script\SceneLoder.cs" />
@@ -106,11 +101,10 @@
     <Compile Include="Assets\Kimjiheon\Script\KJH_CameraArm.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
-    <Compile Include="Assets\KimKJ\Data\Scripts\MoveMove.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
     <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\KJH_PlayerHUD.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

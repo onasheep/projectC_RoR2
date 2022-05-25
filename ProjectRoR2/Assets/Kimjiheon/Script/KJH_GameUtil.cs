@@ -7,9 +7,12 @@ using System;
 [Serializable]
 public struct KJH_CharacterStat
 {
-    public float HP;
-    public int Level;
+    [Header("HP")]
+    public float maxHP;
+    public float curHP;
     public float HP_Heal;
+
+    public int Level;  
     public float AttackDelay;
     [Header("MoveSpeed")]
     public float ApplySpeed;
@@ -36,6 +39,7 @@ public class KJH_CharacterData
 {
     public bool isRun = false; 
     public bool isGround = true;
+    public bool isJump = false;
     public bool isRoll = false;
     public bool isLookAround = true;
     public bool ismove = false;

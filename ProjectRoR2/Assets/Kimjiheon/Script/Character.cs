@@ -36,36 +36,5 @@ public class Character : MonoBehaviour
             return _Rigid;
         }
     }
-    CharacterController _CC = null;
-    protected CharacterController myCc
-    {
-        get
-        {
-            if (_CC == null)
-            {
-                _CC = this.GetComponent<CharacterController>();
-                if (_CC == null)
-                {
-                    _CC = GetComponentInChildren<CharacterController>();
-                }
-            }
-            return _CC;
-        }
-    }
-    CapsuleCollider _CapsuleCol = null;
-    protected CapsuleCollider myCapsuleCol
-    {
-        get
-        {
-            if (_CapsuleCol == null)
-            {
-                _CapsuleCol = this.GetComponent<CapsuleCollider>();
-                if (_CapsuleCol == null)
-                {
-                    _CapsuleCol = GetComponentInChildren<CapsuleCollider>();
-                }
-            }
-            return _CapsuleCol;
-        }
-    }
+
 }
