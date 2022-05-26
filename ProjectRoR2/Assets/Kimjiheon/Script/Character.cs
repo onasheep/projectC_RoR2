@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     protected float M2Cool = 4.0f;
     protected float ShiftCool = 6.0f;
     protected float ChargingTime = 0.0f;
-    protected float RCool = 6.0f;
+    protected float RCool = 4.0f;
 
 
     protected float M1checkT;

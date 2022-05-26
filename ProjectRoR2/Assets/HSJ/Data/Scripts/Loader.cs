@@ -15,7 +15,7 @@ public class Loader : Character
     //State//
     bool isRun = false;
     //////////////////MoveInput//////////////////  
-    
+
     //////////////////JumpInput//////////////////
     float forceGarvity = 0.0f;
     float delta;
@@ -38,8 +38,10 @@ public class Loader : Character
 
     // 쿨타임 UI;
     public KeyInputControl myKeyControl;
-    
-    
+    // 사운드 UI;
+    public SoundManager mySound;
+
+
 
     void ChangeState(STATE s)
     {
@@ -48,7 +50,7 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
-              
+
                 break;
             case STATE.PLAY:
                 break;
@@ -57,12 +59,12 @@ public class Loader : Character
                 break;
         }
     }
-   
+
     void StateProcess()
     {
         switch (myState)
         {
-            case STATE.CREATE:              
+            case STATE.CREATE:
                 break;
             case STATE.PLAY:
                 M1checkT += Time.deltaTime;
@@ -72,6 +74,8 @@ public class Loader : Character
                 ChargingTime += Time.deltaTime;
                 Jump();
                 Attack();
+                
+
                 break;
             case STATE.DEAD:
                 break;
@@ -85,8 +89,8 @@ public class Loader : Character
         ShiftcheckT = ShiftCool;
         RcheckT = RCool;
 
-        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;       
-        
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+
         if (myState == STATE.CREATE)
         {
             ChangeState(STATE.PLAY);
@@ -95,7 +99,7 @@ public class Loader : Character
         // 콤보이벤트 함수에서 애니메이션에 콤보체크에 해당 되면 콤보블을 treu 아니면 false를 반환하게 함
         this.GetComponentInChildren<ComboEvent>().ComboCheck += (value) => Comboable = value;
 
-        
+
 
 
     }
@@ -103,22 +107,22 @@ public class Loader : Character
     {
         if (myState == STATE.PLAY)
         {
-            PlayerCrashCheck();
+            //PlayerCrashCheck();
             PlayerMoving();
-            GroundCheck();
+            
         }
     }
-    
+
     void Update()
     {
         StateProcess();
-        
+
         //GetInput();
         Debug.Log(ChargingTime);
     }
-    
- 
-  
+
+
+
 
 
 
@@ -126,14 +130,14 @@ public class Loader : Character
     ///  이동 관련 
     /// </summary>
     /// 
-    void PlayerCrashCheck()
-    {
-        if(Physics.Raycast(this.transform.position + new Vector3(0.0f,0.5f,-0.5f),this.transform.forward,out RaycastHit hit,0.6f,CrashMask))
-        {
-            
-            myRigid.AddForce(Vector3.zero);
-        }
-    }
+    //void PlayerCrashCheck()
+    //{
+    //    if(Physics.Raycast(this.transform.position + new Vector3(0.0f,0.5f,-0.5f),this.transform.forward,out RaycastHit hit,0.6f,CrashMask))
+    //    {
+
+    //        myRigid.AddForce(Vector3.zero);
+    //    }
+    //}
 
 
     public void PlayerMoving()
@@ -150,15 +154,15 @@ public class Loader : Character
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.Euler(0.0f, MySpringArm.rotation.eulerAngles.y, 0.0f), Time.deltaTime * 5.0f);
         //이동
         myRigid.MovePosition(transform.position + _velocity * Time.deltaTime);
-        
+
         //방향대로 걷는 애니메이션
         myAnim.SetFloat("Dir.x", _moveDirX, 0.1f, Time.deltaTime);
         myAnim.SetFloat("Dir.y", _moveDirY, 0.1f, Time.deltaTime);
 
-        if (myAnim.GetFloat("Dir.y") > 0.8f ) 
+        if (myAnim.GetFloat("Dir.y") > 0.8f)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
-            { 
+            {
                 Debug.Log("LControl");
                 TryRun();
             }
@@ -202,16 +206,18 @@ public class Loader : Character
     {
         if (Input.GetKeyDown(KeyCode.Space) && !(myAnim.GetBool("OnAir") == true))
         {
-            
-                myCharacterdata.isLookAround = false;
-                myAnim.SetTrigger("Jump");
-                myAnim.SetBool("OnAir", true);
-                //myAnim.SetBool("Jumping", true);
-                RunningCancel();
-                myRigid.velocity = Vector3.up * myCharacterStat.JumpForce;
+
+            myCharacterdata.isLookAround = false;
+            myAnim.SetTrigger("Jump");
+            myAnim.SetBool("OnAir", true);
+            //myAnim.SetBool("Jumping", true);
+            RunningCancel();
+            myRigid.velocity = Vector3.up * myCharacterStat.JumpForce;
 
 
         }
+
+        GroundCheck();
     }
     //땅체크
     void GroundCheck()
@@ -223,14 +229,14 @@ public class Loader : Character
             //myAnim.SetBool("Jumping", false);
             myCharacterStat.JumpCount = 0;
             forceGarvity = 0;
-            myAnim.SetBool("IsRun", true);
+
 
         }
         else
         {
 
             myAnim.SetBool("OnAir", true);
-            myAnim.SetBool("IsRun", false);
+
             // 중력 조정           
 
             delta = forceGarvity * 5.0f * Time.deltaTime;
@@ -252,9 +258,9 @@ public class Loader : Character
         // RMB;      
         RMB();
         // Shift    
-        if(ShiftcheckT >= ShiftCool)
-        { 
-        Shift();
+        if (ShiftcheckT >= ShiftCool)
+        {
+            Shift();
         }
         // R      
         R();
@@ -262,6 +268,18 @@ public class Loader : Character
 
     }
 
+    // 공격 판단하고 이펙트 출력 
+    //IEnumerator Attacking(Transform target)
+    //{
+    //    Collider[] Monsters = Physics.OverlapSphere(target.position,
+    //        1.0f, 1 << LayerMask.NameToLayer("Monster"));
+    //    foreach(Collider mon in Monsters)
+    //    {
+    //        Instantiate(Effectsource, target.position, Quaternion.identity);
+    //        mon.GetComponent<Monster>()?.OnDamage(Damage);
+    //    }
+        
+    //}
 
     bool Comboable = false;
     void LMB()
@@ -276,6 +294,7 @@ public class Loader : Character
                 myAnim.SetBool("isSprint", false);
                 myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
                 myAnim.SetTrigger("LMBAtkR");
+                mySound.PlaySound("LMB");
 
             }
             if (myAnim.GetBool("IsLMBR") && Comboable && !myAnim.GetBool("IsLMBL"))
@@ -286,7 +305,7 @@ public class Loader : Character
                     myAnim.SetBool("isSprint", false);
                     myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
                     myAnim.SetTrigger("LMBAtkL");
-
+                    mySound.PlaySound("LMB");
                 }
             }
             M1checkT = 0.0f;
@@ -298,34 +317,27 @@ public class Loader : Character
     {
         if (M2checkT >= M2Cool && Input.GetMouseButtonDown(1))
         {
-            
+
             myAnim.SetBool("IsRMB", true);
-            
-           
+
+
             if (myAnim.GetBool("IsRMB"))
             {
                 myAnim.SetTrigger("RMB");
+                mySound.PlaySound("RMB");
                 myKeyControl.LM2CoolTime(M2Cool);
                 //주먹 생성
                 GameObject obj = Instantiate(LoaderFist, HookStart);
                 //부모해제 후 캐릭터 각도로 주먹 각도 변경
                 obj.GetComponent<Transform>().parent = null;
                 obj.GetComponent<Transform>().transform.eulerAngles = this.transform.eulerAngles;
-
                 //에임 방향으로 주먹 발사
                 obj.GetComponent<Rigidbody>().AddForce(MySpringArm.forward * 80.0f, ForceMode.VelocityChange);
-
-                //로더의 오브젝트에 스프링조인트를 생성하고 오브젝트인 주먹과 연결함
-                
-                
+                //로더의 오브젝트에 스프링조인트를 생성하고 오브젝트인 주먹과 연결함             
                 _SJoint.connectedBody = obj.GetComponent<Rigidbody>();
                 _SJoint.maxDistance = 8.0f;
 
-
-
             }
-
-           
 
             M2checkT = 0.0f;
         }
@@ -345,12 +357,13 @@ public class Loader : Character
     void Shift()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (ShiftcheckT >= ShiftCool && Input.GetKeyDown(KeyCode.LeftShift))
         {
             ChargingTime = 0.0f;
             myAnim.SetTrigger("ShiftAtk");
             myAnim.SetBool("IsShift", true);
             myAnim.SetBool("IsPunchLoop", true);
+
             //if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
             //{
             //    myAnim.SetBool("OnAir", false);
@@ -361,7 +374,9 @@ public class Loader : Character
             myAnim.SetBool("IsPunchLoop", false);
             myRigid.AddForce(Vector3.zero);
             myRigid.AddForce(MySpringArm.forward * 50.0f, ForceMode.Impulse);
-            myKeyControl.LShiftCoolTime(ShiftCool);         
+            mySound.PlaySound("Shift");
+
+            myKeyControl.LShiftCoolTime(ShiftCool);
             ShiftcheckT = 0.0f;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && 1.0f < ChargingTime && ChargingTime <= 3.0f)
@@ -369,51 +384,47 @@ public class Loader : Character
             myAnim.SetBool("IsPunchLoop", false);
             myRigid.AddForce(Vector3.zero);
             myRigid.AddForce(MySpringArm.forward * 100.0f, ForceMode.Impulse);
+            mySound.PlaySound("Shift");
             myKeyControl.LShiftCoolTime(ShiftCool);
             ShiftcheckT = 0.0f;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime >= 5.0f)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime >= 3.0f)
         {
             myAnim.SetBool("IsPunchLoop", false);
             myRigid.AddForce(Vector3.zero);
             myRigid.AddForce(MySpringArm.forward * 150.0f, ForceMode.Impulse);
+            mySound.PlaySound("Shift");
+
             myKeyControl.LShiftCoolTime(ShiftCool);
             ShiftcheckT = 0.0f;
         }
         myAnim.SetBool("IsShift", false);
     }
 
-    void ShiftMovement()
-    {
 
-    }
     void R()
     {
-        if (Input.GetKeyDown(KeyCode.R) && myAnim.GetBool("OnAir") == false)
+        if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R))
         {
-            myKeyControl.LRCoolTime(RCool);           
-            
-            myRigid.AddForce(Vector3.up * 10.0f, ForceMode.VelocityChange);
+
+            forceGarvity = 10.0f;
+            delta = forceGarvity * Time.deltaTime;
+            myKeyControl.LRCoolTime(RCool);
+            myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
+            myRigid.AddForce(Vector3.down * delta, ForceMode.Force);
             myAnim.SetTrigger("RAtk");
-
-
             myAnim.SetBool("OnAir", true);
-            
+            myAnim.SetBool("IsR", true);
+            if (myAnim.GetBool("OnAir") && Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
+            {
+                myAnim.SetBool("OnAir", false);
+                myAnim.SetBool("IsR", false);
+                forceGarvity = 0;
+                mySound.PlaySound("R");
 
-
-         
-
+            }
+            RcheckT = 0.0f;
         }
-        if (Input.GetKeyDown(KeyCode.R) && myAnim.GetBool("OnAir") == true)
-        {
-            myRigid.AddForce(Vector3.up * 10.0f, ForceMode.VelocityChange);
-            myAnim.SetTrigger("RAtk");
-        }
-
-
-
-        myAnim.SetBool("Run", true);
-
+       
     }
-
 }

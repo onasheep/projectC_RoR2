@@ -61,6 +61,7 @@
     <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
+    <Compile Include="Assets\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
@@ -112,7 +113,8 @@
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
-    <Compile Include="Assets\RmbState.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\RState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
