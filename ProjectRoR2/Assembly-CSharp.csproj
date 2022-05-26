@@ -60,6 +60,7 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\RootAnimation.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
+    <Compile Include="Assets\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
@@ -67,7 +68,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
     <Compile Include="Assets\ShiftState.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CSkillPanel.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\AttackStateL.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateL.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharacSelect.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Property.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_Player.cs" />
@@ -79,11 +80,11 @@
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\ComboEvent.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\AttackStateR.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
     <Compile Include="Assets\HSJ\Data\Effect\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
@@ -110,6 +111,8 @@
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\RState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
