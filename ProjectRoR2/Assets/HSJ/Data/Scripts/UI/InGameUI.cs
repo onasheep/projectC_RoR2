@@ -8,11 +8,35 @@ public class InGameUI : MonoBehaviour
     Vector3 ScreenCenter;
     public Transform Canvas;
     public Camera Aimcamera;
+    // timer
     public TMPro.TMP_Text TimeText;
-    public float time;
+    float time;
+
+    // hpbar
+    public KJH_CharacterStat myStat;
+    [SerializeField] private Slider myHpbar;
+    float maxHp = 100;  // 최대체력과 현재체력은 나중에 스탯에서 가져오면 대체할 수 있음 
+    float curHP = 100; // 작동용으로 만들어 둔것 
+    public TMPro.TMP_Text HpbarText;
+
+    // expbar
+    [SerializeField] private Slider myExpbar;
+    float maxExp = 100;
+    float curExp = 0.0f;
+    public TMPro.TMP_Text LevelText;
+    int Level = 1;
+
+    // Gold
+    public TMPro.TMP_Text GoldText;
+    int Gold = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        myHpbar.value = (float)curHP / (float)maxHp;
+        myExpbar.value = (float)curExp / (float)maxExp;
+        LevelText.text = "레벨 : " + Level;
+
         MakeAim();
     }
 
@@ -20,6 +44,9 @@ public class InGameUI : MonoBehaviour
     void Update()
     {
         Timer();
+        HpBarController();
+        ExpBarController();
+        GainGold();
     }
     public void MakeAim()
     {
@@ -28,12 +55,66 @@ public class InGameUI : MonoBehaviour
         GameObject Crosshair = Instantiate(Resources.Load("Prefabs/CrossHair"), Canvas) as GameObject;
     }
 
-    void Timer()
+    private void Timer()
     {
         time += Time.deltaTime;
-        string hour = ((int)time / 3600).ToString();
-        string min = ((int)time / 60).ToString();
-        string sec = ((int)time).ToString();
         TimeText.text = string.Format("{0:N1}",time);
+    }
+
+    // 이 아래로
+    // 데이터 추가되면 수정 할 것
+    private void HpBarController() // damage를 변수로 받아와서 사용 
+    {
+        if(Input.GetKeyDown(KeyCode.M)) // 조건 나중에 바꿈
+        {
+            if(curHP > 0)
+            {
+                curHP -= 10; // 나중에 데미지로 바꿈 
+
+            }
+            else
+            {
+                curHP = 0;
+            }
+        }
+        myHpbar.value = Mathf.Lerp(myHpbar.value, (float)curHP / (float)maxHp, Time.deltaTime * 10.0f); // hp 감소 Lerp로 부드럽게 
+        HpbarText.text = curHP + "/" + maxHp; // hpbar 텍스트 변경 
+    }
+
+    private void ExpBarController()
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            if(curExp < maxExp) // 레벨업했을때 
+            {
+                curExp += 10.0f;
+            }
+            if(curExp == maxExp)
+            {
+                Level++;
+                LevelText.text = "레벨 : " + Level; // 레벨업마다 레벨업 수치 반영 
+                maxExp += 10.0f; // 레벨업하면 요구 경험치 상승 임의 수치 10.0f;
+                curExp = 0.0f;
+            }      
+        }
+        myExpbar.value = Mathf.Lerp(myExpbar.value, (float)curExp / (float)maxExp, Time.deltaTime * 10.0f);
+    }
+
+    private void GainGold()
+    {
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            Gold += 10;
+
+        }
+        //if(Gold < Price)
+        //{
+
+        //}
+        //if( 아이템을 샀다 ) 
+        //{
+        //    Gold -= Price;
+        //}
+        GoldText.text = Gold.ToString();
     }
 }

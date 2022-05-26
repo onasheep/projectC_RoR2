@@ -14,11 +14,14 @@ public class Loader : Character
     public STATE myState = STATE.CREATE;
     //State//
     bool isRun = false;
+    bool isJump = false;
     //////////////////MoveInput//////////////////  
 
     //////////////////JumpInput//////////////////
     float forceGarvity = 0.0f;
     float delta;
+    float Rtime;
+
     //////////////////AttackInput//////////////////     
     public Transform HookStart;
     public GameObject LoaderFist;
@@ -118,7 +121,6 @@ public class Loader : Character
         StateProcess();
 
         //GetInput();
-        Debug.Log(ChargingTime);
     }
 
 
@@ -204,9 +206,9 @@ public class Loader : Character
     // 점프
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !(myAnim.GetBool("OnAir") == true))
+        if (Input.GetKeyDown(KeyCode.Space) && !(myAnim.GetBool("OnAir") == true) && !isJump)
         {
-
+            isJump = true;
             myCharacterdata.isLookAround = false;
             myAnim.SetTrigger("Jump");
             myAnim.SetBool("OnAir", true);
@@ -216,7 +218,7 @@ public class Loader : Character
 
 
         }
-
+        isJump = false;
         GroundCheck();
     }
     //땅체크
@@ -315,7 +317,7 @@ public class Loader : Character
 
     void RMB()
     {
-        if (M2checkT >= M2Cool && Input.GetMouseButtonDown(1))
+        if (M2checkT >= M2Cool && Input.GetMouseButtonDown(1) && !myAnim.GetBool("IsRMB"))
         {
 
             myAnim.SetBool("IsRMB", true);
@@ -329,14 +331,15 @@ public class Loader : Character
                 //주먹 생성
                 GameObject obj = Instantiate(LoaderFist, HookStart);
                 //부모해제 후 캐릭터 각도로 주먹 각도 변경
-                obj.GetComponent<Transform>().parent = null;
-                obj.GetComponent<Transform>().transform.eulerAngles = this.transform.eulerAngles;
+                obj.transform.parent = null;
+                obj.transform.eulerAngles = this.transform.eulerAngles;
                 //에임 방향으로 주먹 발사
-                obj.GetComponent<Rigidbody>().AddForce(MySpringArm.forward * 80.0f, ForceMode.VelocityChange);
+                obj.GetComponent<GrappleFist>().Dir = MySpringArm.forward;
+                obj.GetComponent<GrappleFist>().Lsjoint = _SJoint;
                 //로더의 오브젝트에 스프링조인트를 생성하고 오브젝트인 주먹과 연결함             
                 _SJoint.connectedBody = obj.GetComponent<Rigidbody>();
                 _SJoint.maxDistance = 8.0f;
-
+                
             }
 
             M2checkT = 0.0f;
@@ -357,7 +360,7 @@ public class Loader : Character
     void Shift()
     {
 
-        if (ShiftcheckT >= ShiftCool && Input.GetKeyDown(KeyCode.LeftShift))
+        if (ShiftcheckT >= ShiftCool && Input.GetKeyDown(KeyCode.LeftShift) & !myAnim.GetBool("IsShift"))
         {
             ChargingTime = 0.0f;
             myAnim.SetTrigger("ShiftAtk");
@@ -404,27 +407,35 @@ public class Loader : Character
 
     void R()
     {
-        if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R))
+        if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R) && !myAnim.GetBool("IsR"))
         {
-
-            forceGarvity = 10.0f;
-            delta = forceGarvity * Time.deltaTime;
+            Rtime += Time.deltaTime * 10.0f;           
             myKeyControl.LRCoolTime(RCool);
-            myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
-            myRigid.AddForce(Vector3.down * delta, ForceMode.Force);
-            myAnim.SetTrigger("RAtk");
-            myAnim.SetBool("OnAir", true);
             myAnim.SetBool("IsR", true);
-            if (myAnim.GetBool("OnAir") && Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out RaycastHit hit, 0.6f, Onground))
+            Debug.Log(myAnim.GetBool("IsR"));
+            myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
+            myAnim.SetBool("OnAir", true);
+            myAnim.SetTrigger("RAtk");
+            
+            Debug.Log(Rtime);
+            if (myAnim.GetBool("OnAir") && Rtime >= 0.3f)
             {
+                
                 myAnim.SetBool("OnAir", false);
                 myAnim.SetBool("IsR", false);
-                forceGarvity = 0;
+                myRigid.AddForce(Vector3.down * 100.0f, ForceMode.VelocityChange);
+
+                
                 mySound.PlaySound("R");
+                Rtime = 0.0f;
 
             }
+            
             RcheckT = 0.0f;
+            Rtime = 0.0f;
+            myAnim.SetBool("IsR", false);
         }
-       
+        
+
     }
 }

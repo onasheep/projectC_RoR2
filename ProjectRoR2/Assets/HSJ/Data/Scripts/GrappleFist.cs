@@ -8,56 +8,54 @@ public class GrappleFist : Character
     public float Speed = 20.0f;
     float FistCounter = 0.0f;
     LineRenderer lr;
-    bool FistCheck;
+    bool FistCheck = false;
+    public Vector3 Dir = Vector3.zero;
+    public SpringJoint Lsjoint = null;
     void Start()
     {
+
+        Lsjoint.maxDistance = 100.0f;
         lr = this.GetComponent<LineRenderer>();
         lr.startWidth = 0.03f;
         lr.endWidth = 0.03f;
         FistCheck = false;
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         lr.SetPosition(0, this.transform.localPosition );
         lr.SetPosition(1, GameObject.Find("mech.hand.end.l").GetComponent<Transform>().position);
 
+
         FistCounter += Time.deltaTime;
-        Debug.Log(FistCounter);
-        if (FistCounter > 1.2f && FistCheck == false)
+        if (FistCounter > 1.0f && FistCheck == false)
         {
             Destroy(this.gameObject);
             FistCounter = 0.0f;
         }
     }
 
-    
-
-
-    IEnumerator FistStuck(Vector3 hit)
+    private void FixedUpdate()
     {
-        while(!Input.GetMouseButtonUp(1))
-        {
-            this.transform.position = hit;
-            yield return null;
-        }
-        
-    }
+        if (FistCheck) return;
+        float Speed = 40.0f;
+        float dist = Time.deltaTime * Speed;
+        this.transform.Translate(Dir * dist, Space.World);
 
-    private void OnTriggerEnter(Collider other)
-    {
 
-        if ((Crashmask & (1 << other.gameObject.layer)) > 0)
+        Ray ray = new Ray();
+        ray.origin = this.transform.position;
+        ray.direction = Dir;
+        if (Physics.Raycast(ray, out RaycastHit hit, dist, Crashmask))
         {
+            Lsjoint.maxDistance = 2.0f;
             FistCheck = true;
-            Debug.Log("!");
-            StartCoroutine(FistStuck(this.transform.position));
-
+            this.transform.position = hit.point;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
+      
         
-
     }
+
 
 }

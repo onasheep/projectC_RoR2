@@ -80,9 +80,11 @@
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\Minjun\Script\Player_test_m.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\AIPerception.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\Character1.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
@@ -98,12 +100,14 @@
     <Compile Include="Assets\HanJongSu\Datas\AnimStateScripts\CreateStateAnim.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil1.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\KeyInputControl.cs" />
     <Compile Include="Assets\Minjun\Script\Item.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Monster.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader.cs" />
+    <Compile Include="Assets\RState.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_CameraArm.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
@@ -111,8 +115,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
-    <Compile Include="Assets\RState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -739,6 +741,9 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -762,9 +767,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
