@@ -13,9 +13,8 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         this.audioSource = GetComponent<AudioSource>();
-        
     }
-
+    
     public void PlaySound(string action)
     {
         switch (action)

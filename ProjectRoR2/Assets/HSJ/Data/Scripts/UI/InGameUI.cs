@@ -8,6 +8,9 @@ public class InGameUI : MonoBehaviour
     Vector3 ScreenCenter;
     public Transform Canvas;
     public Camera Aimcamera;
+    public Loader myLoader;
+    public KJH_CameraArm myCamera;
+    public AudioListener mySound;
     // timer
     public TMPro.TMP_Text TimeText;
     float time;
@@ -30,7 +33,10 @@ public class InGameUI : MonoBehaviour
     public TMPro.TMP_Text GoldText;
     int Gold = 0;
 
-    // Start is called before the first frame update
+    // Esc 
+    public GameObject Esc = null;
+    bool EscActive = false;
+
     void Start()
     {
         myHpbar.value = (float)curHP / (float)maxHp;
@@ -47,6 +53,11 @@ public class InGameUI : MonoBehaviour
         HpBarController();
         ExpBarController();
         GainGold();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EscMenu();
+        }
+     
     }
     public void MakeAim()
     {
@@ -116,5 +127,35 @@ public class InGameUI : MonoBehaviour
         //    Gold -= Price;
         //}
         GoldText.text = Gold.ToString();
+    }
+
+    public void EscMenu()
+    {       
+        if(EscActive == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Esc.SetActive(true);
+            Time.timeScale = 0.0f;
+            Time.fixedDeltaTime = 0.0f;
+            EscActive = true;
+            myLoader.ChangeState(Loader.STATE.PAUSE);
+            mySound.GetComponent<AudioListener>().enabled = false;
+            myCamera.GetComponent<KJH_CameraArm>().enabled = false;
+           
+        }
+        else if(EscActive == true)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Esc.SetActive(false);
+            Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale ;
+            EscActive = false;
+            myLoader.ChangeState(Loader.STATE.PLAY);
+            mySound.GetComponent<AudioListener>().enabled = true;
+            myCamera.GetComponent<KJH_CameraArm>().enabled = true;
+
+        }
     }
 }

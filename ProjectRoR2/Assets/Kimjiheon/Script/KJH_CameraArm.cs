@@ -16,11 +16,11 @@ public class KJH_CameraArm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; // 카메라 암에있던것 옮김
         StartCam = myCamera.localPosition;
         myZoom = -myCamera.localPosition.z;
     }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +28,7 @@ public class KJH_CameraArm : MonoBehaviour
         CamCollision();
         FollowCam();
     }
-    
+
     public void LookAround()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));

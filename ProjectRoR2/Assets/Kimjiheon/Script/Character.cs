@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+ 
+
+
     // 로더 스탯
     protected float playTime = 0.0f;
     protected float M1Cool = 0.5f;
@@ -12,7 +15,7 @@ public class Character : MonoBehaviour
     protected float ChargingTime = 0.0f;
     protected float RCool = 4.0f;
 
-
+    // 로더 쿨타임 체크용
     protected float M1checkT;
     protected float M2checkT;
     protected float ShiftcheckT;
