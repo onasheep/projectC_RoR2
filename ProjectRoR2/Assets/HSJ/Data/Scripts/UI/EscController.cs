@@ -12,12 +12,16 @@ public class EscController : MonoBehaviour
     }
     public void StartSceneLoader()
     {
+        myUI.EscMenu();
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadSceneAsync(0);
     }
 
 
     public void CharselScene()
     {
+        myUI.EscMenu();
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadSceneAsync(1);
     }
 }

@@ -15,6 +15,8 @@ public class Loader : Character
     //State//
     bool isRun = false;
     bool isJump = false;
+    bool isR = false;
+    bool isShift = false;
     //////////////////MoveInput//////////////////  
 
     //////////////////JumpInput//////////////////
@@ -46,7 +48,6 @@ public class Loader : Character
     // ¿Ã∆Â∆Æ UI;
     public GameObject ShiftEffect;
     public GameObject LMBEffect;
-    public GameObject REffect;
     public GameObject ChargingEffect;
 
     
@@ -245,20 +246,15 @@ public class Loader : Character
         RaycastHit hit;      
         if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out hit, 0.55f, 1 << LayerMask.NameToLayer("Ground")))
         {
-            forceGravity = 0.0f;
             myAnim.SetBool("OnAir", false);
             myCharacterStat.JumpCount = 0;
-            Debug.Log(forceGravity);
         }
         else
         {      
             myAnim.SetBool("OnAir", true);        
             myAnim.SetFloat("Dir.x", Mathf.Epsilon);
             myAnim.SetFloat("Dir.y", Mathf.Epsilon);
-            forceGravity++;
-            delta = Time.deltaTime * forceGravity;
-            myRigid.AddForce(Vector3.down * delta,ForceMode.Force);
-            Debug.Log(forceGravity);
+        
         }
     }
     //IEnumerator GravityStrong(float speed)
@@ -285,11 +281,9 @@ public class Loader : Character
         RMB();
         // Shift    
         if (ShiftcheckT >= ShiftCool)
-        {
             Shift();
-        }
-        // R      
-        R();
+        // R        
+            R();
 
 
     }
@@ -304,7 +298,7 @@ public class Loader : Character
     //        Instantiate(Effectsource, target.position, Quaternion.identity);
     //        mon.GetComponent<Monster>()?.OnDamage(Damage);
     //    }
-        
+
     //}
 
     bool Comboable = false;
@@ -385,27 +379,37 @@ public class Loader : Character
     void Shift()
     {
         
-        if (ShiftcheckT >= ShiftCool && Input.GetKeyDown(KeyCode.LeftShift) & !myAnim.GetBool("IsShift"))
+        if (ShiftcheckT >= ShiftCool && Input.GetKeyDown(KeyCode.LeftShift) && !myAnim.GetBool("IsShift"))
         {
+            isShift = true;
+
             ChargingTime = 0.0f;
             myAnim.SetTrigger("ShiftAtk");
             myAnim.SetBool("IsShift", true);
             myAnim.SetBool("IsPunchLoop", true);
 
-        }
+        }       
         if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime <= 1.0f)
         {
+            isShift = true;
+
             PunchActive(80.0f);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && 1.0f < ChargingTime && ChargingTime <= 3.0f)
         {
+            isShift = true;
+
             PunchActive(160.0f);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime >= 3.0f)
         {
+            isShift = true;
+
             PunchActive(240.0f);
         }
         myAnim.SetBool("IsShift", false);
+        isShift = false;
+
     }
     void PunchActive(float speed)
     {
@@ -433,10 +437,11 @@ public class Loader : Character
         }
         if (myAnim.GetBool("IsR") && !myAnim.GetBool("OnAir"))
         {
-            mySound.PlaySound("R");
-            Instantiate(REffect, GameObject.Find("pelvis").transform);
+
             myAnim.SetBool("IsR", false);
+            isR = true;
         }
+        
     }
 
 }

@@ -9,6 +9,7 @@ public class ComboEvent : MonoBehaviour
     public GameObject Effect;
     public Transform RArm;
     public Transform LArm;
+    public SoundManager mySpeaker;
 
 
 
@@ -31,6 +32,10 @@ public class ComboEvent : MonoBehaviour
         Instantiate(Effect, RArm);
 
     }
-
+    public void REffectSound()
+    {
+        mySpeaker.PlaySound("R");
+        mySpeaker.GetComponent<AudioSource>().Play();
+    }
 
 }

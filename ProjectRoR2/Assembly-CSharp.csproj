@@ -61,19 +61,19 @@
     <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
-    <Compile Include="Assets\RmbState.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\ItemBox2T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
-    <Compile Include="Assets\ShiftState.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ShiftState.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CSkillPanel.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateL.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharacSelect.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Property.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_Player.cs" />
-    <Compile Include="Assets\PunchLoopCheck.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchLoopCheck.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\Lemurian.cs" />
     <Compile Include="Assets\KimKJ\Data\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
@@ -108,7 +108,8 @@
     <Compile Include="Assets\Minjun\Script\ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Monster.cs" />
-    <Compile Include="Assets\RState.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\EscController.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\RState.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_CameraArm.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\Loader.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
@@ -117,8 +118,8 @@
     <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\Script\Item\Bullet.cs" />
-    <Compile Include="Assets\PunchFire.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\EscController.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\AnimState\Airloop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

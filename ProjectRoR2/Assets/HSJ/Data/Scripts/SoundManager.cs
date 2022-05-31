@@ -21,12 +21,10 @@ public class SoundManager : MonoBehaviour
         {
             case "LMB":
                 audioSource.volume = 0.1f;
-                audioSource.clip = audioLMB;
-                
+                audioSource.clip = audioLMB;    
                 break;
             case "RMB":
                 audioSource.volume = 0.1f;
-
                 audioSource.clip = audioRMB;
                 break;
             case "Shift":
@@ -37,7 +35,6 @@ public class SoundManager : MonoBehaviour
                 audioSource.volume = 0.05f;
                 audioSource.clip = audioR;      
                 break;
-          
         }
         audioSource.Play();
     }
