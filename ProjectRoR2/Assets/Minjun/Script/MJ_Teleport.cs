@@ -10,7 +10,8 @@ public class MJ_Teleport : MonoBehaviour
     BoxCollider BoxCol;
     SphereCollider SpherCol;
     GameObject Range;
-    
+    GameObject RedF;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class MJ_Teleport : MonoBehaviour
         SpherCol = GetComponent<SphereCollider>();
         SpherCol.enabled = false;
         Range.SetActive(false);
-        GameObject obj = Instantiate(Resources.Load("Effect/Red_Floating"), this.transform.position, Quaternion.identity) as GameObject;
+        RedF = Instantiate(Resources.Load("Effect/Red_Floating"), this.transform.position, Quaternion.identity,this.transform) as GameObject;
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class MJ_Teleport : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                RedF.SetActive(false);
                 _Charging = true;
                 BoxCol.enabled = false;
                 SpherCol.enabled = true;
