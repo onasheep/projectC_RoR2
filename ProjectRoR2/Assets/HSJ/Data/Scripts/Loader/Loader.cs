@@ -280,9 +280,10 @@ public class Loader : Character
         // RMB;      
         RMB();
         // Shift    
-        if (ShiftcheckT >= ShiftCool)
+        if (ShiftcheckT >= ShiftCool && isR != true)
             Shift();
-        // R        
+        // R
+        if (isShift != true)
             R();
 
 
@@ -308,7 +309,6 @@ public class Loader : Character
         if (M1checkT >= M1Cool && Input.GetMouseButtonDown(0))
         {
 
-
             if (!myAnim.GetBool("IsLMBR"))
             {
                 myAnim.SetBool("isSprint", false);
@@ -330,7 +330,6 @@ public class Loader : Character
             }
             M1checkT = 0.0f;
         }
-
     }
 
     void RMB()
@@ -387,7 +386,7 @@ public class Loader : Character
             myAnim.SetTrigger("ShiftAtk");
             myAnim.SetBool("IsShift", true);
             myAnim.SetBool("IsPunchLoop", true);
-
+            Debug.Log(isShift);
         }       
         if (Input.GetKeyUp(KeyCode.LeftShift) && ChargingTime <= 1.0f)
         {
@@ -408,7 +407,7 @@ public class Loader : Character
             PunchActive(240.0f);
         }
         myAnim.SetBool("IsShift", false);
-        isShift = false;
+        
 
     }
     void PunchActive(float speed)
@@ -419,17 +418,16 @@ public class Loader : Character
         mySound.PlaySound("Shift");
         myKeyControl.LShiftCoolTime(ShiftCool);
         ShiftcheckT = 0.0f;
-        
+        isShift = false;
     }
 
     void R()
     {
         if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R) && !myAnim.GetBool("IsR"))
         {
-            
+            isR = true;
             myKeyControl.LRCoolTime(RCool);
             myAnim.SetBool("IsR", true);
-            Debug.Log(myAnim.GetBool("IsR"));
             myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
             myAnim.SetBool("OnAir", true);
             myAnim.SetTrigger("RAtk");                      
@@ -437,11 +435,11 @@ public class Loader : Character
         }
         if (myAnim.GetBool("IsR") && !myAnim.GetBool("OnAir"))
         {
-
+            isR = false;
             myAnim.SetBool("IsR", false);
-            isR = true;
+
         }
-        
+
     }
 
 }
