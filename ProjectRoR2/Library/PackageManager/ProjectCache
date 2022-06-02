@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637888129830375565
-    m_Hash: 4244613510
+      ticks: 637892269230878059
+    m_Hash: 4080749973
   m_LockFileStatus:
     m_FilePath: C:/Users/inaba/Documents/GitHub/projectC_RoR2/ProjectRoR2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637888129830482702
-    m_Hash: 3907215940
+      ticks: 637892269230898075
+    m_Hash: 3983221893
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
