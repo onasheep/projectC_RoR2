@@ -22,6 +22,7 @@ public class Airloop : StateMachineBehaviour
         {
 
             animator.GetComponent<Rigidbody>().AddForce(Vector3.up * 40.0f, ForceMode.VelocityChange);
+            animator.SetBool("OnAir", false);
             Instantiate(REffect, GameObject.Find("pelvis").transform);
             AudioSource.PlayClipAtPoint(sound, animator.transform.position,0.2f);
             
