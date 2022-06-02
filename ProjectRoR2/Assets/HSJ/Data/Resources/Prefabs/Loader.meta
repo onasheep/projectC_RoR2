@@ -1,18 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 777a618ad0598d946b2cb61ec0044173
-folderAsset: yes
-DefaultImporter:
-=======
-<<<<<<<< HEAD:ProjectRoR2/Assets/HSJ/Data/Resources/Prefabs/Effects/Hit_01.prefab.meta
-guid: bc9949951213cbc4faa606bccb97a1c8
-PrefabImporter:
-========
 guid: 2f1dcc3217d6e7641a1d360c8fa2601e
 folderAsset: yes
 DefaultImporter:
->>>>>>>> HSJ_Inventory:ProjectRoR2/Assets/HSJ/Data/Resources/Prefabs/Loader.meta
->>>>>>> HSJ_Inventory
   externalObjects: {}
   userData: 
   assetBundleName: 
