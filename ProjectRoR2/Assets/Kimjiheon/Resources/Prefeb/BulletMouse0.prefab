@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1612782875544511032}
   - component: {fileID: 7741053964929721371}
   - component: {fileID: 3364639346102240868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BulletMouse0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   damage: 20
   CrushMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 576
 --- !u!96 &1612782875544511032
 TrailRenderer:
   serializedVersion: 2
@@ -99,8 +99,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0027777776
-        value: 0.24999619
+        time: 0
+        value: 0.0639534
         inSlope: -0.09263903
         outSlope: -0.09263903
         tangentMode: 0

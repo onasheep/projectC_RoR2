@@ -24,6 +24,10 @@ public class KJH_Player : Character
     private Transform myPelvis;
     [SerializeField]
     private LayerMask Onground;
+    [SerializeField]
+    private Transform ShotPosR;
+    [SerializeField]
+    private Transform ShotPosL;
     //State//
     public KJH_CharacterData myCharacterdata;
     public KJH_CharacterStat myCharacterStat;
@@ -32,11 +36,15 @@ public class KJH_Player : Character
     Vector3 lookForward;
     Vector3 lookRight;
     Vector3 moveInput;
+    Vector3 camAngle;
+    Vector2 mouseDelta;
     //////////////////JumpInput//////////////////
 
     /////////////////////////////////////////
     Coroutine cooltime;
-    public float RollTimeCheck;
+    float RollTimeCheck;
+    float AttackTimeCheck;
+    float RMBTimeCheck;
     public float cooltimeCheck = 0;
     void ChangeState(STATE s)
     {
@@ -62,6 +70,7 @@ public class KJH_Player : Character
                 Jump();
                 TryRun();
                 TryRoll();
+                Attack();
                 break;
             case STATE.DEAD:
                 break;
@@ -69,7 +78,10 @@ public class KJH_Player : Character
     }
     void Start()
     {
-        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;       
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+        RollTimeCheck = myCharacterStat.RollTime;
+        AttackTimeCheck = myCharacterStat.AttackDelay;
+        RMBTimeCheck = myCharacterStat.RMBTime;
         if (myState == STATE.CREATE)
         {
             ChangeState(STATE.PLAY);
@@ -83,30 +95,52 @@ public class KJH_Player : Character
             
         }
     }
-    
     private void LateUpdate()
-    {        
+    {
         if (myCharacterdata.isLookAround)
         {
-            myChest.transform.LookAt(myFrontAim);
-        }    
+            LookAround();
+        }
     }
     public void LookAround()
     {
-        float angle = Vector3.Angle(myChest.forward, -myPelvis.forward);
-        Debug.Log(angle);
+        float Angle = Vector3.Angle(myChest.forward, -myPelvis.forward);
+        float y = camAngle.y;
+        float x = camAngle.x - mouseDelta.y;
+        if (x < 180.0f)
+        {
+            x = Mathf.Clamp(x, -1.0f, 90.0f);
+        }
+        else
+        {
+            x = Mathf.Clamp(x, 295.0f, 361f);
+        }
+        /*
+        if (Angle < 180.0f)
+        {
+            Angle = Mathf.Clamp(x, -1.0f, 60.0f);
+        }
+        else
+        {
+            Angle = Mathf.Clamp(x, 295.0f, 361f);
+        }
+        */
+        myChest.transform.LookAt(myFrontAim);
+        //myChest.transform.rotation = Quaternion.Euler(x, y, camAngle.z);
+        Debug.Log(camAngle);
     }
     void Update()
     {        
         StateProcess();
-        GroundCheck();
-        LookAround();
+        GroundCheck();       
         GetInput();
         //Debug.DrawRay(myCamArm.transform.position, myFrontAim.transform.position - myCamArm.transform.position, Color.red);
         //Debug.DrawRay(transform.position, Vector3.down, Color.red);
     }
     void GetInput()
     {
+        mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        camAngle = myChest.transform.rotation.eulerAngles;
         //키보드 WSAD 값
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical")).normalized;
         //카메라 정면 방향값
@@ -130,6 +164,8 @@ public class KJH_Player : Character
         myAnim.SetBool("ismove", myCharacterdata.ismove);
         //쿨타임 시간 체크
         RollTimeCheck += Time.deltaTime;
+        AttackTimeCheck += Time.deltaTime;
+        RMBTimeCheck += Time.deltaTime;
         //Debug.Log(RollTimeCheck);
         
     }
@@ -155,7 +191,7 @@ public class KJH_Player : Character
             {
                 delta = data.Angle;
             }
-            myAnim.transform.Rotate(Vector3.up * delta * data.Dir);
+            transform.Rotate(Vector3.up * delta * data.Dir);
             data.Angle -= delta;
             yield return null;
         }
@@ -171,8 +207,8 @@ public class KJH_Player : Character
             //공격 할때 달리기 취소
             RunningCancel();
             //카메라 기준 조준 방향으로 전환
+            //myChest.transform.rotation = Quaternion.LookRotation(new Vector3(lookForward.x, Mathf.Epsilon, lookForward.z));
             transform.rotation = Quaternion.LookRotation(new Vector3(lookForward.x, Mathf.Epsilon, lookForward.z));
-            
             myAnim.SetFloat("Dir.x", moveInput.x, 0.1f, Time.deltaTime);
             myAnim.SetFloat("Dir.y", moveInput.z, 0.1f, Time.deltaTime);
                      
@@ -226,6 +262,7 @@ public class KJH_Player : Character
         myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
         myAnim.SetBool("isSprint", false);       
     }
+    //구르기
     public void TryRoll()
     {       
         if (Input.GetKeyDown(KeyCode.LeftShift) && myCharacterdata.isRoll == false && RollTimeCheck >= myCharacterStat.RollTime)
@@ -280,6 +317,7 @@ public class KJH_Player : Character
             //transform.position += moveDir * 5.0f;
         }
     }
+    
     IEnumerator Rolling(Vector3 dir)
     {
         float dist = dir.magnitude;
@@ -305,9 +343,8 @@ public class KJH_Player : Character
     }
     // 점프
     public void Jump()
-    {   
-        
-        if (Input.GetKeyDown("space") /*&& myCharacterdata.isGround*/)
+    {          
+        if (Input.GetKeyDown("space"))
         {
             if (myCharacterStat.JumpCount < myCharacterStat.JumpItem)
             {
@@ -320,10 +357,10 @@ public class KJH_Player : Character
             }           
         }       
     }
+    //땅체크
     void GroundCheck()
     {
         RaycastHit hit;
-        Debug.DrawRay(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, Color.red);
         if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out hit, 0.6f, Onground))
         {
             myAnim.SetBool("OnAir", false);
@@ -334,6 +371,58 @@ public class KJH_Player : Character
         {
             myAnim.SetBool("OnAir", true);
         }
+    }
+    void Attack()
+    {
+        LMB();
+        RMB();
+        RKB();
+    }
+    //왼쪽마우스공격
+    void LMB()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (myCharacterdata.GunSwitch == false && AttackTimeCheck >= myCharacterStat.AttackDelay)
+            {
+                AttackTimeCheck = 0;
+                myAnim.SetTrigger("LMBAtkR");
+                myCharacterdata.GunSwitch = true;
+                StartCoroutine(ShotBullet(ShotPosR, "BulletMouse0"));
+            }
+            if (myCharacterdata.GunSwitch == true && AttackTimeCheck >= myCharacterStat.AttackDelay)
+            {
+                AttackTimeCheck = 0;
+                myAnim.SetTrigger("LMBAtkL");
+                myCharacterdata.GunSwitch = false;
+                StartCoroutine(ShotBullet(ShotPosL, "BulletMouse0"));
+            }
+        }
+    }
+    IEnumerator ShotBullet(Transform dir, string BulletName)
+    {
+        GameObject intantBullet = Instantiate(Resources.Load("Prefeb/"+ BulletName), dir.position, Quaternion.identity) as GameObject;
+        Rigidbody bulletRigid = intantBullet.GetComponent<Rigidbody>();
+        bulletRigid.velocity = dir.forward * 70;
+        yield return null;
+    }
+    //오른쪽 마우스 공격
+    void RMB()
+    {
+        //강공격
+        if (Input.GetMouseButton(1))
+        {
+            if (RMBTimeCheck >= myCharacterStat.RMBTime)
+            {
+                RMBTimeCheck = 0;
+                myAnim.SetTrigger("LMBAtkR"); 
+                StartCoroutine(ShotBullet(ShotPosR, "BulletMouse1"));
+            }
+        }
+    }
+    void RKB()
+    { 
+        //특수공격
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 

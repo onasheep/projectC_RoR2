@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+ 
+
+
+    // 로더 스탯
+    protected float playTime = 0.0f;
+    protected float M1Cool = 0.5f;
+    protected float M2Cool = 4.0f;
+    protected float ShiftCool = 6.0f;
+    protected float ChargingTime = 0.0f;
+    protected float RCool = 4.0f;
+
+    // 로더 쿨타임 체크용
+    protected float M1checkT;
+    protected float M2checkT;
+    protected float ShiftcheckT;
+    protected float RcheckT;
+    #region 애니메이션
     Animator _anim = null;
     protected Animator myAnim
     {
@@ -20,6 +37,8 @@ public class Character : MonoBehaviour
             return _anim;
         }
     }
+    #endregion
+    #region 리지드바디
     Rigidbody _Rigid = null;
     protected Rigidbody myRigid
     {
@@ -36,6 +55,7 @@ public class Character : MonoBehaviour
             return _Rigid;
         }
     }
+    #endregion
     CharacterController _CC = null;
     protected CharacterController myCc
     {
@@ -68,4 +88,22 @@ public class Character : MonoBehaviour
             return _CapsuleCol;
         }
     }
+    #region 스프링조인트
+    SpringJoint _mySpring = null;
+    protected SpringJoint _SJoint
+    {
+        get
+        {
+            if( _mySpring == null)
+            {
+                _mySpring = this.GetComponent<SpringJoint>();
+                
+            }
+            return _mySpring;
+        }
+    }
+    #endregion
+
+    
+    
 }

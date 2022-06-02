@@ -34,7 +34,7 @@ public class CharacSelect : SoundProperty
     {
         ChangeState(STATE.COMMANDO);
         Sound.Ins.AddEffectSources(MySpeaker);
-
+        Cursor.visible = true;
 
 
     }

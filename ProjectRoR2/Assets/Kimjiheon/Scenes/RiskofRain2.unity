@@ -443,6 +443,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 343782228}
   Aimcamera: {fileID: 1753400619219414371}
+--- !u!1 &497943637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497943638}
+  m_Layer: 0
+  m_Name: ShotPosR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497943638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497943637}
+  m_LocalRotation: {x: 0.04413155, y: -0.0031549342, z: 0.00014390446, w: 0.99902076}
+  m_LocalPosition: {x: 0.00225, y: 0.00191, z: 0.0112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1310034099403003800}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &632046183
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +581,7 @@ GameObject:
   - component: {fileID: 1137599192}
   - component: {fileID: 1137599191}
   - component: {fileID: 1137599190}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,6 +664,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1212643713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212643714}
+  m_Layer: 0
+  m_Name: ShotPosL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1212643714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212643713}
+  m_LocalRotation: {x: 0.04413155, y: -0.0031549342, z: 0.00014390446, w: 0.99902076}
+  m_LocalPosition: {x: -0.00192, y: 0.00208, z: 0.01119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1310034099403003800}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309790009
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +746,7 @@ MonoBehaviour:
   CamFollow: {fileID: 5172907}
   ZoomInMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
 --- !u!1 &1522947865
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,8 +759,8 @@ GameObject:
   - component: {fileID: 1522947868}
   - component: {fileID: 1522947867}
   - component: {fileID: 1522947866}
-  m_Layer: 3
-  m_Name: Cube (1)
+  m_Layer: 6
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,7 +928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085856165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 5}
+  m_LocalPosition: {x: 0, y: -1.6, z: 1.43}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 1309790010}
@@ -1216,6 +1276,7 @@ GameObject:
   - component: {fileID: 749602768402837827}
   - component: {fileID: 749602768402837828}
   - component: {fileID: 749602768402837826}
+  - component: {fileID: 749602768402837829}
   m_Layer: 0
   m_Name: mdlCommandoDualies (merge)
   m_TagString: Untagged
@@ -1260,7 +1321,9 @@ MonoBehaviour:
   myPelvis: {fileID: 6265493414609813017}
   Onground:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
+  ShotPosR: {fileID: 497943638}
+  ShotPosL: {fileID: 1212643714}
   myCharacterdata:
     isRun: 0
     isGround: 1
@@ -1269,6 +1332,7 @@ MonoBehaviour:
     ismove: 0
     isAttack: 0
     onforward: 0
+    GunSwitch: 0
   myCharacterStat:
     HP: 10
     Level: 1
@@ -1280,8 +1344,9 @@ MonoBehaviour:
     JumpForce: 10
     JumpCount: 0
     JumpItem: 3
-    RollTime: 3
-  RollTimeCheck: 0
+    RollTime: 4
+    AttackDelay: 0.7
+    RMBTime: 3
   cooltimeCheck: 0
 --- !u!136 &749602768402837828
 CapsuleCollider:
@@ -1297,6 +1362,18 @@ CapsuleCollider:
   m_Height: 0.02
   m_Direction: 1
   m_Center: {x: 0, y: 0.01, z: 0}
+--- !u!114 &749602768402837829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749602768402837825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056b26193de0bc544934936b48865e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &767857752811734409
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,6 +1601,8 @@ Transform:
   - {fileID: 4989198980786108960}
   - {fileID: 8532704799872068872}
   - {fileID: 6402728831084421616}
+  - {fileID: 1212643714}
+  - {fileID: 497943638}
   m_Father: {fileID: 6779309770622318520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -3.794, y: 0, z: -0.398}
@@ -2216,6 +2295,8 @@ MonoBehaviour:
   Onground:
     serializedVersion: 2
     m_Bits: 0
+  ShotPosR: {fileID: 0}
+  ShotPosL: {fileID: 0}
   myCharacterdata:
     isRun: 0
     isGround: 1
@@ -2224,6 +2305,7 @@ MonoBehaviour:
     ismove: 0
     isAttack: 0
     onforward: 0
+    GunSwitch: 0
   myCharacterStat:
     HP: 0
     Level: 0
@@ -2236,7 +2318,8 @@ MonoBehaviour:
     JumpCount: 0
     JumpItem: 0
     RollTime: 0
-  RollTimeCheck: 0
+    AttackDelay: 0
+    RMBTime: 0
   cooltimeCheck: 0
 --- !u!54 &1753400619032424060
 Rigidbody:

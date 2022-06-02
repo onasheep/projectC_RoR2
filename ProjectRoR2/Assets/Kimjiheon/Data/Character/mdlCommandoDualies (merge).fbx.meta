@@ -150,52 +150,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'CommandoArmature|FirePistol, Left' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'upper_arm.l' has translation
-      animation that will be discarded.\n\nClip 'CommandoArmature|IdleIn' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
-      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
-      animation that will be discarded.\n\nClip 'CommandoArmature|FireFMJ, Override'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'upper_arm.l'
-      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
-      animation that will be discarded.\n\nClip 'CommandoArmature|RunBackwards' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'CommandoArmature|Jump' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
-      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
-      animation that will be discarded.\n\nClip 'CommandoArmature|RunRight' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'CommandoArmature|SlideForward'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'upper_arm.l'
-      has translation animation that will be discarded.\n\t'upper_arm.r' has translation
-      animation that will be discarded.\n\nClip 'CommandoArmature|RunLeft' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'CommandoArmature|RunForward'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'CommandoArmature|FirePistol, Right' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'upper_arm.r' has translation animation that will be
-      discarded.\n\nClip 'CommandoArmature|Cutscene, Sittin Chillin  Loop' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'upper_arm.l' has translation
-      animation that will be discarded.\n\t'upper_arm.r' has translation animation
-      that will be discarded.\n\nClip 'CommandoArmature|SprintForward' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: Event ComboCheckEnd has a time (1.166667) outside the
+      clip's valid range (0.000000..0.800000). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

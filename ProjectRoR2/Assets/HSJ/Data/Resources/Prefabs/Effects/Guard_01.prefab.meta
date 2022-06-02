@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ProjectRoR2/Assets/HSJ/Data/Resources/Prefabs/Effects/Guard_01.prefab.meta
 guid: 1aad0557fe58f4e4da0eaa7554652095
 PrefabImporter:
+========
+guid: fc368c32d6432ff4bb374d520000749c
+TextScriptImporter:
+>>>>>>>> HSJ_Inventory:ProjectRoR2/Library/PackageCache/com.unity.ide.vscode@1.2.5/ValidationExceptions.json.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

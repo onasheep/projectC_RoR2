@@ -17,7 +17,20 @@ public struct KJH_CharacterStat
     public float JumpForce;
     public int JumpCount;
     public int JumpItem;
-    public float RollTime;   
+    public float RollTime;
+    public float AttackDelay;
+    public float RMBTime;
+    // Loader ½ºÅ³ ¼Â
+    public float LM2CoolTime;
+    public float LShiftCoolTime;
+    public float LRCoolTime;
+    public float LM1CoolTime;
+    public float LAtk;
+    public float LDef;
+    public float LHP;
+    public float LLevel;
+    public float LHpRegen;
+
 }
 [Serializable]
 public class KJH_CharacterData
@@ -29,6 +42,7 @@ public class KJH_CharacterData
     public bool ismove = false;
     public bool isAttack = false;
     public bool onforward = false;
+    public bool GunSwitch = false;
 }
 
 public struct KJH_ROTATEDATA
