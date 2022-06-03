@@ -3193,9 +3193,9 @@ MonoBehaviour:
     AttackDelay: 0
     HP: 0
     AP: 0
-  firemouth: {fileID: 0}
-  FireBoom: {fileID: 0}
-  EnemyHead: {fileID: 0}
+  firemouth: {fileID: 8581567946677205244}
+  FireBoom: {fileID: 100000, guid: 785064b14b950254988e6aa93e021237, type: 3}
+  EnemyHead: {fileID: 5681080968356605493}
   MonsterUIBarHeight: 80
 --- !u!1 &8915701130315040145
 GameObject:

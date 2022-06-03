@@ -117,7 +117,7 @@ public class Lemurian : MoveMove, BattlecombatSystem
  
     void Start()
     {
-        GameObject obj = Instantiate(Resources.Load("UI/MonsterHPBar"), GameObject.Find("Canvas").transform) as GameObject; //HP 빠 
+        GameObject obj = Instantiate(Resources.Load("UI Prefab/MonsterHPBar"), GameObject.Find("Canvas").transform) as GameObject; //HP 빠 
         kkjmonsterUIBar = obj.GetComponent<MonsterUIBar>(); //이 스크립트를 이용한다. 
         kkjmonsterUIBar.Initialize(EnemyHead, 0.0f);
 
