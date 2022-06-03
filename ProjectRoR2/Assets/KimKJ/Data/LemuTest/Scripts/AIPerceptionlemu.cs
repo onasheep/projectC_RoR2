@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AIPerception : MonoBehaviour
+public class AIPerceptionlemu : MonoBehaviour
 {
-    public UnityAction FindTarget;
-    public LayerMask myEnemyMask;
-    public BattleSystem Target;
-    public List<GameObject> myEnemylist = new List<GameObject>();
+    public UnityAction FindTarget; //플레이어 감지용 
+    public LayerMask myEnemyMask; //Layer
+    public BattlecombatSystem Target; //로더 or 코만도 
+    public List<GameObject> myEnemylist = new List<GameObject>(); //PlayerList
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //들어왔을경우 
     {
         if ((myEnemyMask & (1 << other.gameObject.layer)) != 0)
         {
@@ -18,8 +18,8 @@ public class AIPerception : MonoBehaviour
           if (this.transform.parent.GetComponent<Lemurian>().myTarget == null)
          {
                 this.transform.parent.GetComponent<Lemurian>().myTarget = myEnemylist[0].transform;
-                Target = other.gameObject.GetComponent<BattleSystem>();
-                FindTarget?.Invoke();
+                Target = other.gameObject.GetComponent<BattlecombatSystem>();
+                FindTarget?.Invoke(); //레무리안이 감지를 하고 공격을 하면서 계속 쫓아옴 
             }
         }
     }
@@ -36,7 +36,7 @@ public class AIPerception : MonoBehaviour
             else
            
                 this.transform.parent.GetComponent<Lemurian>().myTarget = myEnemylist[0].transform;
-           
+           //나갔을 경우
         }
     }
 }

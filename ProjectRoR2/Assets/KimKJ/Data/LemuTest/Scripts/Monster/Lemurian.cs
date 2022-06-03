@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lemurian : MoveMove, BattleSystem
+public class Lemurian : MoveMove, BattlecombatSystem
 {
     public enum STATE
     {
         NONE, CREATE, RUN, BATTLE, DEAD
     }
-    AIPerception _aiperception = null;
+    AIPerceptionlemu _aiperceptionlemu = null;
 
     Transform Target;
     public Transform myTarget
@@ -29,22 +29,22 @@ public class Lemurian : MoveMove, BattleSystem
             }
             return _rigidbody;
         }
-    } 
+    }
 
-    AIPerception myperceptions
+    AIPerceptionlemu myperceptionlemus //감지범위 
     {
         get
         {
-            if (_aiperception == null)
+            if (_aiperceptionlemu == null)
             {
-                _aiperception = this.GetComponentInChildren<AIPerception>();
+                _aiperceptionlemu = this.GetComponentInChildren<AIPerceptionlemu>();
 
             }
-            return _aiperception;
+            return _aiperceptionlemu;
         }
     }
 
-    public float HPChange
+    public float HPChange //체력 설정 (UI 연동?) 
     {
         get
         {
@@ -59,7 +59,7 @@ public class Lemurian : MoveMove, BattleSystem
     }
 
     float _curHP = 0.0f; //초기화?
-    public AttackSystem myAttackSystem = null; //코만도 (플레이어)와의 연동 
+ //   public AttackSystem myAttackSystem = null; //코만도 (플레이어)와의 연동,  병합후 AttackSystem 스크립트를 못찾아서 주석처리함.
     public STATE mystate = STATE.NONE;
     public  CharacterStatkkj LemuData; //캐릭터 데이터 (공격력이라던가 체력 등) 
     public Transform firemouth;  //파이어볼 발사 위치 
@@ -79,7 +79,7 @@ public class Lemurian : MoveMove, BattleSystem
     {
         return mystate == STATE.RUN || mystate == STATE.BATTLE;
     }
-    public void OnDamagekkj(float Damage) //데미지 받는것 
+    public void OnDamagekkj(float Damage) //레무리안이 데미지를 받을때 
     {
        if (mystate == STATE.DEAD) 
           return;
@@ -96,14 +96,14 @@ public class Lemurian : MoveMove, BattleSystem
         }
         else
         {
-            myAnim.SetTrigger("Hit");
+            myAnim.SetTrigger("Hit"); //맞고 있을때 
         }
        }
 
     void Firekkj() //타겟을 향해 공격 
     {
         myAnim.SetTrigger("Attack");
-        GameObject Firebool = Instantiate(FireBoom, firemouth.position, firemouth.rotation);
+        GameObject Firebool = Instantiate(FireBoom, firemouth.position, firemouth.rotation); //입에서 불꽃이 나가도록 (파이어볼) 
      
     }
 
@@ -111,14 +111,14 @@ public class Lemurian : MoveMove, BattleSystem
 
     void OnAttackkkj() //공격시 처리 
     {
-        if (myperceptions.Target.IsLivekkj())
-            myperceptions.Target.OnDamagekkj(LemuData.AP);
+        if (myperceptionlemus.Target.IsLivekkj())
+            myperceptionlemus.Target.OnDamagekkj(LemuData.AP); //공격 데미지?
     }
  
     void Start()
     {
-        GameObject obj = Instantiate(Resources.Load("UI/MonsterHPBar"), GameObject.Find("Canvas").transform) as GameObject;
-        kkjmonsterUIBar = obj.GetComponent<MonsterUIBar>();
+        GameObject obj = Instantiate(Resources.Load("UI/MonsterHPBar"), GameObject.Find("Canvas").transform) as GameObject; //HP 빠 
+        kkjmonsterUIBar = obj.GetComponent<MonsterUIBar>(); //이 스크립트를 이용한다. 
         kkjmonsterUIBar.Initialize(EnemyHead, 0.0f);
 
 
@@ -140,7 +140,7 @@ public class Lemurian : MoveMove, BattleSystem
         done?.Invoke();
     }
 
-    void RoamingToRandomPosition() //랜덤으로 왔다 갔다 하게 설정하기 
+    void RoamingToRandomPosition() //랜덤으로 이동하게 설정하기 
     {
         Vector3 pos = new Vector3();
         pos.x = StartPos.x + Random.Range(-3.0f, 3.0f);
@@ -171,10 +171,10 @@ public class Lemurian : MoveMove, BattleSystem
         switch(mystate)
         {
             case STATE.CREATE:
-         myperceptions.FindTarget = FindTargetkkj;
-                myAnim.SetTrigger("Spawn");
-                LemuData.HP = 80.0f;
-                LemuData.MoveSpeed = 5.0f;
+                myperceptionlemus.FindTarget = FindTargetkkj; //찾으러 다님
+                myAnim.SetTrigger("Spawn"); // 스폰 
+                LemuData.HP = 80.0f; //체력 
+                LemuData.MoveSpeed = 5.0f; //움직임 
                 LemuData.AP = 12.0f;
                 LemuData.AttackRange = 6.0f;
                 LemuData.AttackDelay = 3.0f;
@@ -190,7 +190,7 @@ public class Lemurian : MoveMove, BattleSystem
                 break;
             case STATE.BATTLE:
              StopAllCoroutines();
-              base.AttackTargetkkj(myperceptions.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
+              base.AttackTargetkkj(myperceptionlemus.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
              //타겟 감지에서 벗어나거나 죽으면 바로 뛰도록 
                 Debug.Log("플레이어를감지했습니다. 공격 모드로 들어갑니다.");
               InvokeRepeating("Firekkj", 3.0f, 1.1f); //파이어볼 공격 반복 (?) 

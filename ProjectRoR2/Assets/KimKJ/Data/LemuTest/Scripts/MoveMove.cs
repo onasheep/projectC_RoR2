@@ -26,7 +26,7 @@ public class MoveMove : MonoBehaviour
     Coroutine rotRoutine = null;
     Vector3 TargetPos = Vector3.zero;
 
-    protected void StartRunkkj(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f, UnityAction done = null)
+    protected void StartRunkkj(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f, UnityAction done = null) //RUN 
     {
         if (moveRoutine != null) StopCoroutine(moveRoutine);
         moveRoutine = StartCoroutine(Movingkkj(pos, Mms, Mar, done));
@@ -34,7 +34,7 @@ public class MoveMove : MonoBehaviour
        rotRoutine = StartCoroutine(Rotatingkkj(pos));
     }
 
-    protected void AttackTargetkkj(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack)
+    protected void AttackTargetkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack) //타겟을 찾았을때 
     {
         if (moveRoutine != null) StopCoroutine(moveRoutine);
         moveRoutine = StartCoroutine(Attackingkkj(Target, AttackRange, AttackDelay, EndAttack));
@@ -44,7 +44,7 @@ public class MoveMove : MonoBehaviour
 
 
 
-    IEnumerator Movingkkj(Vector3 pos, float Mms, float Mar, UnityAction done)
+    IEnumerator Movingkkj(Vector3 pos, float Mms, float Mar, UnityAction done) //움직일떄 
     {
 
         float Dist = Vector3.Distance(pos, this.transform.position) - Mar;
@@ -65,7 +65,7 @@ public class MoveMove : MonoBehaviour
 
     }
 
-    IEnumerator Rotatingkkj(Vector3 pos)
+    IEnumerator Rotatingkkj(Vector3 pos) //회전 
     {
         Vector3 dir = (pos - this.transform.position).normalized;
         Gameutilkkj.CalAngle(myAnim.transform.position, dir, myAnim.transform.right, out ROTATEDATA data);
@@ -93,7 +93,7 @@ public class MoveMove : MonoBehaviour
         //  rigidbody.velocity = Vector3.zero; // 이걸 넣어야 하나 고민중 
 
     }
-    IEnumerator LookingAtTargetkkj(BattleSystem Target)
+    IEnumerator LookingAtTargetkkj(BattlecombatSystem Target)
     {
         while (true)
         {
@@ -112,7 +112,7 @@ public class MoveMove : MonoBehaviour
   
 
 
-    IEnumerator Attackingkkj(BattleSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
+    IEnumerator Attackingkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
     {
        
         float playTime = AttackDelay;

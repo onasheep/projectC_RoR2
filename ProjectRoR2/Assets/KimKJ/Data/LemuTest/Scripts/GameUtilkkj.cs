@@ -39,15 +39,12 @@ public class Gameutilkkj : MonoBehaviour
     }
 }
 
-public interface BattleSystem
+public interface BattlecombatSystem
 {
     
     Transform transform 
     {
-
         get;
-      
-
     }
     
     void OnDamagekkj(float Damage);

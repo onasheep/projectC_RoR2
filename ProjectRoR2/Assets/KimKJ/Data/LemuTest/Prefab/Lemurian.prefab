@@ -677,7 +677,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2416576752758666122}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 53e6baf453ca64f448d7ea612b24769f, type: 3}
+  m_Avatar: {fileID: 9000000, guid: c00dd7ecb7ad6fe428bd2a9ca5bf3e1f, type: 3}
   m_Controller: {fileID: 9100000, guid: 9cb5ab32f8becc94a924f2dae260f93e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1051,7 +1051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3262873396662677874}
   - component: {fileID: 3262873396662677872}
-  - component: {fileID: 3262873396662677875}
+  - component: {fileID: 385298568571116414}
   m_Layer: 7
   m_Name: 'AIPerception '
   m_TagString: Untagged
@@ -1086,7 +1086,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3262873396662677875
+--- !u!114 &385298568571116414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1095,12 +1095,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3262873396662677885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4ff326554d06048a3087e0394cf78a, type: 3}
+  m_Script: {fileID: 11500000, guid: b495f654b654e93428fa83a173ce8c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   myEnemylist: []
 --- !u!1 &3307598099917803564
 GameObject:
@@ -3148,7 +3148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8895357887295061132}
-  - component: {fileID: 8895357887295061135}
+  - component: {fileID: 5501271985698593485}
   m_Layer: 0
   m_Name: Lemurian
   m_TagString: Untagged
@@ -3172,7 +3172,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8895357887295061135
+--- !u!114 &5501271985698593485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3181,12 +3181,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8895357887295061134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cab66b58e1d0de447b5da91c717b4f5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c7e58f022280574baf02b65abcb866a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotSpeed: 360
   MoveSpeed: 3
-  myAttackSystem: {fileID: 0}
   mystate: 0
   LemuData:
     MoveSpeed: 0
@@ -3194,8 +3193,10 @@ MonoBehaviour:
     AttackDelay: 0
     HP: 0
     AP: 0
-  firemouth: {fileID: 8581567946677205244}
-  FireBoom: {fileID: 100000, guid: 785064b14b950254988e6aa93e021237, type: 3}
+  firemouth: {fileID: 0}
+  FireBoom: {fileID: 0}
+  EnemyHead: {fileID: 0}
+  MonsterUIBarHeight: 80
 --- !u!1 &8915701130315040145
 GameObject:
   m_ObjectHideFlags: 0
