@@ -76,10 +76,10 @@ public class AttackSystem : MonoBehaviour
             //รั น฿ป็
             
             //OnDamage
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Monster"))
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Lemurian"))
             {
                //hit.transform.GetComponent<Lemurian>().OnDamagekkj(myBulletStat.BulletDamage);
-            }
+            }        
         }
         ShotBullet(attackDirection, BulletName, bulletSpawnPoint, attackRange);
         GunSound(BulletName, bulletSpawnPoint);      

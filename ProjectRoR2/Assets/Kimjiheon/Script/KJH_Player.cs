@@ -116,7 +116,7 @@ public class KJH_Player : Character
     //정보입력
     void GetInput()
     {
-        mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         camAngle = myCamArm.transform.rotation.eulerAngles;
         //키보드 WSAD 값
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical")).normalized;
@@ -139,8 +139,24 @@ public class KJH_Player : Character
         AttackTimeCheck += Time.deltaTime;
         RMBTimeCheck += Time.deltaTime;
         RKBTimeCheck += Time.deltaTime;
-
     }
+      
+    #region AttackPositioning
+    Coroutine DT = null;
+    IEnumerator DelayTime(float cool)
+    {
+        while (cool > 0.0f)
+        {
+            cool -= Time.deltaTime;
+            myCharacterdata.isAttack = true;
+            yield return new WaitForFixedUpdate();
+        }
+        myCharacterdata.isAttack = false;
+        DT = null;
+    }
+    #endregion
+    #region CheckPlace
+    //허리체크
     public void LookAround()
     {
         float y = Vector3.Angle(-myPelvis.forward, myChest.forward);
@@ -167,49 +183,51 @@ public class KJH_Player : Character
         myChest.transform.rotation = Quaternion.Euler(x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         //Debug.Log(camAngle.y);
     }
-    //공격함수
-    void Attack()
-    {
-        if (myCharacterdata.isRoll == false)
-        {
-            LMB();
-            RMB();
-            RKB();
-        }
-    }
-    #region AttackPositioning
-    Coroutine DT = null;
-    IEnumerator DelayTime(float cool)
-    {
-        while (cool > 0.0f)
-        {
-            cool -= Time.deltaTime;
-            myCharacterdata.isAttack = true;
-            yield return new WaitForFixedUpdate();
-        }
-        myCharacterdata.isAttack = false;
-        DT = null;
-    }
-    #endregion
-    #region CheckPlace
     //정면체크
     void ForwardCheck()
     {
+        RaycastHit hit;
         Debug.DrawRay(transform.position, transform.forward, Color.red);
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, 0.5f))
+        Debug.DrawRay(transform.position, transform.forward + -transform.right, Color.red);
+        Debug.DrawRay(transform.position, transform.forward + transform.right, Color.red);
+        Ray rayforward = new Ray(transform.position, transform.forward);
+        Ray rayleft = new Ray(transform.position, transform.forward + -transform.right);
+        Ray rayright = new Ray(transform.position, transform.forward + transform.right);
+        if (Physics.Raycast(rayforward, out hit, 0.5f) || Physics.Raycast(rayleft, out hit, 0.5f) || Physics.Raycast(rayright, out hit, 0.5f))
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall") || hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                transform.position = hit.point - ray.direction * 0.47f;
+                if (Physics.Raycast(rayforward, out hit, 0.5f))
+                {
+                    transform.position = hit.point - rayforward.direction * 0.47f;
+                }
+                else if (Physics.Raycast(rayforward, out hit, 0.5f))
+                {
+                    transform.position = hit.point - rayforward.direction * 0.45f;
+                }
+                else if (Physics.Raycast(rayforward, out hit, 0.5f))
+                {
+                    transform.position = hit.point - rayforward.direction * 0.45f;
+                }
+
             }
-        }
+        }   
+     
     }
     //땅체크
     void GroundCheck()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out hit, 0.6f, Onground))
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, 0.3f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, -0.3f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(-0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
+        Ray rayCenter = new Ray(transform.position, Vector3.down);
+        Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 0.5f, 0.3f), Vector3.down);
+        Ray raybackward = new Ray(transform.position + new Vector3(0.0f, 0.5f, -0.3f), Vector3.down);
+        Ray rayleft = new Ray(transform.position + new Vector3(-0.3f, 0.5f, 0.0f), Vector3.down);
+        Ray rayright = new Ray(transform.position + new Vector3(0.3f, 0.5f, 0.0f), Vector3.down);
+        if (Physics.Raycast(rayCenter, 0.6f, Onground) || Physics.Raycast(rayforward, 0.6f, Onground) || 
+            Physics.Raycast(raybackward, 0.6f, Onground) || Physics.Raycast(rayleft, 0.6f, Onground) || Physics.Raycast(rayright, 0.6f, Onground))
         {
             myAnim.SetBool("OnAir", false);
             myAnim.SetBool("Jumping", false);
@@ -402,6 +420,16 @@ public class KJH_Player : Character
     }
     #endregion
     #region AttackType
+    //공격함수
+    void Attack()
+    {
+        if (myCharacterdata.isRoll == false)
+        {
+            LMB();
+            RMB();
+            RKB();
+        }
+    }
     //왼쪽마우스공격
     void LMB()
     {
@@ -476,6 +504,4 @@ public class KJH_Player : Character
             Debug.Log("Die");
         }
     }
-    ////////////////////////////////////////////////////////////////////////////////////////
-
 }

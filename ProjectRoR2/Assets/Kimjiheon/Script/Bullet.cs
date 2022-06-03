@@ -7,15 +7,6 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed;
     public LayerMask CrushMask;
     Vector3 Checkdir = Vector3.zero;
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if ((CrushMask & 1 << collision.transform.gameObject.layer) != 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
     private void Update()
     {
         
@@ -48,21 +39,3 @@ public class Bullet : MonoBehaviour
         StartCoroutine(Moving(dir, myBulletRange));        
     } 
 }
-/*
-Ray ray = new Ray(bulletSpawnPoint.position, dir);
-if (Physics.Raycast(ray, out RaycastHit hit, myBulletRange))
-        {
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Monster"))
-            {
-                Debug.Log("Monster");
-            }
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall"))
-            {
-                Debug.Log("Wall");
-            }
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                Debug.Log("Ground");
-            }
-        }   
- */

@@ -23,6 +23,7 @@ public class KJH_PlayerHUD : MonoBehaviour
     {
         myAttackSys.onHPEvent.AddListener(UpdateHPHUD);
     }
+
     private void UpdateHPHUD(float previous, float current)
     {
         myHPtext.text = "HP" + current;
@@ -33,6 +34,7 @@ public class KJH_PlayerHUD : MonoBehaviour
             StartCoroutine("OnDamageScreen");
         }
     }
+
     private IEnumerator OnDamageScreen()
     {
         float percent = 0;

@@ -28,12 +28,14 @@ public struct KJH_CharacterStat
     public float RKBTime;
     public int RKBNumber;
 }
+
 [Serializable]
 public struct KJH_BulletStat
 {
     public float BulletRange;
     public float BulletDamage;
 }
+
 [Serializable]
 public class KJH_CharacterData
 {

@@ -62,7 +62,7 @@ public class KJH_CameraArm : MonoBehaviour
             if ((ZoomInMask & 1 << hit.transform.gameObject.layer) != 0)
             {                
                 myCamera.transform.localPosition = Vector3.Lerp(myCamera.transform.localPosition, hit.point, Time.deltaTime * 2.0f);
-                myCamera.transform.position = hit.point;
+                myCamera.transform.position = hit.point - ray.direction *0.4f;
             }
         }
         else 
