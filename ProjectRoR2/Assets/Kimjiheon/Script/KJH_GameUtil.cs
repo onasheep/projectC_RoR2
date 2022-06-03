@@ -7,36 +7,41 @@ using System;
 [Serializable]
 public struct KJH_CharacterStat
 {
-    public float HP;
-    public int Level;
+    [Header("HP")]
+    public float maxHP;
+    public float curHP;
     public float HP_Heal;
-    public float AttackDamage;
+
+    public int Level;  
+    public float AttackDelay;
+    [Header("MoveSpeed")]
     public float ApplySpeed;
     public float WalkSpeed;
     public float RunSpeed; 
+    [Header("Jump")]
     public float JumpForce;
     public int JumpCount;
     public int JumpItem;
-    public float RollTime;
-    public float AttackDelay;
+    [Header("CoolTime")]
+    public float RollTime;  
     public float RMBTime;
-    // Loader ½ºÅ³ ¼Â
-    public float LM2CoolTime;
-    public float LShiftCoolTime;
-    public float LRCoolTime;
-    public float LM1CoolTime;
-    public float LAtk;
-    public float LDef;
-    public float LHP;
-    public float LLevel;
-    public float LHpRegen;
-
+    public float RKBTime;
+    public int RKBNumber;
 }
+
+[Serializable]
+public struct KJH_BulletStat
+{
+    public float BulletRange;
+    public float BulletDamage;
+}
+
 [Serializable]
 public class KJH_CharacterData
 {
     public bool isRun = false; 
     public bool isGround = true;
+    public bool isJump = false;
     public bool isRoll = false;
     public bool isLookAround = true;
     public bool ismove = false;
