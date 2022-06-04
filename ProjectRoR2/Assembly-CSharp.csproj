@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
@@ -65,6 +65,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Teleport.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox2T.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\GameUtilkkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ShiftState.cs" />
@@ -88,8 +89,10 @@
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Map1.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItemSlot.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\RootAnikkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
+    <Compile Include="Assets\Kimjiheon\Data\Character\Materials\ParticleMaterial\Particle System\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
@@ -100,10 +103,15 @@
     <Compile Include="Assets\Minjun\Script\MJ_SceneLoder.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BettleQueen\BettleQueen.cs" />
     <Compile Include="Assets\HanJongSu\Datas\AnimStateScripts\CreateStateAnim.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Monster\Lemurian.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemData.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\etc\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\EffectManager.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\UI\MonsterUIBar.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\AIPerceptionlemu.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Bullet\LemurianFireball.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\KeyInputControl.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
@@ -117,6 +125,7 @@
     <Compile Include="Assets\Kimjiheon\Script\KJH_CameraArm.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Jump.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\Loader.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\MoveMove.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_WaterJump.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
