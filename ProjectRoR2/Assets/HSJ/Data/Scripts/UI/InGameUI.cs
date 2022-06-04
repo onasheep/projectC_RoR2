@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
+    // ø°¿” 
     Vector3 ScreenCenter;
     public Transform Canvas;
     public Camera Aimcamera;
+
+
     public Loader myLoader;
     public KJH_CameraArm myCamera;
     public AudioListener mySound;
@@ -63,7 +66,7 @@ public class InGameUI : MonoBehaviour
     {
         ScreenCenter = new Vector3(Aimcamera.pixelWidth / 2, Aimcamera.pixelHeight / 2);
         Ray ray = Aimcamera.ScreenPointToRay(ScreenCenter);
-        GameObject Crosshair = Instantiate(Resources.Load("Prefabs/CrossHair"), Canvas) as GameObject;
+        GameObject Crosshair = Instantiate(Resources.Load("Prefabs/UI/CrossHair"), Canvas) as GameObject;
     }
 
     private void Timer()

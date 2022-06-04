@@ -2985,6 +2985,7 @@ MonoBehaviour:
   myCharacterdata:
     isRun: 0
     isGround: 1
+    isJump: 0
     isRoll: 0
     isLookAround: 1
     ismove: 0
@@ -2992,10 +2993,11 @@ MonoBehaviour:
     onforward: 0
     GunSwitch: 0
   myCharacterStat:
-    HP: 100
-    Level: 0
+    maxHP: 0
+    curHP: 0
     HP_Heal: 0
-    AttackDamage: 0
+    Level: 0
+    AttackDelay: 0
     ApplySpeed: 0
     WalkSpeed: 7
     RunSpeed: 14
@@ -3003,17 +3005,9 @@ MonoBehaviour:
     JumpCount: 0
     JumpItem: 3
     RollTime: 0
-    AttackDelay: 0
     RMBTime: 0
-    LM2CoolTime: 0
-    LShiftCoolTime: 0
-    LRCoolTime: 0
-    LM1CoolTime: 0
-    LAtk: 0
-    LDef: 0
-    LHP: 0
-    LLevel: 0
-    LHpRegen: 0
+    RKBTime: 0
+    RKBNumber: 0
   myKeyControl: {fileID: 0}
   mySound: {fileID: 0}
   ShiftEffect: {fileID: 8460667080445658512, guid: a3e2c3406e02f2c4ba86cfb1604277bd, type: 3}

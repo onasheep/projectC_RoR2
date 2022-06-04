@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GrappleFist : Character
 {
     public LayerMask Crashmask;
@@ -12,6 +12,8 @@ public class GrappleFist : Character
     public Vector3 Dir = Vector3.zero;
     public SpringJoint Lsjoint = null;
     public GameObject Effect;
+    public GameObject Aim;
+
     void Start()
     {
 
@@ -47,6 +49,8 @@ public class GrappleFist : Character
         Ray ray = new Ray();
         ray.origin = this.transform.position;
         ray.direction = Dir;
+        
+
         if (Physics.Raycast(ray, out RaycastHit hit, dist, Crashmask))
         {
             Lsjoint.maxDistance = 3.0f;

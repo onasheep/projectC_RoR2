@@ -92,6 +92,7 @@
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\RootAnikkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
+    <Compile Include="Assets\Kimjiheon\Data\Character\Materials\ParticleMaterial\Particle System\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
