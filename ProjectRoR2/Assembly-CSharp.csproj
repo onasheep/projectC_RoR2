@@ -60,7 +60,6 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\RootAnimation.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
-    <Compile Include="Assets\HanJongSu\Datas\Scripts\GameUtil.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
@@ -93,12 +92,12 @@
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\RootAnikkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\LSkillPanel.cs" />
-    <Compile Include="Assets\HSJ\Data\Effect\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BattleAnimEvents.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\KJH_PlayerHUD.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\RootMotion.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_SceneLoder.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BettleQueen\BettleQueen.cs" />
@@ -129,9 +128,9 @@
     <Compile Include="Assets\Minjun\Script\MJ_WaterJump.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Player1.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\PlayerDR.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\GameUtill.cs" />
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
+    <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

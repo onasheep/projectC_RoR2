@@ -178,7 +178,7 @@ public class MJ_Item : MonoBehaviour
         if (this.gameObject.name.Contains("Steak"))
         {
             
-            playerStat.myCharacterStat.HP += 25.0f;
+            playerStat.myCharacterStat.curHP += 25.0f;
             if (itemdata.equip[4] == 0)
             {
                 itemdata.equip[4]++;
@@ -298,7 +298,7 @@ public class MJ_Item : MonoBehaviour
      
         if (this.gameObject.name.Contains("Titan_Knurl"))
         {
-            playerStat.myCharacterStat.HP += 40.0f;
+            playerStat.myCharacterStat.curHP += 40.0f;
             playerStat.myCharacterStat.HP_Heal += 1.6f;
 
             if (itemdata.equip[8] == 0)
