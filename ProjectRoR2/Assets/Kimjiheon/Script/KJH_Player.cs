@@ -82,13 +82,6 @@ public class KJH_Player : Character
             ChangeState(STATE.PLAY);
         }
     }
-    private void FixedUpdate()
-    {
-        if (myState == STATE.PLAY)
-        {
-                     
-        }
-    }
     private void LateUpdate()
     {
         if (myCharacterdata.isLookAround)
@@ -116,7 +109,7 @@ public class KJH_Player : Character
     //정보입력
     void GetInput()
     {
-        mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         camAngle = myCamArm.transform.rotation.eulerAngles;
         //키보드 WSAD 값
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical")).normalized;
@@ -187,27 +180,27 @@ public class KJH_Player : Character
     void ForwardCheck()
     {
         RaycastHit hit;
-        Debug.DrawRay(transform.position, transform.forward, Color.red);
-        Debug.DrawRay(transform.position, transform.forward + -transform.right, Color.red);
-        Debug.DrawRay(transform.position, transform.forward + transform.right, Color.red);
-        Ray rayforward = new Ray(transform.position, transform.forward);
-        Ray rayleft = new Ray(transform.position, transform.forward + -transform.right);
-        Ray rayright = new Ray(transform.position, transform.forward + transform.right);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + -transform.right, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + transform.right, Color.red);
+        Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward);
+        Ray rayleft = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + -transform.right);
+        Ray rayright = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + transform.right);
         if (Physics.Raycast(rayforward, out hit, 0.5f) || Physics.Raycast(rayleft, out hit, 0.5f) || Physics.Raycast(rayright, out hit, 0.5f))
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall") || hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 if (Physics.Raycast(rayforward, out hit, 0.5f))
                 {
-                    transform.position = hit.point - rayforward.direction * 0.47f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayforward.direction  * 0.47f;
                 }
-                else if (Physics.Raycast(rayforward, out hit, 0.5f))
+                else if (Physics.Raycast(rayleft, out hit, 0.5f))
                 {
-                    transform.position = hit.point - rayforward.direction * 0.45f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayleft.direction  * 0.45f;
                 }
-                else if (Physics.Raycast(rayforward, out hit, 0.5f))
+                else if (Physics.Raycast(rayright, out hit, 0.5f))
                 {
-                    transform.position = hit.point - rayforward.direction * 0.45f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayright.direction  * 0.45f;
                 }
 
             }
