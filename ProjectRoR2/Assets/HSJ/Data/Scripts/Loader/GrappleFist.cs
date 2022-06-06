@@ -45,7 +45,7 @@ public class GrappleFist : Character
         float dist = Time.deltaTime * Speed;
         this.transform.Translate(Dir * dist, Space.World);
 
-
+        
         Ray ray = new Ray();
         ray.origin = this.transform.position;
         ray.direction = Dir;
@@ -55,12 +55,10 @@ public class GrappleFist : Character
         {
             Lsjoint.maxDistance = 3.0f;
             FistCheck = true;
-            this.transform.position = hit.point;
             Instantiate(Effect, this.transform);
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
-      
-        
+
     }
 
 

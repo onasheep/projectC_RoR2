@@ -19,9 +19,8 @@ public class Loader : Character
     bool isShift = false;
     //////////////////MoveInput//////////////////  
 
-    //////////////////JumpInput//////////////////
-    float forceGravity = 0.0f;
-    float delta;
+    //////////////////JumpInput//////////////////   
+    Vector3 originPos = new Vector3();
 
     //////////////////AttackInput//////////////////     
     public Transform HookStart;
@@ -61,6 +60,7 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+                ChangeState(STATE.PLAY);
                 break;
             case STATE.PLAY:
                 break;
@@ -111,7 +111,7 @@ public class Loader : Character
         // 콤보이벤트 함수에서 애니메이션에 콤보체크에 해당 되면 콤보블을 treu 아니면 false를 반환하게 함
         this.GetComponentInChildren<ComboEvent>().ComboCheck += (value) => Comboable = value;
 
-
+        originPos = this.transform.position;
 
 
 
@@ -250,22 +250,24 @@ public class Loader : Character
             myCharacterStat.JumpCount = 0;
         }
         else
-        {      
+        {
+            myRigid.AddForce(Vector3.down * 10.0f, ForceMode.Force);
             myAnim.SetBool("OnAir", true);        
             myAnim.SetFloat("Dir.x", Mathf.Epsilon);
             myAnim.SetFloat("Dir.y", Mathf.Epsilon);
         
         }
     }
-    //IEnumerator GravityStrong(float speed)
-    //{
-    //    while(myAnim.GetBool("OnAir"))
-    //    {
-    //        speed++;
-    //        //Debug.Log(speed);
-    //        yield return speed;
-    //    }
-    //}
+
+    private void OnTriggerEnter(Collider other)
+    {     
+        if (other.CompareTag("Respawn"))
+        {
+            ChangeState(STATE.CREATE);
+            this.transform.position = originPos;
+        }
+    }
+
 
 
 

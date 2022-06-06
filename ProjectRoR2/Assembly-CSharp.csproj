@@ -132,6 +132,7 @@
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
     <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\DeadZone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
