@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MJ_Map1 : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
     public Transform _BoxPoint1;
     public Transform _BoxPoint2;
     public Transform _BoxPoint3;
@@ -35,6 +35,12 @@ public class MJ_Map1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("mdlCommandoDualies (merge)");
+        if (Player == null)
+        {
+            Player = GameObject.Find("mdlLoader (merge)");
+        }
+
         List<int> BoxRespawnList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
         for (int i = 0; i< 10; i++)
         {
@@ -51,7 +57,7 @@ public class MJ_Map1 : MonoBehaviour
                     GameObject Box2 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint2.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 3:
-                    GameObject Box3 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint3.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
+                    GameObject Box3 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint3.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 4:
                     GameObject Box4 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint4.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
@@ -63,7 +69,7 @@ public class MJ_Map1 : MonoBehaviour
                     GameObject Box6 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint6.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 7:
-                    GameObject Box7 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint7.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
+                    GameObject Box7 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint7.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 8:
                     GameObject Box8 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint8.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
@@ -75,7 +81,7 @@ public class MJ_Map1 : MonoBehaviour
                     GameObject Box10 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint10.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 11:
-                    GameObject Box11 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint11.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
+                    GameObject Box11 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint11.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 12:
                     GameObject Box12 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint12.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
@@ -87,7 +93,7 @@ public class MJ_Map1 : MonoBehaviour
                     GameObject Box14 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint14.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 15:
-                    GameObject Box15 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint15.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
+                    GameObject Box15 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint15.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 16:
                     GameObject Box16 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint16.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
@@ -99,7 +105,7 @@ public class MJ_Map1 : MonoBehaviour
                     GameObject Box18 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint18.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
                 case 19:
-                    GameObject Box19 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint19.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
+                    GameObject Box19 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint19.position - new Vector3(0f, 0.7f, 0f), Quaternion.identity) as GameObject;
                     break;
 
             }

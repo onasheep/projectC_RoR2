@@ -9,6 +9,11 @@ public class MJ_WaterJump : MonoBehaviour
     void Start()
     {
         GameObject waterJumpEff = Instantiate(Resources.Load("Effect/SmallSplash"), this.transform.position, Quaternion.identity) as GameObject;
+        player = GameObject.Find("mdlCommandoDualies (merge)");
+        if (player == null)
+        {
+            player = GameObject.Find("mdlLoader (merge)");
+        }
     }
 
     // Update is called once per frame
@@ -19,6 +24,6 @@ public class MJ_WaterJump : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        player.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
+        player.GetComponent<Rigidbody>().AddForce(Vector3.up * 700);
     }
 }

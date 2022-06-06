@@ -48,7 +48,7 @@ public class MJ_Map2 : MonoBehaviour
             switch (BoxRespawnList[rand])
             {
                 case 0:
-                    GameObject Box20 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint20.position, Quaternion.identity) as GameObject;
+                    GameObject Box20 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint20.position, Quaternion.identity) as GameObject;
                     //Box20.transform.localScale = new Vector3(7468f, 7468f, 7468f);
                     break;
                 case 1:
@@ -64,7 +64,7 @@ public class MJ_Map2 : MonoBehaviour
                     //Box3.transform.localScale = new Vector3(7468f, 7468f, 7468f);
                     break;
                 case 4:
-                    GameObject Box4 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint4.position, Quaternion.identity) as GameObject;
+                    GameObject Box4 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint4.position, Quaternion.identity) as GameObject;
                     //Box4.transform.localScale = new Vector3(7468f, 7468f, 7468f);
                     break;
                 case 5:
@@ -76,7 +76,7 @@ public class MJ_Map2 : MonoBehaviour
                     //Box6.transform.localScale = new Vector3(7468f, 7468f, 7468f);
                     break;
                 case 7:
-                    GameObject Box7 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint7.position, Quaternion.identity) as GameObject;
+                    GameObject Box7 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint7.position, Quaternion.identity) as GameObject;
                     break;
                 case 8:
                     GameObject Box8 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint8.position, Quaternion.identity) as GameObject;
@@ -88,7 +88,7 @@ public class MJ_Map2 : MonoBehaviour
                     GameObject Box10 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint10.position, Quaternion.identity) as GameObject;
                     break;
                 case 11:
-                    GameObject Box11 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint11.position, Quaternion.identity) as GameObject;
+                    GameObject Box11 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint11.position, Quaternion.identity) as GameObject;
                     break;
                 case 12:
                     GameObject Box12 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint12.position, Quaternion.identity) as GameObject;
@@ -103,7 +103,7 @@ public class MJ_Map2 : MonoBehaviour
                     GameObject Box15 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint15.position, Quaternion.identity) as GameObject;
                     break;
                 case 16:
-                    GameObject Box16 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint16.position, Quaternion.identity) as GameObject;
+                    GameObject Box16 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint16.position, Quaternion.identity) as GameObject;
                     break;
                 case 17:
                     GameObject Box17 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint17.position, Quaternion.identity) as GameObject;
@@ -115,7 +115,7 @@ public class MJ_Map2 : MonoBehaviour
                     GameObject Box19 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint19.position, Quaternion.identity) as GameObject;
                     break;
                 case 21:
-                    GameObject Box21 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint19.position, Quaternion.identity) as GameObject;
+                    GameObject Box21 = Instantiate(Resources.Load("NewPrefab/mdlChest2"), _BoxPoint19.position, Quaternion.identity) as GameObject;
                     break;
                 case 22:
                     GameObject Box22 = Instantiate(Resources.Load("NewPrefab/mdlChest1"), _BoxPoint19.position, Quaternion.identity) as GameObject;

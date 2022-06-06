@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class MJ_Inventory : MonoBehaviour
 {
-    public Transform inven;
-    public MJ_ItemData itemdata = null;
-    public GameObject invenItem;
-    public Transform _additem;
+    public Transform inven;         //Tab_InvenBase 바인딩
+    public GameObject invenItem;  //invenItem 이라는 프리팹 바인딩
+    public Transform _additem;  //인벤토리에서 Content_Item바인딩
     public List<Texture> itemimg = new List<Texture>();
     public List<string> invenitemname = new List<string>();
     // Start is called before the first frame update
