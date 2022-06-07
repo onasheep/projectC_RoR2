@@ -41,8 +41,9 @@ public class Loader : Character
         float Attackdelay = Time.deltaTime * i;
         yield return new WaitForSeconds(Attackdelay);
     }
-    
-  
+//    public BattleCombatSystem myBattleCombatSystem = null;
+
+
 
     void ChangeState(STATE s)
     {
