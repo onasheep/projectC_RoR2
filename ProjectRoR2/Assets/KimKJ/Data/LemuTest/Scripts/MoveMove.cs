@@ -60,8 +60,8 @@ public class MoveMove : MonoBehaviour
             //Dist = Vector3.Distance(pos, this.transform.position) - Mar;
           yield return null;
         }
-            myAnim.SetBool("Running", true);
-          //   myAnim.SetBool("Running", false);
+          //  myAnim.SetBool("Running", true);
+            myAnim.SetBool("Running", false);
 
     }
 

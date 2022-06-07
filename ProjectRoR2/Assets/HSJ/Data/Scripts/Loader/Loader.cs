@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Loader : Character
+public class Loader : Character, BattlecombatSystem
 {
     public LayerMask CrashMask;
     public LayerMask AttackMask;
@@ -50,8 +50,29 @@ public class Loader : Character
     public GameObject LMBEffect;
     public GameObject ChargingEffect;
 
-    
 
+    public bool IsLivekkj()  //살아있을때  
+    {
+        return true; 
+    }
+    public void OnDamagekkj(float Damage) //플레이어가 공격을 받고 있을때 
+    {
+        if (myState == STATE.DEAD)
+            return;
+        myCharacterStat.maxHP -= Damage; //데미지를 받습니다.
+
+        Debug.Log("플레이어가 공격 받고 있습니다.");
+        if (myCharacterStat.maxHP <= 0)
+        {
+            ChangeState(STATE.DEAD);
+            myAnim.SetTrigger("Dead");
+            Debug.Log("죽었습니다.");
+        }
+        else
+        {
+            myAnim.SetTrigger("Hit"); //맞고 있을때 
+        }
+    }
 
 
     public void ChangeState(STATE s)
