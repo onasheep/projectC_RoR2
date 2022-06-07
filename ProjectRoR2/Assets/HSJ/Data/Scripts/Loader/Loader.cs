@@ -61,8 +61,11 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+              
                 break;
             case STATE.PLAY:
+                StartPos = this.transform.position;
+
                 break;
             case STATE.PAUSE:
                 break;
@@ -76,8 +79,7 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
-                StartPos = this.transform.position;
-                ChangeState(STATE.PLAY);
+                
                 break;
             case STATE.PLAY:
                 M1checkT += Time.deltaTime;
@@ -264,7 +266,7 @@ public class Loader : Character
 
     private void OnTriggerEnter(Collider other)
     {
-        if(1 << LayerMask.NameToLayer("DeadZone") == 1)
+        if(other.CompareTag("Respawn"))
         {
             this.transform.position = StartPos;
 

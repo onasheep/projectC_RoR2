@@ -790,6 +790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadZone
       objectReference: {fileID: 0}
+    - target: {fileID: 2215457018013084734, guid: ca37924e480e3dd4a8f287fd79ee90b9, type: 3}
+      propertyPath: m_TagString
+      value: Respawn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca37924e480e3dd4a8f287fd79ee90b9, type: 3}
 --- !u!1001 &4993737810270064224

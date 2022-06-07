@@ -69,7 +69,6 @@
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\GameUtilkkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SoundProperty.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\StartBtn.cs" />
-    <Compile Include="Assets\Minjun\Script\MJ_Map3.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ShiftState.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CSkillPanel.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateL.cs" />
@@ -77,6 +76,7 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Property.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_Player.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchLoopCheck.cs" />
+    <Compile Include="Assets\Minjun\Script\MJ_Map2.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\Airloop.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
