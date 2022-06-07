@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BettleQueen : Monster
+public class BettleQueen : HJSMonster
 {
     public enum STATE
     {
@@ -11,7 +11,7 @@ public class BettleQueen : Monster
 
     public STATE myState = STATE.EMPTY;
     public GameObject Target;
-    MonsterData QueenData;
+    HJSMonsterData QueenData;
 
     void Start()
     {
