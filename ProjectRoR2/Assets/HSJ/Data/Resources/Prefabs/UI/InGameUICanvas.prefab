@@ -4628,7 +4628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inven: {fileID: 1620088635}
-  itemdata: {fileID: 0}
   invenItem: {fileID: 1600773459610910700, guid: b25c15c7d38c8604aab4dd6f7e34a46c, type: 3}
   _additem: {fileID: 1690627448}
   itemimg:

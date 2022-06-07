@@ -1088,7 +1088,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2844860177420897309}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c2bc4f00ba0b09d4894d45e7ccfd1c08, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 3172493a45da2ce4bb83a341ac020da3, type: 3}
   m_Controller: {fileID: 9100000, guid: 0ed4d4848f04af94a8c71cf5b6db5a39, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1126,27 +1126,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myState: 0
   myCamArm: {fileID: 3251008482304782950}
-  myFrontAim: {fileID: 3251008481537072890}
-  myLeftAim: {fileID: 3251008481551425100}
-  myRightAim: {fileID: 3251008480839171892}
-  myChest: {fileID: 4554207878395701956}
-  myPelvis: {fileID: 8930189381743067973}
   Onground:
     serializedVersion: 2
     m_Bits: 8
+  myChest: {fileID: 4554207878395701956}
+  myPelvis: {fileID: 8930189381743067973}
+  ShotPosR: {fileID: 0}
+  ShotPosL: {fileID: 0}
+  myFrontAim: {fileID: 3251008481537072890}
+  myLeftAim: {fileID: 3251008481551425100}
+  myRightAim: {fileID: 3251008480839171892}
   myCharacterdata:
     isRun: 0
     isGround: 1
+    isJump: 0
     isRoll: 0
     isLookAround: 1
     ismove: 0
     isAttack: 0
     onforward: 0
+    GunSwitch: 0
   myCharacterStat:
-    HP: 0
-    Level: 0
+    maxHP: 0
+    curHP: 0
     HP_Heal: 0
-    AttackDamage: 0
+    Level: 0
+    AttackDelay: 0
     ApplySpeed: 0
     WalkSpeed: 5
     RunSpeed: 10
@@ -1154,8 +1159,10 @@ MonoBehaviour:
     JumpCount: 1
     JumpItem: 3
     RollTime: 3
-  RollTimeCheck: 0
-  cooltimeCheck: 0
+    RMBTime: 0
+    RKBTime: 0
+    RKBNumber: 0
+  myAttackSystem: {fileID: 0}
 --- !u!54 &2844860177420897310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1628,7 +1635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionOffset: 2
   MouseSpeed: 200
-  myPlayer: {fileID: 3184372516598814375}
   myCamera: {fileID: 3251008481218588777}
   CamFollow: {fileID: 3251008481336087543}
   ZoomInMask:

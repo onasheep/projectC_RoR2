@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager SoundManagerMachine = null;
+
     public AudioClip audioLMB;
     public AudioClip audioRMB;
     public AudioClip audioShift;
@@ -12,6 +14,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        SoundManagerMachine = this;
         this.audioSource = GetComponent<AudioSource>();
     }
     

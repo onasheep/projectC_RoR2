@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class KeyInputControl : MonoBehaviour
 {
+    public static KeyInputControl KeyInputMachine = null;
     [SerializeField] Image LM2Img;
     [SerializeField] Image LShiftImg;
     [SerializeField] Image LRShiftImg;
 
-    
+    private void Awake()
+    {
+        KeyInputMachine = this;
+    }
     public void LM2CoolTime(float cooltime)
     {
         StartCoroutine(CoolTime(LM2Img, cooltime));

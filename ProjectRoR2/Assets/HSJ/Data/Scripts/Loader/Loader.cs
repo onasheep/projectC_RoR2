@@ -42,9 +42,9 @@ public class Loader : Character
     public KJH_CharacterStat myCharacterStat;
 
     // ÄğÅ¸ÀÓ UI;
-    public KeyInputControl myKeyControl;
+    public KeyInputControl myKeyControl = null;
     // »ç¿îµå UI;
-    public SoundManager mySound;
+    public SoundManager mySound = null;
     // ÀÌÆåÆ® UI;
     public GameObject ShiftEffect;
     public GameObject LMBEffect;
@@ -99,6 +99,8 @@ public class Loader : Character
     }
     public void Start()
     {
+        myKeyControl = KeyInputControl.KeyInputMachine;
+        mySound = SoundManager.SoundManagerMachine;
         // ÄğÅ¸ÀÓ Àê float °ª ÀúÀå
         M1checkT = M1Cool;
         M2checkT = M2Cool;
