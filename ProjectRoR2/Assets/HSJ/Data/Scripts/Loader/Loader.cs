@@ -18,7 +18,7 @@ public class Loader : Character
     bool isR = false;
     bool isShift = false;
     //////////////////MoveInput//////////////////  
-
+    Vector3 StartPos = Vector3.zero;
     //////////////////JumpInput//////////////////
     float forceGravity = 0.0f;
     float delta;
@@ -76,6 +76,8 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+                StartPos = this.transform.position;
+                ChangeState(STATE.PLAY);
                 break;
             case STATE.PLAY:
                 M1checkT += Time.deltaTime;
@@ -257,6 +259,18 @@ public class Loader : Character
         
         }
     }
+
+    // 데드존 진입시 시작지점으로 복귀 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(1 << LayerMask.NameToLayer("DeadZone") == 1)
+        {
+            this.transform.position = StartPos;
+
+        }
+    }
+
     //IEnumerator GravityStrong(float speed)
     //{
     //    while(myAnim.GetBool("OnAir"))

@@ -14,7 +14,7 @@ TagManager:
   - Ground
   - Player
   - Item
-  - Wall
+  - DeadZone
   - Bullet
   - Enemy
   - 
