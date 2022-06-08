@@ -24,10 +24,22 @@ public class Beetle : HJSMonster, HJSCombatSystem
 
     public void HJSGetDamage(float Damage)
     {
-        if (myState == HJSSTATE.DIE) return;
+        if (myState == HJSSTATE.DIE)
+        {
+            Debug.Log("이미 죽어 리턴");
+            return;
+        }
+            
         myAnim.SetTrigger("Damage");
         BettleData.HP -= Damage;
-        if (BettleData.HP <= 0) ChangeState(HJSSTATE.DIE);
+        Debug.Log("딱정벌래가 " + Damage + "만큼의 데미지를 입어 현재 체력은 " + BettleData.HP);
+
+        if (BettleData.HP <= 0)
+        {
+            BettleData.HP = 0;
+            Debug.Log("딱정벌레가 죽음 상태로 돌입");
+            ChangeState(HJSSTATE.DIE);
+        }
     }
 
     public bool HJSIsAlive()
@@ -44,7 +56,7 @@ public class Beetle : HJSMonster, HJSCombatSystem
         ProcessState(); 
     }
 
-    protected void FixedUpdate()
+    /*protected void FixedUpdate()
     { 
         if (Mathf.Approximately(myRigidBody.velocity.y, 0.0f))
         {
@@ -61,7 +73,7 @@ public class Beetle : HJSMonster, HJSCombatSystem
                 Destroy(this.gameObject);   
             }
         }
-    }
+    }*/
 
     IEnumerator HeadBute()
     {
@@ -82,8 +94,8 @@ public class Beetle : HJSMonster, HJSCombatSystem
                 BettleData.HP = 80.0f;
                 BettleData.MaxHP = BettleData.HP;
                 BettleData.AD = 12.0f;
-                BettleData.MoveSpeed = 2.0f;
-                BettleData.AttackSpeed = 2.0f;
+                BettleData.MoveSpeed = 1.0f;
+                BettleData.AttackSpeed = 1.5f;
                 BettleData.AttackRange = 3.0f;
                 
                 break;
@@ -101,7 +113,7 @@ public class Beetle : HJSMonster, HJSCombatSystem
             case HJSSTATE.DIE:
                 StopAllCoroutines();
                 myAnim.SetTrigger("Die");
-                Destroy(this.gameObject, 3.0f);
+                StartCoroutine(Disapearing());
                 break;
                 
         }
