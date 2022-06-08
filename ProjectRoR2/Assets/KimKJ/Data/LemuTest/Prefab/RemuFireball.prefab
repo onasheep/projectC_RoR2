@@ -4739,4 +4739,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  speed: 2
+  speed: 8
+  lemu: {fileID: 0}

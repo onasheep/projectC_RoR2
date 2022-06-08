@@ -6,23 +6,67 @@ public class LemurianFireball : MonoBehaviour
 {
    public float damage;
     Rigidbody rigid;
-    public float speed = 2.0f;
+    public float speed = 12.0f;
     LayerMask Layer;
+    public GameObject lemu = null;
+    Lemurian _lemuS = null;
+    Lemurian mygolem
+    {
+        get
+        {
+            if (_lemuS == null)
+            {
+                _lemuS = lemu.GetComponent<Lemurian>();
 
+            }
+            return _lemuS;
+        }
+    }
+    AIPerceptionlemu _aiperceptionlemu = null;
+    AIPerceptionlemu myperceptionlemus //감지범위 
+    {
+        get
+        {
+            if (_aiperceptionlemu == null)
+            {
+                _aiperceptionlemu = this.GetComponentInChildren<AIPerceptionlemu>();
+
+            }
+            return _aiperceptionlemu;
+        }
+    }
     void Start()
     {
      //   LemuFireball.AP = 3.0f;
-        Invoke("DestroyFireball", 3);
+      
         //  damage = 3.0f;
     }
 
 
     void Update()
     {
-         Vector3 dir = transform.forward;
-       transform.position += dir * speed * Time.deltaTime;
+ 
 
     }
+
+    IEnumerator Moving(Vector3 dir, float myBulletRange)
+    {
+        float dist = 0.0f;
+        while (dist < myBulletRange)
+        {
+            float delta = speed * Time.deltaTime;
+            dist += delta;
+            this.transform.Translate(dir * delta, Space.World);
+            yield return null;
+        }
+        Destroy(this.gameObject);
+    }
+
+    public void Shotting(Vector3 dir, float myBulletRange)
+    {
+        StartCoroutine(Moving(dir, myBulletRange));
+    }
+
 
 
     void DestroyFireball()

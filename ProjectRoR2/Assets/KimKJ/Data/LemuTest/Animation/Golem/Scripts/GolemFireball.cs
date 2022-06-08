@@ -4,7 +4,33 @@ using UnityEngine;
 
 public class GolemFireball : MonoBehaviour
 {
+    public GameObject Golem = null;
+    golem _golemS = null;
+    golem mygolem
+    {
+        get
+        {
+            if (_golemS == null)
+            {
+                _golemS = Golem.GetComponent<golem>();
 
+            }
+            return _golemS;
+        }
+    }
+    AIPerceptionGolem _aiperception = null;
+    AIPerceptionGolem myperceptions
+    {
+        get
+        {
+            if (_aiperception == null)
+            {
+                _aiperception = Golem.GetComponentInChildren<AIPerceptionGolem>();
+
+            }
+            return _aiperception;
+        }
+    }
     public float damage;
     Rigidbody rigid;
     public float Speed = 4.0f;
@@ -12,14 +38,30 @@ public class GolemFireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyGolemFireballkkj", 2);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = transform.forward;
-        transform.position += dir * Speed * Time.deltaTime;
+    }
+
+    IEnumerator Moving(Vector3 dir, float myBulletRange)
+    {
+        float dist = 0.0f;
+        while (dist < myBulletRange)
+        {
+            float delta = Speed * Time.deltaTime;
+            dist += delta;
+            this.transform.Translate(dir * delta, Space.World);
+            yield return null;
+        }
+        Destroy(this.gameObject);
+    }
+
+    public void Shotting(Vector3 dir, float myBulletRange)
+    {
+        StartCoroutine(Moving(dir, myBulletRange));
     }
 
     void DestroyGolemFireballkkj()

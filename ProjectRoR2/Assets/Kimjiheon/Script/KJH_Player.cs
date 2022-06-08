@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class KJH_Player : Character
+public class KJH_Player : Character, BattlecombatSystem
 {
     public enum STATE
     {
@@ -89,7 +89,24 @@ public class KJH_Player : Character
             LookAround();
         }    
     }
-    
+    public bool IsLivekkj()  //살아있을때  
+    {
+        return true;
+    }
+    public void OnDamagekkj(float Damage) //플레이어가 공격을 받고 있을때 
+    {
+        myCharacterStat.maxHP -= Damage; //데미지를 받습니다.
+
+        Debug.Log("플레이어가 공격 받고 있습니다.");
+        if (myCharacterStat.maxHP <= 0)
+        {
+            ChangeState(STATE.DEAD);
+            Debug.Log("죽었습니다.");
+        }
+
+    }
+
+
     void Update()
     {        
         StateProcess();

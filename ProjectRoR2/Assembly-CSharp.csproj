@@ -58,10 +58,12 @@
   <ItemGroup>
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\ParentPlayerDR.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\UI\MonsterUIBar.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\RootAnimation.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_GameUtil.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\GameSystem.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\golem.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\HJSMonster.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Bettle\Bettle.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\KimKJ\Data\Resources\GolemUIBar.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Assets\Kimjiheon\Script\KJH_PlayerHUD.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\RootMotion.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_SceneLoder.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\GolemFireball.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BettleQueen\BettleQueen.cs" />
     <Compile Include="Assets\HanJongSu\Datas\AnimStateScripts\CreateStateAnim.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Monster\Lemurian.cs" />
@@ -118,7 +122,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\etc\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\EffectManager.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\UI\MonsterUIBar.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\AIPerceptionlemu.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Bullet\LemurianFireball.cs" />
@@ -146,11 +149,9 @@
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\AnimStateScripts\CreateStateAnimHJS.cs" />
+    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\AIPerceptionGolem.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
     <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\GolemFireball.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\golem.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\AIPerceptionGolem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

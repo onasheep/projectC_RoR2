@@ -57,21 +57,15 @@ public class Loader : Character, BattlecombatSystem
     }
     public void OnDamagekkj(float Damage) //플레이어가 공격을 받고 있을때 
     {
-        if (myState == STATE.DEAD)
-            return;
         myCharacterStat.maxHP -= Damage; //데미지를 받습니다.
 
         Debug.Log("플레이어가 공격 받고 있습니다.");
         if (myCharacterStat.maxHP <= 0)
         {
             ChangeState(STATE.DEAD);
-            myAnim.SetTrigger("Dead");
             Debug.Log("죽었습니다.");
         }
-        else
-        {
-            myAnim.SetTrigger("Hit"); //맞고 있을때 
-        }
+  
     }
 
 

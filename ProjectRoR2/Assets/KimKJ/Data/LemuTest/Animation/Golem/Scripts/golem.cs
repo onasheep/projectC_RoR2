@@ -69,8 +69,9 @@ public class golem : MoveMove, BattlecombatSystem
    public Transform Eye;
     public Transform EnemyHead; // HP넣을곳 
     public float GolemUIBarHeight =480.0f; // 골렘  UI와 체력 연동 
+    float AtkDelayCheck;
    // public BattleCombatSystem myBattleCombatSystem = null;
- //   GolemUIBar kkjmonstergolemUIBar = null;
+   //   GolemUIBar kkjmonstergolemUIBar = null;
 
     Vector3 StartPos;
 
@@ -94,8 +95,6 @@ public class golem : MoveMove, BattlecombatSystem
         {
             Debug.Log("골렘이 죽었습니다. 테스트 종료");
             ChangeState(STATE.DEAD);
-            CancelInvoke("Firekkj2");
-            myAnim.SetTrigger("Dead");
         }
         else
         {
@@ -105,10 +104,16 @@ public class golem : MoveMove, BattlecombatSystem
 
 
    
-     void Firekkj2()
+     void Firekkj2(Transform target, float range)
     {
-        myAnim.SetTrigger("Attack");
-   GameObject Firebeem = Instantiate(LazerBeem,  Eye.position,Eye.rotation);
+        if (mystate != STATE.DEAD)
+        {           
+            myAnim.SetTrigger("Attack");
+            GameObject Firebeem = Instantiate(LazerBeem, Eye.position, Eye.rotation);
+            Vector3 dir =  target.position - Eye.position;
+            Firebeem.GetComponent<GolemFireball>().Shotting(dir, range);
+        }
+
 
     }
 
@@ -153,20 +158,7 @@ public class golem : MoveMove, BattlecombatSystem
         Destroy(this.gameObject);
     }
 
-    IEnumerator Waitting(float Mms, UnityAction done) //대기 
-    {
-        yield return new WaitForSeconds(Mms);
-        done?.Invoke();
-    }
 
-    void RoamingToRandomPosition() //랜덤으로 왔다 갔다 하게 설정하기 
-    {
-        Vector3 pos = new Vector3();
-        pos.x = StartPos.x + Random.Range(-3.0f, 3.0f);
-        pos.z = StartPos.z + Random.Range(-3.0f, 3.0f);
-        base.StartRunkkj(pos, 1.0f, 1.0f, () => StartCoroutine(Waitting(Random.Range(1.0f, 1.0f), RoamingToRandomPosition)));
-        Debug.Log("Move");
-    }
 
 
 
@@ -182,7 +174,7 @@ public class golem : MoveMove, BattlecombatSystem
                GolemData.HP = 480.0f;
                 GolemData.AP = 20.0f;
                 GolemData.AttackRange = 12.0f;
-                GolemData.AttackDelay = 5.0f;
+                GolemData. AttackDelay= 2.0f;
                 ChangeState(STATE.RUN);
                 break;
             case STATE.RUN:
@@ -190,17 +182,20 @@ public class golem : MoveMove, BattlecombatSystem
                 //    {
                 //     myperceptions.FindTarget = FindTargetkkj;
                 //       }
-                StartCoroutine(Waitting(Random.Range(1.0f, 1.0f), RoamingToRandomPosition));
+                if(myTarget)
+                {
+
+                }
                 break;
             case STATE.BATTLE:
                 StopAllCoroutines();
                 base.AttackTargetkkj(myperceptions.Target, GolemData.AttackRange, GolemData.AttackDelay, () => ChangeState(STATE.RUN));
-                   InvokeRepeating("Firekkj2", 0.0f, 3.0f);
+                
                 break;
             case STATE.DEAD:
                 StopAllCoroutines();
-                CancelInvoke("Firekkj2");
                 myAnim.SetTrigger("Dead");
+                CancelInvoke("Firekkj2");
                 StartCoroutine(DeadDisappeerkkj());
                 break;
         }
@@ -220,6 +215,12 @@ public class golem : MoveMove, BattlecombatSystem
           //      base.StartRunkkj(Target.transform.position, GolemData.MoveSpeed, GolemData.AttackRange);
                 break;
             case STATE.BATTLE:
+                AtkDelayCheck += Time.deltaTime;
+                if (AtkDelayCheck >= GolemData.AttackDelay)
+                {
+                    Firekkj2(myperceptions.Target.transform, GolemData.AttackRange);
+                    AtkDelayCheck = 0.0f;
+                }              
                 break;
             case STATE.DEAD:
                 break;

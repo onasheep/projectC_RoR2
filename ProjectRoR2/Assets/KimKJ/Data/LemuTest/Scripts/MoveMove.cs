@@ -12,7 +12,7 @@ public class MoveMove : MonoBehaviour
     {
         get
         {
-            if (_anim == null) _anim = this.GetComponentInChildren<Animator>();
+            if (_anim == null) _anim = this.GetComponent<Animator>();
             return _anim;
         }
     }
@@ -26,13 +26,14 @@ public class MoveMove : MonoBehaviour
     Coroutine rotRoutine = null;
     Vector3 TargetPos = Vector3.zero;
 
-    protected void StartRunkkj(Vector3 pos, float Mms = 0.0f, float Mar = 0.0f, UnityAction done = null) //RUN 
-    {
+    protected void StartRunkkj(BattlecombatSystem Target, float Mms = 0.0f, float Mar = 0.0f, UnityAction done = null) //RUN 
+    {    
         if (moveRoutine != null) StopCoroutine(moveRoutine);
-        moveRoutine = StartCoroutine(Movingkkj(pos, Mms, Mar, done));
+        moveRoutine = StartCoroutine(Movingkkj(Target, Mms, Mar, done));
         if (rotRoutine != null) StopCoroutine(rotRoutine);
-       rotRoutine = StartCoroutine(Rotatingkkj(pos));
+        rotRoutine = StartCoroutine(Rotatingkkj(Target));
     }
+
 
     protected void AttackTargetkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack) //타겟을 찾았을때 
     {
@@ -44,10 +45,9 @@ public class MoveMove : MonoBehaviour
 
 
 
-    IEnumerator Movingkkj(Vector3 pos, float Mms, float Mar, UnityAction done) //움직일떄 
+    IEnumerator Movingkkj(BattlecombatSystem Target, float Mms, float Mar, UnityAction done) //움직일떄 
     {
-
-        float Dist = Vector3.Distance(pos, this.transform.position) - Mar;
+        float Dist = Vector3.Distance(Target.transform.position,  this.transform.position) - Mar;
         Vector3 oldPos = this.transform.position;
          Debug.Log("몬스터가 이동합니다.");
         while (!myAnim.GetBool("Running") && Dist > Mathf.Epsilon)
@@ -61,102 +61,94 @@ public class MoveMove : MonoBehaviour
           yield return null;
         }
           //  myAnim.SetBool("Running", true);
-            myAnim.SetBool("Running", false);
+            myAnim.SetBool("Running", true);
 
     }
 
-    IEnumerator Rotatingkkj(Vector3 pos) //회전 
+    
+    IEnumerator Rotatingkkj(BattlecombatSystem Target) //회전 
     {
-        Vector3 dir = (pos - this.transform.position).normalized;
+        Vector3 dir = (Target.transform.position - this.transform.position).normalized;
         Gameutilkkj.CalAngle(myAnim.transform.position, dir, myAnim.transform.right, out ROTATEDATA data);
         float r = Mathf.Acos(Vector3.Dot(this.transform.forward, dir));
         float Rot = 360.0f * (r / Mathf.PI);
         float rotDir = 1.0f;
-     //  rigidbody.velocity = Vector3.zero;
-        if (Vector3.Dot(this.transform.right, dir) < -Mathf.Epsilon)
-        {
-            rotDir = -1.0f;
-        }
- 
-
+        //  rigidbody.velocity = Vector3.zero;
         while (Rot > Mathf.Epsilon)
         {
-            float delta = 360.0f * Time.smoothDeltaTime;
+
+            float delta = Time.deltaTime * RotSpeed;
             if (Rot < delta)
             {
                 delta = Rot;
             }
             this.transform.Rotate(Vector3.up * delta * rotDir);
             Rot -= delta;
+            
             yield return null;
         }
+     
         //  rigidbody.velocity = Vector3.zero; // 이걸 넣어야 하나 고민중 
 
     }
+
+
+
     IEnumerator LookingAtTargetkkj(BattlecombatSystem Target)
     {
         while (true)
         {
-            Gameutilkkj.CalAngle(myAnim.transform.forward, (Target.transform.position - this.transform.position).normalized, 
-                myAnim.transform.right, out ROTATEDATA data);
-            if (data.Angle > Mathf.Epsilon)
-            {
-                float delta = Time.smoothDeltaTime * RotSpeed;
-                delta = delta > data.Angle ? data.Angle : delta;
-               myAnim.transform.Rotate(Vector3.up * delta * data.Dir , Space.World);
-            }
+            Vector3 dir = Target.transform.position - this.transform.position;
+            dir.y = 0.0f;
+            myAnim.transform.rotation = Quaternion.LookRotation(dir);
             yield return null;
         }
-     
     }
-  
 
-
-    IEnumerator Attackingkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
-    {
-       
-        float playTime = AttackDelay;
-        while (true)
+        IEnumerator Attackingkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack = null)
         {
-            if (Target.IsLivekkj() == false) break;
-            Vector3 dir = Target.transform.position - this.transform.position;
-         //   Debug.Log("플레이어 공격");
-            float dist = dir.magnitude;
-            if (dist > AttackRange)
+            float playTime = AttackDelay;
+            while (true)
             {
-                myAnim.SetTrigger("Run");
-                dir.Normalize();
+                if (Target.IsLivekkj() == false) break;
+                Vector3 dir = Target.transform.position - this.transform.position;
+                //   Debug.Log("플레이어 공격");
+                float dist = dir.magnitude;
+                if (dist > AttackRange)
+                {
+                    myAnim.SetTrigger("Run");
+                    dir.Normalize();
 
-                float delta = Time.smoothDeltaTime * MoveSpeed;
-              delta = delta > dist ? dist : delta;
-               
-                //    this.transform.Translate(dir * delta, Space.World);
+                    float delta = Time.smoothDeltaTime * MoveSpeed;
+                    delta = delta > dist ? dist : delta;
 
-            }
-            else
-            {
-               myAnim.SetBool("Running", false);
-                if (myAnim.GetBool("Attacking") == false)
-               {
-                   playTime += Time.deltaTime;
-                   
-                    //공격대기
-                    if (playTime >= AttackDelay)
-                   {
-                       //공격
-                       myAnim.SetTrigger("Attack");
-                       playTime = 0.0f;
-                      
+                    //    this.transform.Translate(dir * delta, Space.World);
+
+                }
+                else
+                {
+                    myAnim.SetBool("Running", false);
+                    if (myAnim.GetBool("Attacking") == false)
+                    {
+                        playTime += Time.deltaTime;
+
+                        //공격대기
+                        if (playTime >= AttackDelay)
+                        {
+                            //공격
+                            myAnim.SetTrigger("Attack");
+                            playTime = 0.0f;
+
+                        }
                     }
                 }
-           }
-          
-            yield return null;
+
+                yield return null;
+            }
         }
+
     }
 
- 
-}
 
  
 
