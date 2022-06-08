@@ -18,7 +18,7 @@ public class Loader : Character
     bool isR = false;
     bool isShift = false;
     //////////////////MoveInput//////////////////  
-
+    Vector3 StartPos = Vector3.zero;
     //////////////////JumpInput//////////////////
     float forceGravity = 0.0f;
     float delta;
@@ -42,9 +42,9 @@ public class Loader : Character
     public KJH_CharacterStat myCharacterStat;
 
     // 쿨타임 UI;
-    public KeyInputControl myKeyControl;
+    public KeyInputControl myKeyControl = null;
     // 사운드 UI;
-    public SoundManager mySound;
+    public SoundManager mySound = null;
     // 이펙트 UI;
     public GameObject ShiftEffect;
     public GameObject LMBEffect;
@@ -61,8 +61,11 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+              
                 break;
             case STATE.PLAY:
+                StartPos = this.transform.position;
+
                 break;
             case STATE.PAUSE:
                 break;
@@ -76,6 +79,7 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
+                
                 break;
             case STATE.PLAY:
                 M1checkT += Time.deltaTime;
@@ -95,6 +99,8 @@ public class Loader : Character
     }
     public void Start()
     {
+        myKeyControl = KeyInputControl.KeyInputMachine;
+        mySound = SoundManager.SoundManagerMachine;
         // 쿨타임 잴 float 값 저장
         M1checkT = M1Cool;
         M2checkT = M2Cool;
@@ -257,6 +263,18 @@ public class Loader : Character
         
         }
     }
+
+    // 데드존 진입시 시작지점으로 복귀 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Respawn"))
+        {
+            this.transform.position = StartPos;
+
+        }
+    }
+
     //IEnumerator GravityStrong(float speed)
     //{
     //    while(myAnim.GetBool("OnAir"))
@@ -344,7 +362,7 @@ public class Loader : Character
             {
                 myAnim.SetTrigger("RMB");
                 mySound.PlaySound("RMB");
-                myKeyControl.LM2CoolTime(M2Cool);
+                myKeyControl.M2CoolTime(M2Cool);
                 //주먹 생성
                 GameObject obj = Instantiate(LoaderFist, HookStart);
                 //부모해제 후 캐릭터 각도로 주먹 각도 변경
@@ -416,7 +434,7 @@ public class Loader : Character
         myRigid.AddForce(Vector3.zero);
         myRigid.AddForce(MySpringArm.forward * speed, ForceMode.Impulse);
         mySound.PlaySound("Shift");
-        myKeyControl.LShiftCoolTime(ShiftCool);
+        myKeyControl.ShiftCoolTime(ShiftCool);
         ShiftcheckT = 0.0f;
         isShift = false;
     }
@@ -426,7 +444,7 @@ public class Loader : Character
         if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R) && !myAnim.GetBool("IsR"))
         {
             isR = true;
-            myKeyControl.LRCoolTime(RCool);
+            myKeyControl.RCoolTime(RCool);
             myAnim.SetBool("IsR", true);
             myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
             myAnim.SetBool("OnAir", true);

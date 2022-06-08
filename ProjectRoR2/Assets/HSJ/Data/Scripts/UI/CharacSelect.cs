@@ -101,6 +101,7 @@ public class CharacSelect : SoundProperty
                 Ability.gameObject.GetComponent<Image>().color = new Color32(250, 163, 37, 246);
                 Skill.gameObject.GetComponent<Image>().color = new Color32(250, 163, 37, 246);
                 ChangeState(STATE.CLICK);
+                DontDestroyobject.instance.CharSelected = 1;
                 break;
             case STATE.LOADER:
                 //MySpeaker.PlayOneShot(LSound);
@@ -126,6 +127,8 @@ public class CharacSelect : SoundProperty
                 Skill.gameObject.GetComponent<Image>().color = new Color32(71, 81, 239, 255);
 
                 ChangeState(STATE.CLICK);
+                DontDestroyobject.instance.CharSelected = 2;
+
                 break;
             case STATE.CLICK:
                 break;

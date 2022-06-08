@@ -117,6 +117,8 @@
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\AIPerceptionlemu.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Bullet\LemurianFireball.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />
+    <Compile Include="Assets\PlayerSpawner.cs" />
+    <Compile Include="Assets\HSJ\Data\Scripts\UI\DontDestroyobject.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\KeyInputControl.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />

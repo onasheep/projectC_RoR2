@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class KJH_Player : Character
 {
+    // ESC 메뉴 정지를 위한 PAUSE 추가 
     public enum STATE
     {
-        CREATE, PLAY, DEAD
+        CREATE, PLAY, PAUSE, DEAD
     }
     public STATE myState = STATE.CREATE;
     [SerializeField]
@@ -42,8 +43,10 @@ public class KJH_Player : Character
     float AttackTimeCheck;
     float RMBTimeCheck;
     float RKBTimeCheck;
+    // UI 쿨타임 연동을 위한 추가
+    public KeyInputControl myKeyControl = null;
     /////////////////////////////////////////
-    void ChangeState(STATE s)
+    public void ChangeState(STATE s)
     {
         if (myState == s) return;
         myState = s;
@@ -52,6 +55,8 @@ public class KJH_Player : Character
             case STATE.CREATE:
                 break;
             case STATE.PLAY:
+                break;
+            case STATE.PAUSE:
                 break;
             case STATE.DEAD:
                 break;
@@ -70,12 +75,16 @@ public class KJH_Player : Character
                 TryRoll();
                 Attack();
                 break;
+            case STATE.PAUSE:
+                break;
             case STATE.DEAD:
                 break;
         }
     }
     void Start()
     {
+        myKeyControl = KeyInputControl.KeyInputMachine;
+
         CooltimeReset();
         if (myState == STATE.CREATE)
         {
@@ -315,6 +324,7 @@ public class KJH_Player : Character
     {       
         if (Input.GetKeyDown(KeyCode.LeftShift) && myCharacterdata.isRoll == false && RollTimeCheck >= myCharacterStat.RollTime)
         {
+            myKeyControl.ShiftCoolTime(myCharacterStat.RollTime);
             RollTimeCheck = 0;     
             if (myCharacterdata.isAttack)
             {
@@ -457,6 +467,8 @@ public class KJH_Player : Character
         {
             if (RMBTimeCheck >= myCharacterStat.RMBTime)
             {
+                //UI연동
+                myKeyControl.M2CoolTime(myCharacterStat.RMBTime);
                 StartCoroutine(DelayTime(3.0f));
                 RMBTimeCheck = 0;
                 myAnim.SetTrigger("LMBAtkR");
@@ -473,6 +485,9 @@ public class KJH_Player : Character
         {
             if (RKBTimeCheck >= myCharacterStat.RKBTime)
             {
+                //UI연동
+                myKeyControl.RCoolTime(myCharacterStat.RKBTime);
+
                 StartCoroutine(DelayTime(3.0f));
                 RKBTimeCheck = 0;
                 StartCoroutine(SpecialAtk());

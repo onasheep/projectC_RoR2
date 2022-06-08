@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharSelectScene : MonoBehaviour
 {
-
+  
 
     public void InGameSceneLoad()
     {
