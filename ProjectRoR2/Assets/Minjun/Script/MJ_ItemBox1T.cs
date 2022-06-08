@@ -34,15 +34,15 @@ public class MJ_ItemBox1T : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BoxEngage = true;
+        if(other.gameObject.layer == LayerMask.NameToLayer("Player")) BoxEngage = true;
     }
     private void OnTriggerStay(Collider other)
     {
-        BoxEngage = true;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) BoxEngage = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        BoxEngage = false;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) BoxEngage = false;
     }
 
     IEnumerator ItemRespawn()
@@ -66,12 +66,12 @@ public class MJ_ItemBox1T : MonoBehaviour
                     break;
                 case 2:
                     yield return new WaitForSeconds(3.0f);
-                    GameObject obj3 = Instantiate(Resources.Load("NewPrefab/Item/Goat_Hoof"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.identity) as GameObject;
+                    GameObject obj3 = Instantiate(Resources.Load("NewPrefab/Item/Goat_Hoof"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.Euler(0f,0f,180f)) as GameObject;
                     obj3.transform.localScale = new Vector3(70f, 70f, 70f); ;
                     break;
                 case 3:
                     yield return new WaitForSeconds(3.0f);
-                    GameObject obj4 = Instantiate(Resources.Load("NewPrefab/Item/Medkit"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.identity) as GameObject;
+                    GameObject obj4 = Instantiate(Resources.Load("NewPrefab/Item/Medkit"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.Euler(180f, 0f, 0f)) as GameObject;
                     obj4.transform.localScale = new Vector3(100f, 100f, 100f); ;
                     break;
                 case 4:
@@ -81,7 +81,7 @@ public class MJ_ItemBox1T : MonoBehaviour
                     break;
                 case 5:
                     yield return new WaitForSeconds(3.0f);
-                    GameObject obj6 = Instantiate(Resources.Load("NewPrefab/Item/SyringeCluster"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.identity) as GameObject;
+                    GameObject obj6 = Instantiate(Resources.Load("NewPrefab/Item/SyringeCluster"), this.transform.localPosition + new Vector3(0f, 1f, 1f), Quaternion.Euler(0f, -90f, 0f)) as GameObject;
                     obj6.transform.localScale = new Vector3(50f, 50f, 50f); ;
                     break;
             }

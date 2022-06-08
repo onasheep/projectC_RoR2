@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MJ_Teleport : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class MJ_Teleport : MonoBehaviour
     GameObject Range;
     GameObject RedF;
 
+    public TMPro.TMP_Text ChargeUI;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         Range = GameObject.Find("TelRange");
         BoxCol = GetComponent<BoxCollider>();
         SpherCol = GetComponent<SphereCollider>();
@@ -46,7 +49,7 @@ public class MJ_Teleport : MonoBehaviour
     {
         if (engage)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.F))
             {
                 RedF.SetActive(false);
                 _Charging = true;
@@ -57,14 +60,16 @@ public class MJ_Teleport : MonoBehaviour
             }
             if(_Charging)
             {
-                Charge += Time.deltaTime;
+                if(Charge!=100) Charge += Time.deltaTime;
+                ChargeUI.text = "<color=#ff0000>" + Charge.ToString("F0")  + "%" + "</color>";
+                
                 if (Charge >= 100)
                 {
                     BoxCol.enabled = true;
                     SpherCol.enabled = false;
                     Range.SetActive(false);
                     Charge = 100;
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (engage && Input.GetKeyDown(KeyCode.F))
                     {
                         MJ_SceneLoder.inst.LoadScene(1);                       
                     }

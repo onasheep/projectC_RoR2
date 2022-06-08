@@ -4624,24 +4624,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4993737811846802439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f8b9618b00d344d9d076e36bd0abaf, type: 3}
+  m_Script: {fileID: 11500000, guid: bd45d0cbe5ccb1d46926ffe3de88aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inven: {fileID: 1620088635}
-  itemdata: {fileID: 0}
-  invenItem: {fileID: 1600773459610910700, guid: b25c15c7d38c8604aab4dd6f7e34a46c, type: 3}
+  invenItem: {fileID: 1600773459610910700, guid: 8072804dd05027447b41e8e0e1bf68da, type: 3}
   _additem: {fileID: 1690627448}
   itemimg:
-  - {fileID: 2800000, guid: a4ae15f99a8fbf74f8f43e050371cb7f, type: 3}
-  - {fileID: 2800000, guid: c848e564e2f90904eadeaa62545c02ce, type: 3}
-  - {fileID: 2800000, guid: 9c12d6ad75aaaed489451f4b154e8d72, type: 3}
-  - {fileID: 2800000, guid: 86a0801802319e247ad317a6f2f5633a, type: 3}
-  - {fileID: 2800000, guid: 2d834bba1ffbd5c4ca872c6677a863b5, type: 3}
-  - {fileID: 2800000, guid: d4579c24027509f41be32d1296e50a3a, type: 3}
-  - {fileID: 2800000, guid: 824691637b1d802448786acc35371678, type: 3}
-  - {fileID: 2800000, guid: 33f77047c093cd54b956a013c5fe3173, type: 3}
-  - {fileID: 2800000, guid: 01d400b6743602e4690100982785e9b4, type: 3}
-  - {fileID: 2800000, guid: 467eb15ae5aeb934aa4d61f8157e68ab, type: 3}
+  - {fileID: 2800000, guid: dfeeeb94bac8798408f6895921966f30, type: 3}
+  - {fileID: 2800000, guid: d877bee3d470cca449fc53cc09d29a82, type: 3}
+  - {fileID: 2800000, guid: 8a3a5f33dac4eb14c8d1e57580f6e56d, type: 3}
+  - {fileID: 2800000, guid: edbeef9127ce37046b4f834ee524fbd9, type: 3}
+  - {fileID: 2800000, guid: 900acabb77cfe0044bf39b41913f4549, type: 3}
+  - {fileID: 2800000, guid: 800538ef84e14474f805b53a8fc86a7a, type: 3}
+  - {fileID: 2800000, guid: 7af38e2319e42ab40ad4f58f8517d709, type: 3}
+  - {fileID: 2800000, guid: 2bfc7eb77239c7c478d294a81b26c013, type: 3}
+  - {fileID: 2800000, guid: 61d4f74d0fd7c8d4e8be2f41c12b1003, type: 3}
+  - {fileID: 2800000, guid: d96c9b2772aa83643826bfd876671e48, type: 3}
   invenitemname: []
 --- !u!1 &4993737811899273824
 GameObject:

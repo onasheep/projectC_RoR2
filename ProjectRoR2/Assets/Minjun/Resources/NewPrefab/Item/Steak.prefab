@@ -118,14 +118,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8693073616295371583}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4, y: 1, z: 4}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 1855417938246882791}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &317100315068260718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +141,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  equip: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  stat: {fileID: 0}
+  myinven: {fileID: 0}
+  itemdata: {fileID: 0}
+  ItemContent: {fileID: 0}
+  C_Head: {fileID: 0}
+  C_RArm: {fileID: 0}
+  C_LArm: {fileID: 0}
+  C_RLeg: {fileID: 0}
+  C_LLeg: {fileID: 0}
+  C_Chest: {fileID: 0}
+  C_Foot: {fileID: 0}
+  C_Pelvis: {fileID: 0}
+  player_Type: 
 --- !u!65 &-245859265859443576
 BoxCollider:
   m_ObjectHideFlags: 0

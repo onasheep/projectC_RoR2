@@ -5,4 +5,9 @@ using UnityEngine;
 public class MJ_ItemData : MonoBehaviour
 {
     [SerializeField] public int[] equip = new int[10];
+
+    private void Update()
+    {
+        
+    }
 }

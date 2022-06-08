@@ -141,7 +141,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  equip: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  stat: {fileID: 0}
+  myinven: {fileID: 0}
+  itemdata: {fileID: 0}
+  ItemContent: {fileID: 0}
+  C_Head: {fileID: 0}
+  C_RArm: {fileID: 0}
+  C_LArm: {fileID: 0}
+  C_RLeg: {fileID: 0}
+  C_LLeg: {fileID: 0}
+  C_Chest: {fileID: 0}
+  C_Foot: {fileID: 0}
+  C_Pelvis: {fileID: 0}
+  player_Type: 
 --- !u!65 &6051913125813706637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -180,13 +192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6599697874857476530}
-  m_LocalRotation: {x: -0.4375968, y: 0.29472113, z: -0.029030588, w: 0.8490028}
-  m_LocalPosition: {x: 0.000024605486, y: -0.008226169, z: 0.004839558}
+  m_LocalRotation: {x: 0.11340521, y: 0.22781558, z: -0.18921785, w: 0.948386}
+  m_LocalPosition: {x: -0.004656644, y: -0.0071794284, z: -0.00396364}
   m_LocalScale: {x: 0.41449142, y: 0.41449156, z: 0.41449177}
   m_Children: []
   m_Father: {fileID: 6330787846318121498}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.537, y: 24.09, z: -18.796}
 --- !u!33 &4693742130443532528
 MeshFilter:
   m_ObjectHideFlags: 0
