@@ -12,6 +12,7 @@ public class InGameUI : MonoBehaviour
 
 
     public Loader myLoader;
+    public KJH_Player myCommando;
     public KJH_CameraArm myCamera;
     public AudioListener mySound;
     // timer
@@ -40,18 +41,46 @@ public class InGameUI : MonoBehaviour
     public GameObject Esc = null;
     bool EscActive = false;
 
+    private void Awake()
+    {
+        if (DontDestroyobject.instance.CharSelected == 1)
+        {
+            myCommando = GameObject.Find("mdlCommandoDualies (merge)").GetComponent<KJH_Player>();
+            Aimcamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            mySound = GameObject.Find("Main Camera").GetComponent<AudioListener>();
+            myCamera = GameObject.Find("CamArm").GetComponent<KJH_CameraArm>();
+
+        }
+
+        else if (DontDestroyobject.instance.CharSelected == 2)
+        {
+            myLoader = GameObject.Find("mdlLoader (merge)").GetComponent<Loader>();
+            Aimcamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            mySound = GameObject.Find("Main Camera").GetComponent<AudioListener>();
+            myCamera = GameObject.Find("SpringArm").GetComponent<KJH_CameraArm>();
+
+        }
+
+    }
+
     void Start()
     {
+      
+
+
+     
+        
+
         myHpbar.value = (float)curHP / (float)maxHp;
         myExpbar.value = (float)curExp / (float)maxExp;
         LevelText.text = "·¹º§ : " + Level;
-
         MakeAim();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Timer();
         HpBarController();
         ExpBarController();
@@ -66,7 +95,16 @@ public class InGameUI : MonoBehaviour
     {
         ScreenCenter = new Vector3(Aimcamera.pixelWidth / 2, Aimcamera.pixelHeight / 2);
         Ray ray = Aimcamera.ScreenPointToRay(ScreenCenter);
-        GameObject Crosshair = Instantiate(Resources.Load("Prefabs/UI/CrossHair"), Canvas) as GameObject;
+        if (DontDestroyobject.instance.CharSelected == 1)
+        {
+            GameObject Crosshair = Instantiate(Resources.Load("Prefeb/Crosshair"), Canvas) as GameObject;
+
+        }
+        if (DontDestroyobject.instance.CharSelected == 2)
+        {
+            GameObject Crosshair = Instantiate(Resources.Load("Prefabs/UI/CrossHair"), Canvas) as GameObject;
+        }
+
     }
 
     private void Timer()
@@ -142,10 +180,17 @@ public class InGameUI : MonoBehaviour
             Time.timeScale = 0.0f;
             Time.fixedDeltaTime = 0.0f;
             EscActive = true;
-            myLoader.ChangeState(Loader.STATE.PAUSE);
+            if (DontDestroyobject.instance.CharSelected == 1)
+            {
+                myCommando.ChangeState(KJH_Player.STATE.PAUSE);
+            }
+            else if(DontDestroyobject.instance.CharSelected == 2)
+            {
+                myLoader.ChangeState(Loader.STATE.PAUSE);
+
+            }
             mySound.GetComponent<AudioListener>().enabled = false;
             myCamera.GetComponent<KJH_CameraArm>().enabled = false;
-           
         }
         else if(EscActive == true)
         {
@@ -155,10 +200,18 @@ public class InGameUI : MonoBehaviour
             Time.timeScale = 1.0f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale ;
             EscActive = false;
-            myLoader.ChangeState(Loader.STATE.PLAY);
+            if (DontDestroyobject.instance.CharSelected == 1)
+            {
+                myCommando.ChangeState(KJH_Player.STATE.PLAY);
+            }
+            else if (DontDestroyobject.instance.CharSelected == 2)
+            {
+                myLoader.ChangeState(Loader.STATE.PLAY);
+
+            }
             mySound.GetComponent<AudioListener>().enabled = true;
             myCamera.GetComponent<KJH_CameraArm>().enabled = true;
-
         }
+
     }
 }

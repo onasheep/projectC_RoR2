@@ -362,7 +362,7 @@ public class Loader : Character
             {
                 myAnim.SetTrigger("RMB");
                 mySound.PlaySound("RMB");
-                myKeyControl.LM2CoolTime(M2Cool);
+                myKeyControl.M2CoolTime(M2Cool);
                 //주먹 생성
                 GameObject obj = Instantiate(LoaderFist, HookStart);
                 //부모해제 후 캐릭터 각도로 주먹 각도 변경
@@ -434,7 +434,7 @@ public class Loader : Character
         myRigid.AddForce(Vector3.zero);
         myRigid.AddForce(MySpringArm.forward * speed, ForceMode.Impulse);
         mySound.PlaySound("Shift");
-        myKeyControl.LShiftCoolTime(ShiftCool);
+        myKeyControl.ShiftCoolTime(ShiftCool);
         ShiftcheckT = 0.0f;
         isShift = false;
     }
@@ -444,7 +444,7 @@ public class Loader : Character
         if (RcheckT >= RCool && Input.GetKeyDown(KeyCode.R) && !myAnim.GetBool("IsR"))
         {
             isR = true;
-            myKeyControl.LRCoolTime(RCool);
+            myKeyControl.RCoolTime(RCool);
             myAnim.SetBool("IsR", true);
             myRigid.AddForce(Vector3.up * 20.0f, ForceMode.VelocityChange);
             myAnim.SetBool("OnAir", true);

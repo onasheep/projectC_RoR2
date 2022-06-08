@@ -13565,8 +13565,8 @@ MonoBehaviour:
   RMBSound: {fileID: 8300000, guid: ba5b9da8b3b9af742abfa0fd399e1a0f, type: 3}
   muzzleFlashR: {fileID: 6574697950681795218}
   muzzleFlashL: {fileID: 8582216078351560303}
-  effectSource0: {fileID: 7226583673155636401, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
-  effectSource1: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
+  effectSource0: {fileID: 7226583673155636401, guid: 47b43900fd0d8cc44b910b35eba4dba0, type: 3}
+  effectSource1: {fileID: 5024009746357069194, guid: cd05947fd1594564c95b61785e8df34b, type: 3}
   DamageMask:
     serializedVersion: 2
     m_Bits: 2624
@@ -23709,6 +23709,7 @@ MonoBehaviour:
     RKBTime: 9
     RKBNumber: 7
   myAttackSystem: {fileID: 8582216077693263536}
+  myKeyControl: {fileID: 0}
 --- !u!136 &9042444865539972916
 CapsuleCollider:
   m_ObjectHideFlags: 0
