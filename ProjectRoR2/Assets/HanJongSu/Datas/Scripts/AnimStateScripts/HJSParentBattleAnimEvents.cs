@@ -20,7 +20,7 @@ public class HJSParentBattleAnimEvents : MonoBehaviour
         {
             foreach (Collider enm in Enemy)
             {
-                enm.GetComponent<DumyPlayer>()?.GetDamage(this.GetComponentInParent<Parent>().ParentData.AD);
+                enm.GetComponent<KJH_Player>()?.TakeDamage(this.GetComponentInParent<Parent>().ParentData.AD);
             }
         }
 

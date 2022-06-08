@@ -79,7 +79,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchLoopCheck.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Map2.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\Airloop.cs" />
-    <Compile Include="Assets\Minjun\Script\MJ_ItemData.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\InGameUI.cs" />
@@ -110,16 +109,17 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BettleQueen\BettleQueen.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\AnimStateScripts\CreateStateAnimHJS.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Monster\Lemurian.cs" />
+    <Compile Include="Assets\Minjun\Script\MJ_ItemData.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\etc\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\EffectManager.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\UI\MonsterUIBar.cs" />
+    <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\AIPerceptionlemu.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Bullet\LemurianFireball.cs" />
-    <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\KeyInputControl.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
+    <Compile Include="Assets\Minjun\Script\MJ_ItemCount.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Item.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\GrappleFist.cs" />
@@ -138,8 +138,10 @@
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\ParentPlayerDR.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
-    <Compile Include="Assets\Minjun\Script\MJ_ItemCount.cs" />
     <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\HJSMonsterUIBar.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\HJSSpawnManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

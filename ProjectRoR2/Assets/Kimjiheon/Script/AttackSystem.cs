@@ -79,7 +79,19 @@ public class AttackSystem : MonoBehaviour
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Lemurian"))
             {
                //hit.transform.GetComponent<Lemurian>().OnDamagekkj(myBulletStat.BulletDamage);
-            }        
+            }
+            // 딱정벌레 공격시
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Beetle"))
+            {
+                hit.transform.GetComponent<Beetle>().HJSGetDamage(myBulletStat.BulletDamage);
+                Debug.Log("딱정벌레에게 " + myBulletStat.BulletDamage + "만큼의 데미지");
+            }
+            // 부모몬스터 공격시
+            else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Parent"))
+            {
+                hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
+                Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+            }
         }
         ShotBullet(attackDirection, BulletName, bulletSpawnPoint, attackRange);
         GunSound(BulletName, bulletSpawnPoint);      

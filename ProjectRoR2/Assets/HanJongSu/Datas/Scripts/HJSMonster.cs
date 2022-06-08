@@ -60,7 +60,22 @@ public class HJSMonster : HJSProperty
         myAnim.SetBool("IsMoving", false);
         done?.Invoke();
     }
-    
+
+    protected IEnumerator Disapearing()
+    {
+        yield return new WaitForSeconds(3.0f);
+        float dist = 1.0f;
+        while (dist > 0.0f)
+        {
+            float delta = Time.deltaTime * 0.5f;
+            this.transform.Translate(-Vector3.up * delta);
+            dist -= delta;
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
+    }
+
     IEnumerator Rotating(Transform Target)
     {
         Vector3 dir = (Target.position - this.transform.position).normalized;

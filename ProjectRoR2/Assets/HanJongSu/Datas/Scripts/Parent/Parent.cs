@@ -23,9 +23,19 @@ public class Parent : HJSMonster, HJSCombatSystem
 
     public void HJSGetDamage(float Damage)
     {
-        if (myState == STATE.DIE) return;
+        if (myState == STATE.DIE)
+        {
+            Debug.Log("이미 죽어 리턴");
+            return;
+        }
         ParentData.HP -= Damage;
-        if (ParentData.HP <= 0) ChangeState(STATE.DIE);
+        Debug.Log("딱정벌래가 " + Damage + "만큼의 데미지를 입어 현재 체력은 " + ParentData.HP);
+        if (ParentData.HP <= 0)
+        {
+            ParentData.HP = 0;
+            Debug.Log("부모 몬스터가 죽음 상태로 돌입");
+            ChangeState(STATE.DIE);
+        }
 
     }
 
@@ -45,7 +55,7 @@ public class Parent : HJSMonster, HJSCombatSystem
         ProcessState();
     }
 
-    protected void FixedUpdate()
+    /*protected void FixedUpdate()
     {
         if (Mathf.Approximately(myRigidBody.velocity.y, 0.0f))
         {
@@ -62,20 +72,21 @@ public class Parent : HJSMonster, HJSCombatSystem
                 Destroy(this.gameObject);
             }
         }
-    }
+    }*/
 
     IEnumerator Slap()
     {
-        myAnim.SetTrigger("Attack");
+        if(Target != null) myAnim.SetTrigger("Attack");
+
         yield return new WaitForSeconds(ParentData.AttackSpeed);
         ChangeState(STATE.MOVE);
     }
 
-    IEnumerator Waiting10Sec()
+    IEnumerator WaitingSec()
     {
         while(!myTarget)
         {
-            yield return new WaitForSeconds(10.0f);  
+            yield return new WaitForSeconds(1.0f);  
         }
         ChangeState(STATE.BATTLE);
     }
@@ -90,7 +101,7 @@ public class Parent : HJSMonster, HJSCombatSystem
                 ParentData.HP = 585;
                 ParentData.MaxHP = ParentData.HP;
                 ParentData.AD = 16.0f;
-                ParentData.MoveSpeed = 5.0f;
+                ParentData.MoveSpeed = 6.0f;
                 ParentData.AttackRange = 5.0f;
                 ParentData.AttackSpeed = 3.0f;
                 break;
@@ -108,6 +119,7 @@ public class Parent : HJSMonster, HJSCombatSystem
                 
                 break;
             case STATE.BATTLE:
+                
                 StopAllCoroutines();
                 StartCoroutine(Slap());
               
@@ -116,7 +128,7 @@ public class Parent : HJSMonster, HJSCombatSystem
             case STATE.DIE:
                 StopAllCoroutines();
                 myAnim.SetTrigger("Die");
-                Destroy(this.gameObject, 3.0f);
+                StartCoroutine(Disapearing());
                 break;
 
         }
@@ -133,10 +145,9 @@ public class Parent : HJSMonster, HJSCombatSystem
                 }
                 break;
             case STATE.MOVE:
-                
                 if (myTarget)
                 {
-                    if(MoveDelay >= 0.5f)
+                    if(MoveDelay >= 0.3f)
                     {
                         base.StartRot(myTarget);
                         MoveDelay = 0.0f;
@@ -145,7 +156,7 @@ public class Parent : HJSMonster, HJSCombatSystem
                 }
                 else if(!myTarget)
                 {
-                    StartCoroutine(Waiting10Sec());  
+                    StartCoroutine(WaitingSec());  
                 }
                 
                 break;
