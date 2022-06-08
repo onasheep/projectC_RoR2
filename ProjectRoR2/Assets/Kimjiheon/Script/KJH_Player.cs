@@ -78,6 +78,7 @@ public class KJH_Player : Character
             case STATE.PAUSE:
                 break;
             case STATE.DEAD:
+
                 break;
         }
     }

@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Crashmask:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 64
   Speed: 20
   Dir: {x: 0, y: 0, z: 0}
   Lsjoint: {fileID: 0}

@@ -124,8 +124,9 @@ public class InGameUI : MonoBehaviour
                 curHP -= 10; // 나중에 데미지로 바꿈 
 
             }
-            else
+            else if(curHP <= 0)
             {
+                myLoader.ChangeState(Loader.STATE.DEAD);
                 curHP = 0;
             }
         }

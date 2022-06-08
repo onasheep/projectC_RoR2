@@ -10,10 +10,19 @@ public class MJ_Inventory : MonoBehaviour
     public Transform _additem;  //인벤토리에서 Content_Item바인딩
     public List<Texture> itemimg = new List<Texture>();
     public List<string> invenitemname = new List<string>();
+    public TMPro.TMP_Text PlayerName = null;
     // Start is called before the first frame update
     void Start()
     {
         inven.gameObject.SetActive(false);
+        if(DontDestroyobject.instance.CharSelected == 1)
+        {
+            PlayerName.text = "코만도";
+        }
+        if (DontDestroyobject.instance.CharSelected == 2)
+        {
+            PlayerName.text = "로더";
+        }
     }
 
     // Update is called once per frame

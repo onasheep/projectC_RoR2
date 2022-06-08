@@ -64,7 +64,6 @@
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\RmbState.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\DumyPlayer.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Beetle1\Beetle.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\CharacterStat.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Teleport.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox2T.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\GameUtilkkj.cs" />
@@ -88,10 +87,8 @@
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\ComboEvent.cs" />
     <Compile Include="Assets\Kimjiheon\Script\Bullet.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\AbilityButton.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HsjInventory.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimEventListener.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Map1.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItemSlot.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\RootAnikkj.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\AttackStateR.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\AnimStateScripts\HJSParentBattleAnimEvents.cs" />
@@ -99,7 +96,6 @@
     <Compile Include="Assets\Kimjiheon\Data\Character\Materials\ParticleMaterial\Particle System\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\MenuSound.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SkillButton.cs" />
-    <Compile Include="Assets\HSJ\Data\Scripts\UI\HSJItem.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\Parent\Parent.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\AnimStateScripts\HJSBeetleBattleAnimEvents.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox.cs" />
@@ -140,6 +136,8 @@
     <Compile Include="Assets\Kimjiheon\Script\UI.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\ParentPlayerDR.cs" />
+    <Compile Include="Assets\GameOverCanvas.cs" />
+    <Compile Include="Assets\DeadZone.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\PunchFire.cs" />
     <Compile Include="Assets\Kimjiheon\Script\AttackSystem.cs" />
   </ItemGroup>
