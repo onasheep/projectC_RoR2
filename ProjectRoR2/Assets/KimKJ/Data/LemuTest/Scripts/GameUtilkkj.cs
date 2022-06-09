@@ -28,7 +28,6 @@ public class Gameutilkkj : MonoBehaviour
 {
     public static void CalAngle(Vector3 src, Vector3 des, Vector3 right, out ROTATEDATA data)
     {
- 
         float r = Mathf.Acos(Vector3.Dot(src, des));
         data.Angle = 180.0f * (r / Mathf.PI);
         data.Dir = 1.0f;

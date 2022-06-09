@@ -8,7 +8,7 @@ public class RootAnikkj : MoveMove
 
     private void FixedUpdate()
     {
-        this.transform.parent.Translate(Dir2, Space.World);
+       this.transform.Translate(Dir2, Space.World);
         Dir2 = Vector3.zero;
     }
 
