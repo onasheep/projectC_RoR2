@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Beetle : HJSMonster, HJSCombatSystem
 {
@@ -19,17 +20,22 @@ public class Beetle : HJSMonster, HJSCombatSystem
 
     [SerializeField]
     public HJSMonsterData BettleData;
+    private AudioSource audioSource;
     float MoveDelay = 0.0f;
     float IsAir = 0.0f;
+    UnityAction DieAction = null;
 
-    public void HJSGetDamage(float Damage)
+    public void HJSGetDamage(float Damage, UnityAction dieAction = null)
     {
         if (myState == HJSSTATE.DIE)
         {
             Debug.Log("이미 죽어 리턴");
             return;
         }
-            
+        if (DieAction == null)
+        {
+
+        }
         myAnim.SetTrigger("Damage");
         BettleData.HP -= Damage;
         Debug.Log("딱정벌래가 " + Damage + "만큼의 데미지를 입어 현재 체력은 " + BettleData.HP);
@@ -48,6 +54,7 @@ public class Beetle : HJSMonster, HJSCombatSystem
     }
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         ChangeState(HJSSTATE.CREATE);  
     }
 
@@ -74,9 +81,14 @@ public class Beetle : HJSMonster, HJSCombatSystem
             }
         }
     }*/
-
+    void SoundPlay(AudioClip clip)
+    {
+        audioSource.volume = 0.20f;
+        audioSource.PlayOneShot(clip);
+    }
     IEnumerator HeadBute()
     {
+        SoundPlay(AtkSound);
         myAnim.SetTrigger("Attack");
         yield return new WaitForSeconds(BettleData.AttackSpeed);
         ChangeState(HJSSTATE.MOVE);
@@ -91,13 +103,15 @@ public class Beetle : HJSMonster, HJSCombatSystem
         switch(myState)
         {
             case HJSSTATE.CREATE:
+                SoundPlay(SpawnSound);
                 BettleData.HP = 80.0f;
                 BettleData.MaxHP = BettleData.HP;
                 BettleData.AD = 12.0f;
                 BettleData.MoveSpeed = 1.0f;
                 BettleData.AttackSpeed = 1.5f;
                 BettleData.AttackRange = 3.0f;
-                
+                BettleData.GainGold = 12.0f;
+                BettleData.GainExp = 10.0f;
                 break;
             case HJSSTATE.MOVE:
                 if (myTarget)
@@ -112,7 +126,9 @@ public class Beetle : HJSMonster, HJSCombatSystem
                 break;
             case HJSSTATE.DIE:
                 StopAllCoroutines();
+                SoundPlay(DieSound);
                 myAnim.SetTrigger("Die");
+                DieAction?.Invoke();
                 StartCoroutine(Disapearing());
                 break;
                 

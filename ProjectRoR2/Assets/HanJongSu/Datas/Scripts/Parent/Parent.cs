@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Parent : HJSMonster, HJSCombatSystem
 {
@@ -17,16 +18,23 @@ public class Parent : HJSMonster, HJSCombatSystem
         set => Target = value;
     }
     public Transform Hand;
+    private AudioSource audioSource;
     float IsAir = 0.0f;
     float MoveDelay = 10.0f;
+    UnityAction DieAction = null;
+
     public HJSMonsterData ParentData;
 
-    public void HJSGetDamage(float Damage)
+    public void HJSGetDamage(float Damage, UnityAction dieAction = null)
     {
         if (myState == STATE.DIE)
         {
             Debug.Log("이미 죽어 리턴");
             return;
+        }
+        if(DieAction == null)
+        {
+
         }
         ParentData.HP -= Damage;
         Debug.Log("딱정벌래가 " + Damage + "만큼의 데미지를 입어 현재 체력은 " + ParentData.HP);
@@ -46,7 +54,14 @@ public class Parent : HJSMonster, HJSCombatSystem
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         ChangeState(STATE.CREATE);
+    }
+
+    void SoundPlay(AudioClip clip)
+    {
+        audioSource.volume = 0.20f;
+        audioSource.PlayOneShot(clip);
     }
 
     // Update is called once per frame
@@ -76,7 +91,11 @@ public class Parent : HJSMonster, HJSCombatSystem
 
     IEnumerator Slap()
     {
-        if(Target != null) myAnim.SetTrigger("Attack");
+        if (Target != null)
+        {
+            myAnim.SetTrigger("Attack");
+            SoundPlay(AtkSound);
+        }
 
         yield return new WaitForSeconds(ParentData.AttackSpeed);
         ChangeState(STATE.MOVE);
@@ -98,6 +117,7 @@ public class Parent : HJSMonster, HJSCombatSystem
         switch (myState)
         {
             case STATE.CREATE:
+                SoundPlay(SpawnSound);
                 ParentData.HP = 585;
                 ParentData.MaxHP = ParentData.HP;
                 ParentData.AD = 16.0f;
@@ -127,6 +147,7 @@ public class Parent : HJSMonster, HJSCombatSystem
                 break;
             case STATE.DIE:
                 StopAllCoroutines();
+                SoundPlay(DieSound);
                 myAnim.SetTrigger("Die");
                 StartCoroutine(Disapearing());
                 break;

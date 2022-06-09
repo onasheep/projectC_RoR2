@@ -15,7 +15,12 @@ public class HJSMonster : HJSProperty
         public float MoveSpeed;
         public float AttackSpeed;
         public float AttackRange;
+        public float GainGold;
+        public float GainExp;
     }
+    [SerializeField]protected AudioClip SpawnSound;
+    [SerializeField] protected AudioClip AtkSound;
+    [SerializeField] protected AudioClip DieSound;
 
     Coroutine moveRoutine = null;
     Coroutine rotRoutine = null;
