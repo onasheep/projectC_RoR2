@@ -45,6 +45,8 @@ public class KJH_Player : Character
     float RKBTimeCheck;
     // UI 쿨타임 연동을 위한 추가
     public KeyInputControl myKeyControl = null;
+    // 게임오버 UI;
+    public GameOverCanvas myGameOver = null;
     /////////////////////////////////////////
     public void ChangeState(STATE s)
     {
@@ -59,6 +61,7 @@ public class KJH_Player : Character
             case STATE.PAUSE:
                 break;
             case STATE.DEAD:
+                myGameOver.GameOver();
                 break;
         }
     }
@@ -83,7 +86,9 @@ public class KJH_Player : Character
     }
     void Start()
     {
+        // 쿨타임 UI 및 게임오버 UI
         myKeyControl = KeyInputControl.KeyInputMachine;
+        myGameOver = GameOverCanvas.GameOverMachine;
 
         CooltimeReset();
         if (myState == STATE.CREATE)

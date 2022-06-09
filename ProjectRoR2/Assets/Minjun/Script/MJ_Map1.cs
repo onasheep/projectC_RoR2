@@ -32,6 +32,7 @@ public class MJ_Map1 : MonoBehaviour
     public Transform _TelPoint2;
     public Transform _TelPoint3;
 
+    public Vector3 StartPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -133,12 +134,17 @@ public class MJ_Map1 : MonoBehaviour
         {
             case 0:
                 Player.transform.position = _StartPoint1.transform.position;
+                StartPos = _StartPoint1.transform.position;
                 break;
             case 1:
                 Player.transform.position = _StartPoint2.transform.position;
+                StartPos = _StartPoint2.transform.position;
+
                 break;
             case 2:
                 Player.transform.position = _StartPoint3.transform.position;
+                StartPos = _StartPoint3.transform.position;
+
                 break;
         }
     }

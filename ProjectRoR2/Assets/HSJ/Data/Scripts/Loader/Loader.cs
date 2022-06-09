@@ -20,8 +20,6 @@ public class Loader : Character
     //////////////////MoveInput//////////////////  
     Vector3 StartPos = Vector3.zero;
     //////////////////JumpInput//////////////////
-    float forceGravity = 0.0f;
-    float delta;
 
     //////////////////AttackInput//////////////////     
     public Transform HookStart;
@@ -45,14 +43,43 @@ public class Loader : Character
     public KeyInputControl myKeyControl = null;
     // 사운드 UI;
     public SoundManager mySound = null;
+    // 게임오버 UI;
+    public GameOverCanvas myGameOver = null;
     // 이펙트 UI;
     public GameObject ShiftEffect;
     public GameObject LMBEffect;
     public GameObject ChargingEffect;
 
-    
 
 
+
+    public void Start()
+    {
+        myKeyControl = KeyInputControl.KeyInputMachine;
+        mySound = SoundManager.SoundManagerMachine;
+        myGameOver = GameOverCanvas.GameOverMachine;
+
+        // 쿨타임 잴 float 값 저장
+        M1checkT = M1Cool;
+        M2checkT = M2Cool;
+        ShiftcheckT = ShiftCool;
+        RcheckT = RCool;
+
+        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+
+        if (myState == STATE.CREATE)
+        {
+            ChangeState(STATE.PLAY);
+        }
+
+        // 콤보이벤트 함수에서 애니메이션에 콤보체크에 해당 되면 콤보블을 treu 아니면 false를 반환하게 함
+        this.GetComponentInChildren<ComboEvent>().ComboCheck += (value) => Comboable = value;
+
+
+
+
+
+    }
 
     public void ChangeState(STATE s)
     {
@@ -61,15 +88,14 @@ public class Loader : Character
         switch (myState)
         {
             case STATE.CREATE:
-              
                 break;
             case STATE.PLAY:
                 StartPos = this.transform.position;
-
                 break;
             case STATE.PAUSE:
                 break;
             case STATE.DEAD:
+                myGameOver.GameOver();
                 break;
         }
     }
@@ -97,31 +123,7 @@ public class Loader : Character
                 break;
         }
     }
-    public void Start()
-    {
-        myKeyControl = KeyInputControl.KeyInputMachine;
-        mySound = SoundManager.SoundManagerMachine;
-        // 쿨타임 잴 float 값 저장
-        M1checkT = M1Cool;
-        M2checkT = M2Cool;
-        ShiftcheckT = ShiftCool;
-        RcheckT = RCool;
-
-        myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
-
-        if (myState == STATE.CREATE)
-        {
-            ChangeState(STATE.PLAY);
-        }
-
-        // 콤보이벤트 함수에서 애니메이션에 콤보체크에 해당 되면 콤보블을 treu 아니면 false를 반환하게 함
-        this.GetComponentInChildren<ComboEvent>().ComboCheck += (value) => Comboable = value;
-
-
-
-
-
-    }
+    
     private void FixedUpdate()
     {
         if (myState == STATE.PLAY)
@@ -264,17 +266,6 @@ public class Loader : Character
         }
     }
 
-    // 데드존 진입시 시작지점으로 복귀 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Respawn"))
-        {
-            this.transform.position = StartPos;
-
-        }
-    }
-
     //IEnumerator GravityStrong(float speed)
     //{
     //    while(myAnim.GetBool("OnAir"))
@@ -308,17 +299,18 @@ public class Loader : Character
     }
 
     // 공격 판단하고 이펙트 출력 
-    //IEnumerator Attacking(Transform target)
-    //{
-    //    Collider[] Monsters = Physics.OverlapSphere(target.position,
-    //        1.0f, 1 << LayerMask.NameToLayer("Monster"));
-    //    foreach(Collider mon in Monsters)
-    //    {
-    //        Instantiate(Effectsource, target.position, Quaternion.identity);
-    //        mon.GetComponent<Monster>()?.OnDamage(Damage);
-    //    }
+    IEnumerator Attacking(Transform target)
+    {
+        Collider[] Monsters = Physics.OverlapSphere(target.position,
+            1.0f, 1 << LayerMask.NameToLayer("Monster"));
+        foreach (Collider mon in Monsters)
+        {
+            Instantiate(Effectsource, target.position, Quaternion.identity);
+            mon.GetComponent<Monster>()?.OnDamage(Damage);
+            yield return null;
+        }
 
-    //}
+    }
 
     bool Comboable = false;
     void LMB()

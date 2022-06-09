@@ -124,8 +124,16 @@ public class InGameUI : MonoBehaviour
                 curHP -= 10; // 나중에 데미지로 바꿈 
 
             }
-            else
+            else if(curHP <= 0)
             {
+                if(DontDestroyobject.instance.CharSelected == 1)
+                {
+                    myCommando.ChangeState(KJH_Player.STATE.DEAD);
+                }
+                if (DontDestroyobject.instance.CharSelected == 2)
+                {
+                    myLoader.ChangeState(Loader.STATE.DEAD);
+                }
                 curHP = 0;
             }
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KJH_CameraArm : MonoBehaviour
 {
+    public static KJH_CameraArm cameraArmMachine = null;
     float myZoom;
     Vector3 StartCam;
     public float CollisionOffset = 1.0f;
@@ -16,6 +17,7 @@ public class KJH_CameraArm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraArmMachine = this;
         Cursor.lockState = CursorLockMode.Locked; // 카메라 암에있던것 옮김
         StartCam = myCamera.localPosition;
         myZoom = -myCamera.localPosition.z;

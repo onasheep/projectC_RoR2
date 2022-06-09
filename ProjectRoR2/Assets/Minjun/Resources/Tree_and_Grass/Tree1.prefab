@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5180861889761809326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525299765952956692}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 2807283910411798669}
   - component: {fileID: 5462536654701366782}
   - component: {fileID: 2526133193063056730}
-  m_Layer: 0
+  - component: {fileID: 7139066549956592207}
+  m_Layer: 6
   m_Name: spmTree_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,3 +128,17 @@ CapsuleCollider:
   m_Height: 1.1166971
   m_Direction: 1
   m_Center: {x: 0, y: 0.52180994, z: 0.004093632}
+--- !u!64 &7139066549956592207
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068133686977070185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8953516508393704508, guid: 82f1895b69e491746885bcaf5dc043ac, type: 3}

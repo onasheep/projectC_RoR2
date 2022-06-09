@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146764187885823978}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SurfaceHeight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4202332510821555070}
   - component: {fileID: 9204726197519473353}
   - component: {fileID: 5688449450068072357}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TeleporterBeacon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 7060795854212652460}
   - component: {fileID: 2308847267125612598}
   - component: {fileID: 7929971280392855584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TeleporterProngMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

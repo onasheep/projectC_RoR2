@@ -417,15 +417,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e51c08a21cc7a04bb15d2cdfe10b5fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e51c08a21cc7a04bb15d2cdfe10b5fb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e51c08a21cc7a04bb15d2cdfe10b5fb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e51c08a21cc7a04bb15d2cdfe10b5fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3010,6 +3010,7 @@ MonoBehaviour:
     RKBNumber: 0
   myKeyControl: {fileID: 0}
   mySound: {fileID: 0}
+  myGameOver: {fileID: 0}
   ShiftEffect: {fileID: 8460667080445658512, guid: a3e2c3406e02f2c4ba86cfb1604277bd, type: 3}
   LMBEffect: {fileID: 7226583673155636401, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
   ChargingEffect: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd, type: 3}
