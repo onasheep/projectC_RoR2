@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class MonsterUIBar : MonoBehaviour
 {
-
     public Slider myHP;
+    Transform pos = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +16,16 @@ public class MonsterUIBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    //    this.transform.position = pos.position;
     }
 
     public void Initialize(Transform Root, float Height)
     {
         StartCoroutine(Following(Root, Height));
     }
-
     IEnumerator Following(Transform Root, float Height)
     {
-        while(Root != null)
+        while (Root != null)
         {
             Camera.allCameras[0].WorldToViewportPoint(Root.position);
             Vector3 pos = Camera.allCameras[0].WorldToScreenPoint(Root.position);
@@ -35,5 +34,6 @@ public class MonsterUIBar : MonoBehaviour
             yield return null;
         }
     }
+
 
 }

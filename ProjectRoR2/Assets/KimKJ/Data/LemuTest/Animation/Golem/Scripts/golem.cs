@@ -67,11 +67,10 @@ public class golem : MoveMove, BattlecombatSystem
     public STATE mystate = STATE.NONE;
    public GameObject LazerBeem;
    public Transform Eye;
-    public Transform EnemyHead; // HP넣을곳 
+    public Transform HpBar; // HP넣을곳 
     public float GolemUIBarHeight =480.0f; // 골렘  UI와 체력 연동 
     float AtkDelayCheck;
-   // public BattleCombatSystem myBattleCombatSystem = null;
-   //   GolemUIBar kkjmonstergolemUIBar = null;
+    GolemUIBar kkjmonstergolemUIBar = null;
 
     Vector3 StartPos;
 
@@ -87,33 +86,29 @@ public class golem : MoveMove, BattlecombatSystem
     public void OnDamagekkj(float Damage)
     {
         if (mystate == STATE.DEAD)
-            return;
+        { return; }
         GolemData.HP -= Damage;
-
+        myAnim.SetTrigger("Hit");
         Debug.Log("골렘이 공격 받고 있습니다.");
         if (GolemData.HP <= 0)
         {
             Debug.Log("골렘이 죽었습니다. 테스트 종료");
             ChangeState(STATE.DEAD);
+            StopAllCoroutines();
+            myAnim.SetTrigger("Dead");
         }
-        else
-        {
-            myAnim.SetTrigger("Hit");
-        }
+
     }
 
 
    
      void Firekkj2(Transform target, float range)
     {
-        if (mystate != STATE.DEAD)
-        {           
+      
             myAnim.SetTrigger("Attack");
             GameObject Firebeem = Instantiate(LazerBeem, Eye.position, Eye.rotation);
             Vector3 dir =  target.position - Eye.position;
             Firebeem.GetComponent<GolemFireball>().Shotting(dir, range);
-        }
-
 
     }
 
@@ -126,11 +121,11 @@ public class golem : MoveMove, BattlecombatSystem
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        GameObject obj = Instantiate(Resources.Load("UI/GolemUIBar"), GameObject.Find("Canvas").transform) as GameObject;
+        
+        GameObject obj = Instantiate(Resources.Load("UI Prefab/GolemUIBar"), GameObject.Find("InGameUICanvas").transform) as GameObject;
         kkjmonstergolemUIBar = obj.GetComponent<GolemUIBar>();
-        kkjmonstergolemUIBar.Initialize(EnemyHead, 0.0f);
-        */
+        kkjmonstergolemUIBar.Initialize(HpBar, 0.0f);
+        
         ChangeState(STATE.CREATE);
     //   InvokeRepeating("Firekkj2", 0.0f, 3.0f);
               
@@ -220,7 +215,13 @@ public class golem : MoveMove, BattlecombatSystem
                 {
                     Firekkj2(myperceptions.Target.transform, GolemData.AttackRange);
                     AtkDelayCheck = 0.0f;
-                }              
+                }
+                if (GolemData.HP <= 0.0f)
+                {
+                    StopAllCoroutines();
+                    myAnim.SetTrigger("Dead");
+                    ChangeState(STATE.DEAD);
+                }
                 break;
             case STATE.DEAD:
                 break;

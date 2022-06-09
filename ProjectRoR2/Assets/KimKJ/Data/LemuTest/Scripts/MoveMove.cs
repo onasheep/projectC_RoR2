@@ -33,7 +33,13 @@ public class MoveMove : MonoBehaviour
         if (rotRoutine != null) StopCoroutine(rotRoutine);
         rotRoutine = StartCoroutine(Rotatingkkj(Target));
     }
-
+    /*
+    protected void Rotatekkj(BattlecombatSystem Target)
+    {
+        if (rotRoutine != null) StopCoroutine(rotRoutine);
+        rotRoutine = StartCoroutine(Rotatingkkj(Target));
+    }
+    */
 
     protected void AttackTargetkkj(BattlecombatSystem Target, float AttackRange, float AttackDelay, UnityAction EndAttack) //타겟을 찾았을때 
     {
@@ -127,7 +133,7 @@ public class MoveMove : MonoBehaviour
                 }
                 else
                 {
-                    myAnim.SetBool("Running", false);
+                    myAnim.SetBool("Running", true);
                     if (myAnim.GetBool("Attacking") == false)
                     {
                         playTime += Time.deltaTime;
