@@ -33,10 +33,15 @@ public class AttackSystem : MonoBehaviour
     public void SetPlayer(GameObject player)
     {
         myplayer = player;
-        myCharacterStat = myplayer.GetComponentInChildren<KJH_Player>().myCharacterStat;
-        
+        if (DontDestroyobject.instance.CharSelected == 1)
+        {
+            myCharacterStat = myplayer.GetComponentInChildren<KJH_Player>().myCharacterStat;
+        }
+        else if (DontDestroyobject.instance.CharSelected == 2)
+        {
+            myCharacterStat = myplayer.GetComponentInChildren<Loader>().myCharacterStat;
+        }
     }
-    
     void Start()
     {
         myCharacterStat.curHP = myCharacterStat.maxHP;
@@ -165,3 +170,4 @@ public class AttackSystem : MonoBehaviour
         return false;
     }
 }
+

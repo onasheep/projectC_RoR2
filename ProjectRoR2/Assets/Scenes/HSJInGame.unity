@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4993737810904396109, guid: e11c6f4b19aee3e4fbc93b8d6e45eb98, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4993737811846802439, guid: e11c6f4b19aee3e4fbc93b8d6e45eb98, type: 3}
       propertyPath: m_Name
       value: InGameUICanvas

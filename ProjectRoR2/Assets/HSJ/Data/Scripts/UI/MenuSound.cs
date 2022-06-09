@@ -8,7 +8,7 @@ public class MenuSound : SoundProperty
     public AudioClip BGM;
     public AudioClip menuClick;
     public AudioClip menuHovering;
-    public Button btn1, btn2, btn3;
+    public Button btn1,btn2, btn3 = null;
     public void Start()
     {
         Sound.Ins.PlayBGM(BGM);

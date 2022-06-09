@@ -46,6 +46,8 @@ public class KJH_Player : Character
     float jumpmotionTime;
     // UI 쿨타임 연동을 위한 추가
     public KeyInputControl myKeyControl = null;
+    public GameOverCanvas myGameOver = null;
+
     public void ChangeState(STATE s)
     {
         
@@ -60,6 +62,7 @@ public class KJH_Player : Character
             case STATE.PAUSE:
                 break;
             case STATE.DEAD:
+                myGameOver.GameOver();
                 break;
         }
     }
@@ -84,8 +87,10 @@ public class KJH_Player : Character
     }
     void Start()
     {
+        // 쿨타임 및 엔딩씬 추가
         myKeyControl = KeyInputControl.KeyInputMachine;
-        
+        myGameOver = GameOverCanvas.GameOverMachine;
+
         CooltimeReset();
         if (myState == STATE.CREATE)
         {
@@ -508,6 +513,7 @@ public class KJH_Player : Character
         if (isDie)
         {
             Debug.Log("Die");
+            ChangeState(STATE.DEAD);
         }
     }
 }

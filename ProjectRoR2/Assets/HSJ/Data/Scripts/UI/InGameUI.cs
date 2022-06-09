@@ -24,7 +24,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private Slider myHpbar;
     float maxHp = 100;  // 최대체력과 현재체력은 나중에 스탯에서 가져오면 대체할 수 있음 
     float curHP = 100; // 작동용으로 만들어 둔것 
-    public TMPro.TMP_Text HpbarText;
+    public TMPro.TMP_Text HpbarText = null;
 
     // expbar
     [SerializeField] private Slider myExpbar;
@@ -56,6 +56,7 @@ public class InGameUI : MonoBehaviour
         else if (DontDestroyobject.instance.CharSelected == 2)
         {
             myLoader = GameObject.Find("mdlLoader (merge)").GetComponent<Loader>();
+            myAttackSystem = GameObject.Find("AttackSystem").GetComponent<AttackSystem>();
             Aimcamera = GameObject.Find("Main Camera").GetComponent<Camera>();
             mySound = GameObject.Find("Main Camera").GetComponent<AudioListener>();
             myCamera = GameObject.Find("SpringArm").GetComponent<KJH_CameraArm>();
@@ -66,13 +67,12 @@ public class InGameUI : MonoBehaviour
 
     void Start()
     {
-      
 
 
      
         
 
-        myHpbar.value = (float)curHP / (float)maxHp;
+        myHpbar.value = (float)myAttackSystem.myCharacterStat.curHP / (float)myAttackSystem.myCharacterStat.maxHP;
         myExpbar.value = (float)curExp / (float)maxExp;
         LevelText.text = "레벨 : " + Level;
         MakeAim();
@@ -118,28 +118,10 @@ public class InGameUI : MonoBehaviour
     // 데이터 추가되면 수정 할 것
     private void HpBarController() // damage를 변수로 받아와서 사용 
     {
-        if(Input.GetKeyDown(KeyCode.M)) // 조건 나중에 바꿈
-        {
-            if(curHP > 0)
-            {
-                curHP -= 10; // 나중에 데미지로 바꿈 
-
-            }
-            else if(curHP <= 0)
-            {
-                if(DontDestroyobject.instance.CharSelected == 1)
-                {
-                    myCommando.ChangeState(KJH_Player.STATE.DEAD);
-                }
-                if (DontDestroyobject.instance.CharSelected == 2)
-                {
-                    myLoader.ChangeState(Loader.STATE.DEAD);
-                }
-                curHP = 0;
-            }
-        }
-        myHpbar.value = Mathf.Lerp(myHpbar.value, (float)curHP / (float)maxHp, Time.deltaTime * 10.0f); // hp 감소 Lerp로 부드럽게 
-        HpbarText.text = curHP + "/" + maxHp; // hpbar 텍스트 변경 
+        
+       
+        myHpbar.value = Mathf.Lerp(myHpbar.value, (float)myAttackSystem.myCharacterStat.curHP / (float)myAttackSystem.myCharacterStat.maxHP, Time.deltaTime * 10.0f); // hp 감소 Lerp로 부드럽게 
+        HpbarText.text = myAttackSystem.myCharacterStat.curHP + "/" + myAttackSystem.myCharacterStat.maxHP; // hpbar 텍스트 변경 
     }
 
     private void ExpBarController()

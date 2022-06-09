@@ -20,7 +20,14 @@ public class HJSBeetleBattleAnimEvents : MonoBehaviour
         {
             foreach (Collider enm in Enemy)
             {
-                enm.GetComponent<KJH_Player>()?.TakeDamage(this.GetComponentInParent<Beetle>().BettleData.AD);
+                if (DontDestroyobject.instance.CharSelected == 1)
+                {
+                    enm.GetComponent<KJH_Player>()?.TakeDamage(this.GetComponentInParent<Beetle>().BettleData.AD);
+                }
+                if (DontDestroyobject.instance.CharSelected == 2)
+                {
+                    enm.GetComponent<Loader>()?.TakeDamage(this.GetComponentInParent<Beetle>().BettleData.AD);
+                }
             }
         }
 

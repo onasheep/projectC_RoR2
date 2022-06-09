@@ -27,6 +27,8 @@ public struct KJH_CharacterStat
     public float RMBTime;
     public float RKBTime;
     public int RKBNumber;
+    [Header("LoaderDamage")]
+    public float LoaderDamage;
 }
 
 [Serializable]

@@ -30,6 +30,9 @@ public class Loader : Character
     public GrappleFist myGrapple;
     public Transform Back;
 
+    public AttackSystem myAttackSystem = null;
+
+
     [SerializeField]
     private Transform myFrontAim;
     [SerializeField]
@@ -38,6 +41,8 @@ public class Loader : Character
     // 스탯 가져오기
     public KJH_CharacterData myCharacterdata;
     public KJH_CharacterStat myCharacterStat;
+
+    float jumpmotionTime;
 
     // 쿨타임 UI;
     public KeyInputControl myKeyControl = null;
@@ -49,7 +54,7 @@ public class Loader : Character
     public GameObject ShiftEffect;
     public GameObject LMBEffect;
     public GameObject ChargingEffect;
-
+    public GameObject HitEffect;
 
 
 
@@ -126,16 +131,15 @@ public class Loader : Character
     
     private void FixedUpdate()
     {
-        if (myState == STATE.PLAY)
-        {
+       
             PlayerMoving();
-            PlayerCrashCheck();
-           
-        }
+        //PlayerCrashCheck(); 
+            ForwardCheck();
+
     }
 
     void Update()
-    {
+    {      
         StateProcess();
     }
 
@@ -148,26 +152,26 @@ public class Loader : Character
     ///  이동 관련 
     /// </summary>
     /// 
-    void PlayerCrashCheck()
-    {
-        GameObject obj = GameObject.Find("pelvis");
-        Ray ray = new Ray();
-        ray.origin = obj.transform.position;
-        ray.direction = this.transform.forward;
+    //void PlayerCrashCheck()
+    //{
+    //    GameObject obj = GameObject.Find("pelvis");
+    //    Ray ray = new Ray();
+    //    ray.origin = obj.transform.position;
+    //    ray.direction = this.transform.forward;
         
-        if (Physics.Raycast(ray, out RaycastHit hit, 0.5f, CrashMask))
-        {
-            myRigid.constraints = RigidbodyConstraints.FreezeRotation|RigidbodyConstraints.FreezePositionZ;
-            if (myAnim.GetFloat("Dir.y") < 0.0f)
-                myRigid.constraints = RigidbodyConstraints.FreezeRotation;
+    //    if (Physics.Raycast(ray, out RaycastHit hit, 0.5f, CrashMask))
+    //    {
+    //        myRigid.constraints = RigidbodyConstraints.FreezeRotation|RigidbodyConstraints.FreezePositionZ;
+    //        if (myAnim.GetFloat("Dir.y") < 0.0f)
+    //            myRigid.constraints = RigidbodyConstraints.FreezeRotation;
 
 
-        }
-        else
-            myRigid.constraints = RigidbodyConstraints.FreezeRotation;
-        Debug.DrawRay(ray.origin, hit.point);
+    //    }
+    //    else
+    //        myRigid.constraints = RigidbodyConstraints.FreezeRotation;
+    //    Debug.DrawRay(ray.origin, hit.point);
 
-    }
+    //}
 
 
     public void PlayerMoving()
@@ -247,34 +251,72 @@ public class Loader : Character
         myAnim.SetBool("OnAir", false);
 
     }
+    // 정면체크
+    void ForwardCheck()
+    {
+        RaycastHit hit;
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + -transform.right, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + transform.right, Color.red);
+        Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward);
+        Ray rayleft = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + -transform.right);
+        Ray rayright = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + transform.right);
+        if (Physics.Raycast(rayforward, out hit, 0.3f) || Physics.Raycast(rayleft, out hit, 0.3f) || Physics.Raycast(rayright, out hit, 0.3f))
+        {
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall") || hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                if (Physics.Raycast(rayforward, out hit, 0.3f))
+                {
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayforward.direction * 0.38f;
+                }
+                else if (Physics.Raycast(rayleft, out hit, 0.3f))
+                {
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayleft.direction * 0.25f;
+                }
+                else if (Physics.Raycast(rayright, out hit, 0.3f))
+                {
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayright.direction * 0.25f;
+                }
+
+            }
+        }
+
+    }
+
     //땅체크
     void GroundCheck()
     {
-        
-        RaycastHit hit;      
-        if (Physics.Raycast(myAnim.transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down, out hit, 0.55f, 1 << LayerMask.NameToLayer("Ground")))
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, 0.3f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, -0.3f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(-0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
+        RaycastHit hit;
+        Ray rayCenter = new Ray(transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down);
+        Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 0.5f, 0.3f), Vector3.down);
+        Ray raybackward = new Ray(transform.position + new Vector3(0.0f, 0.5f, -0.3f), Vector3.down);
+        Ray rayleft = new Ray(transform.position + new Vector3(-0.3f, 0.5f, 0.0f), Vector3.down);
+        Ray rayright = new Ray(transform.position + new Vector3(0.3f, 0.5f, 0.0f), Vector3.down);
+        if (Physics.Raycast(rayCenter, out hit, 0.6f, Onground) || Physics.Raycast(rayforward, 0.6f, Onground) ||
+            Physics.Raycast(raybackward, 0.6f, Onground) || Physics.Raycast(rayleft, 0.6f, Onground) || Physics.Raycast(rayright, 0.6f, Onground))
         {
+
             myAnim.SetBool("OnAir", false);
+            myAnim.SetBool("Jumping", false);
+            myCharacterdata.isGround = true;
             myCharacterStat.JumpCount = 0;
         }
         else
-        {      
-            myAnim.SetBool("OnAir", true);        
-            myAnim.SetFloat("Dir.x", Mathf.Epsilon);
-            myAnim.SetFloat("Dir.y", Mathf.Epsilon);
-        
+        {
+            
+
+                myAnim.SetBool("OnAir", true);
+            myAnim.SetBool("isSprint", false);
+            myAnim.SetFloat("IsRun", 0.0f);
+            myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
+            myCharacterdata.isGround = false;
         }
     }
 
-    //IEnumerator GravityStrong(float speed)
-    //{
-    //    while(myAnim.GetBool("OnAir"))
-    //    {
-    //        speed++;
-    //        //Debug.Log(speed);
-    //        yield return speed;
-    //    }
-    //}
 
 
 
@@ -298,19 +340,17 @@ public class Loader : Character
 
     }
 
-    //// 공격 판단하고 이펙트 출력 
-    //IEnumerator Attacking(Transform target)
-    //{
-    //    Collider[] Monsters = Physics.OverlapSphere(target.position,
-    //        1.0f, 1 << LayerMask.NameToLayer("Monster"));
-    //    foreach (Collider mon in Monsters)
-    //    {
-    //        Instantiate(Effectsource, target.position, Quaternion.identity);
-    //        mon.GetComponent<Monster>()?.OnDamage(Damage);
-    //        yield return null;
-    //    }
+    public void TakeDamage(float damage)
+    {
+        bool isDie = myAttackSystem.DecreaseHP(damage);
+        if (isDie)
+        {
+            Debug.Log("Die");
+            ChangeState(STATE.DEAD);
+        }
+    }
 
-    //}
+  
 
     bool Comboable = false;
     void LMB()
@@ -325,6 +365,8 @@ public class Loader : Character
                 myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
                 myAnim.SetTrigger("LMBAtkR");
                 mySound.PlaySound("LMB");
+                StartCoroutine(Attacking(RightArm, 5.0f));
+
 
             }
             if (myAnim.GetBool("IsLMBR") && Comboable && !myAnim.GetBool("IsLMBL"))
@@ -336,6 +378,8 @@ public class Loader : Character
                     myCharacterStat.ApplySpeed = myCharacterStat.WalkSpeed;
                     myAnim.SetTrigger("LMBAtkL");
                     mySound.PlaySound("LMB");
+                    StartCoroutine(Attacking(LeftArm, 5.0f));
+
                 }
             }
             M1checkT = 0.0f;
@@ -452,4 +496,23 @@ public class Loader : Character
 
     }
 
+    //// 공격 판단하고 이펙트 출력 
+    IEnumerator Attacking(Transform target, float Range)
+    {
+        Collider[] Beetles = Physics.OverlapSphere(target.position,
+            Range, 1 << LayerMask.NameToLayer("Beetle"), QueryTriggerInteraction.Collide);
+        foreach (Collider mon in Beetles)
+        {
+
+            Instantiate(HitEffect, mon.transform.position, Quaternion.identity);
+            mon.GetComponent<Beetle>()?.HJSGetDamage(myCharacterStat.LoaderDamage);
+
+
+
+            Debug.Log("딱정벌레에게 " + myCharacterStat.LoaderDamage + "만큼의 데미지");
+
+            yield return null;
+        }
+
+    }
 }

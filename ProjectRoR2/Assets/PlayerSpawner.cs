@@ -15,6 +15,7 @@ public class PlayerSpawner : MonoBehaviour
         if (DontDestroyobject.instance.CharSelected == 2)
         {
             player = Instantiate(Resources.Load("Prefabs/Loader/Loader")) as GameObject;
+            player.transform.GetComponentInChildren<AttackSystem>().SetPlayer(player);
         }
         else return;
     }
