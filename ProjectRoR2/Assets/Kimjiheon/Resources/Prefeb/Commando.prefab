@@ -13545,22 +13545,6 @@ MonoBehaviour:
   myBulletStat:
     BulletRange: 999
     BulletDamage: 7
-  myCharacterStat:
-    maxHP: 0
-    curHP: 0
-    HP_Heal: 0
-    Level: 0
-    AttackDelay: 0
-    ApplySpeed: 0
-    WalkSpeed: 0
-    RunSpeed: 0
-    JumpForce: 0
-    JumpCount: 0
-    JumpItem: 0
-    RollTime: 0
-    RMBTime: 0
-    RKBTime: 0
-    RKBNumber: 0
   LMBSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   RMBSound: {fileID: 8300000, guid: ba5b9da8b3b9af742abfa0fd399e1a0f, type: 3}
   muzzleFlashR: {fileID: 6574697950681795218}
@@ -23692,8 +23676,9 @@ MonoBehaviour:
     isAttack: 0
     onforward: 0
     GunSwitch: 0
+    isBorder: 0
   myCharacterStat:
-    maxHP: 0
+    maxHP: 100
     curHP: 0
     HP_Heal: 0.7
     Level: 1

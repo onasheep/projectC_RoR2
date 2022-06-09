@@ -450,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myState: 0
   Target: {fileID: 0}
-  Hand: {fileID: 915641631121213833}
+  Hand: {fileID: 0}
   ParentData:
     MaxHP: 0
     HP: 0

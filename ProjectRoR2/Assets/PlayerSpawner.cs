@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public GameObject commando = null;
-    public GameObject loader= null;
+    public GameObject player;
     void Awake()
     {
         if(DontDestroyobject.instance.CharSelected == 1)
         {
-            commando = Instantiate(Resources.Load("Prefeb/Commando")) as GameObject;
+            player = Instantiate(Resources.Load("Prefeb/Commando")) as GameObject;
+            player.transform.GetComponentInChildren<AttackSystem>().SetPlayer(player);
         }
         if (DontDestroyobject.instance.CharSelected == 2)
         {
-            loader = Instantiate(Resources.Load("Prefabs/Loader/Loader")) as GameObject;
+            player = Instantiate(Resources.Load("Prefabs/Loader/Loader")) as GameObject;
         }
         else return;
     }

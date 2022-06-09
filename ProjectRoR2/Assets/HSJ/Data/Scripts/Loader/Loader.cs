@@ -298,19 +298,19 @@ public class Loader : Character
 
     }
 
-    // 공격 판단하고 이펙트 출력 
-    IEnumerator Attacking(Transform target)
-    {
-        Collider[] Monsters = Physics.OverlapSphere(target.position,
-            1.0f, 1 << LayerMask.NameToLayer("Monster"));
-        foreach (Collider mon in Monsters)
-        {
-            Instantiate(Effectsource, target.position, Quaternion.identity);
-            mon.GetComponent<Monster>()?.OnDamage(Damage);
-            yield return null;
-        }
+    //// 공격 판단하고 이펙트 출력 
+    //IEnumerator Attacking(Transform target)
+    //{
+    //    Collider[] Monsters = Physics.OverlapSphere(target.position,
+    //        1.0f, 1 << LayerMask.NameToLayer("Monster"));
+    //    foreach (Collider mon in Monsters)
+    //    {
+    //        Instantiate(Effectsource, target.position, Quaternion.identity);
+    //        mon.GetComponent<Monster>()?.OnDamage(Damage);
+    //        yield return null;
+    //    }
 
-    }
+    //}
 
     bool Comboable = false;
     void LMB()

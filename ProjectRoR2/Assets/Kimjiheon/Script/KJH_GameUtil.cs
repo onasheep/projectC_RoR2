@@ -48,6 +48,7 @@ public class KJH_CharacterData
     public bool isAttack = false;
     public bool onforward = false;
     public bool GunSwitch = false;
+    public bool isBorder = false;
 }
 
 public struct KJH_ROTATEDATA

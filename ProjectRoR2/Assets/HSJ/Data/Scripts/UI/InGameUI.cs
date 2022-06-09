@@ -9,7 +9,7 @@ public class InGameUI : MonoBehaviour
     Vector3 ScreenCenter;
     public Transform Canvas;
     public Camera Aimcamera;
-
+    public AttackSystem myAttackSystem;
 
     public Loader myLoader;
     public KJH_Player myCommando;
@@ -46,6 +46,7 @@ public class InGameUI : MonoBehaviour
         if (DontDestroyobject.instance.CharSelected == 1)
         {
             myCommando = GameObject.Find("mdlCommandoDualies (merge)").GetComponent<KJH_Player>();
+            myAttackSystem = GameObject.Find("AttackSystem").GetComponent<AttackSystem>();
             Aimcamera = GameObject.Find("Main Camera").GetComponent<Camera>();
             mySound = GameObject.Find("Main Camera").GetComponent<AudioListener>();
             myCamera = GameObject.Find("CamArm").GetComponent<KJH_CameraArm>();

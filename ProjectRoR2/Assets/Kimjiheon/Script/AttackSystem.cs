@@ -8,8 +8,9 @@ public class AttackSystem : MonoBehaviour
 {
     private Camera myCamera;
     public HPEvent onHPEvent = new HPEvent();
-    public KJH_BulletStat myBulletStat;
+    public KJH_BulletStat myBulletStat;    
     public KJH_CharacterStat myCharacterStat;
+    GameObject myplayer = null;
     [SerializeField]
     private AudioClip LMBSound;
     [SerializeField]
@@ -23,10 +24,22 @@ public class AttackSystem : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        myCharacterStat.curHP = myCharacterStat.maxHP;
+        //myplayer = GetComponent<PlayerSpawner>().player;
+        //myCharacterStat = myplayer.GetComponent<KJH_Player>().myCharacterStat;
+        //myCharacterStat.curHP = myCharacterStat.maxHP;
+        
     }
+
+    public void SetPlayer(GameObject player)
+    {
+        myplayer = player;
+        myCharacterStat = myplayer.GetComponentInChildren<KJH_Player>().myCharacterStat;
+        
+    }
+    
     void Start()
     {
+        myCharacterStat.curHP = myCharacterStat.maxHP;
         myCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
     }

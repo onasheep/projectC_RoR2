@@ -79,8 +79,10 @@
     <Compile Include="Assets\Minjun\Script\MJ_Map2.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\AnimState\Airloop.cs" />
     <Compile Include="Assets\Minjun\EffectExamples\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\HJSSpawnManager.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelectScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\InGameUI.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\TitleScene.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\HSJPlayer.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\SoundManager.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\HanJongSu\Datas\Scripts\AnimStateScripts\HJSBeetleBattleAnimEvents.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox.cs" />
     <Compile Include="Assets\Kimjiheon\Script\KJH_PlayerHUD.cs" />
+    <Compile Include="Assets\HanJongSu\Datas\Resources\KKJPrefabs\HJSMonsterUIBar.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\RootMotion.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_SceneLoder.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\BettleQueen\BettleQueen.cs" />
@@ -107,7 +110,6 @@
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\Monster\Lemurian.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemData.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\UI\CharSelBtn.cs" />
-    <Compile Include="Assets\KimKJ\Data\LemuTest\etc\Beautiful Progress Bar Free - CYKO\Scripts\SliderScripts.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\EffectManager.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Scripts\UI\MonsterUIBar.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_Inventory.cs" />

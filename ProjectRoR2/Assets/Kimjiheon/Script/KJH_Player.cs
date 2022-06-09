@@ -43,13 +43,12 @@ public class KJH_Player : Character
     float AttackTimeCheck;
     float RMBTimeCheck;
     float RKBTimeCheck;
+    float jumpmotionTime;
     // UI 쿨타임 연동을 위한 추가
     public KeyInputControl myKeyControl = null;
-    // 게임오버 UI;
-    public GameOverCanvas myGameOver = null;
-    /////////////////////////////////////////
     public void ChangeState(STATE s)
     {
+        
         if (myState == s) return;
         myState = s;
         switch (myState)
@@ -61,7 +60,6 @@ public class KJH_Player : Character
             case STATE.PAUSE:
                 break;
             case STATE.DEAD:
-                myGameOver.GameOver();
                 break;
         }
     }
@@ -72,7 +70,7 @@ public class KJH_Player : Character
             case STATE.CREATE:
                 break;
             case STATE.PLAY:
-                PlayerMovement();
+                
                 Jump();               
                 TryRun();
                 TryRoll();
@@ -86,10 +84,8 @@ public class KJH_Player : Character
     }
     void Start()
     {
-        // 쿨타임 UI 및 게임오버 UI
         myKeyControl = KeyInputControl.KeyInputMachine;
-        myGameOver = GameOverCanvas.GameOverMachine;
-
+        
         CooltimeReset();
         if (myState == STATE.CREATE)
         {
@@ -103,12 +99,17 @@ public class KJH_Player : Character
             LookAround();
         }    
     }
-    
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+        GroundCheck();
+        ForwardCheck();
+    }
     void Update()
     {        
         StateProcess();
-        GroundCheck();
-        ForwardCheck();
+        //GroundCheck();
+        //ForwardCheck();
         GetInput();
     }
     //값기본설정
@@ -176,19 +177,7 @@ public class KJH_Player : Character
         {
             x = Mathf.Clamp(x, 295.0f, 361f);
         }
-        /*
-        if (camAngle.y < 180.0f)
-        {
-            camAngle.y = Mathf.Clamp(camAngle.y, -1.0f, 80.0f);
-        }
-        else
-        {
-            camAngle.y = Mathf.Clamp(camAngle.y, 260.0f, 361f);
-        }
-        */
-        //myChest.transform.LookAt(myFrontAim);
         myChest.transform.rotation = Quaternion.Euler(x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        //Debug.Log(camAngle.y);
     }
     //정면체크
     void ForwardCheck()
@@ -200,21 +189,21 @@ public class KJH_Player : Character
         Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward);
         Ray rayleft = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + -transform.right);
         Ray rayright = new Ray(transform.position + new Vector3(0.0f, 1f, 0.0f), transform.forward + transform.right);
-        if (Physics.Raycast(rayforward, out hit, 0.5f) || Physics.Raycast(rayleft, out hit, 0.5f) || Physics.Raycast(rayright, out hit, 0.5f))
+        if (Physics.Raycast(rayforward, out hit, 0.3f) || Physics.Raycast(rayleft, out hit, 0.3f) || Physics.Raycast(rayright, out hit, 0.3f))
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall") || hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                if (Physics.Raycast(rayforward, out hit, 0.5f))
+                if (Physics.Raycast(rayforward, out hit, 0.3f))
                 {
-                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayforward.direction  * 0.47f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayforward.direction  * 0.38f;
                 }
-                else if (Physics.Raycast(rayleft, out hit, 0.5f))
+                else if (Physics.Raycast(rayleft, out hit, 0.3f))
                 {
-                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayleft.direction  * 0.45f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayleft.direction  * 0.25f;
                 }
-                else if (Physics.Raycast(rayright, out hit, 0.5f))
+                else if (Physics.Raycast(rayright, out hit, 0.3f))
                 {
-                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayright.direction  * 0.45f;
+                    transform.position = hit.point - new Vector3(0.0f, 1f, 0.0f) - rayright.direction  * 0.25f;
                 }
 
             }
@@ -228,15 +217,18 @@ public class KJH_Player : Character
         //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, -0.3f), Vector3.down, Color.red);
         //Debug.DrawRay(transform.position + new Vector3(-0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
         //Debug.DrawRay(transform.position + new Vector3(0.3f, 0.0f, 0.0f), Vector3.down, Color.red);
-        Ray rayCenter = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        Ray rayCenter = new Ray(transform.position + new Vector3(0.0f, 0.5f, 0.0f), Vector3.down);
         Ray rayforward = new Ray(transform.position + new Vector3(0.0f, 0.5f, 0.3f), Vector3.down);
         Ray raybackward = new Ray(transform.position + new Vector3(0.0f, 0.5f, -0.3f), Vector3.down);
         Ray rayleft = new Ray(transform.position + new Vector3(-0.3f, 0.5f, 0.0f), Vector3.down);
         Ray rayright = new Ray(transform.position + new Vector3(0.3f, 0.5f, 0.0f), Vector3.down);
-        if (Physics.Raycast(rayCenter, 0.6f, Onground) || Physics.Raycast(rayforward, 0.6f, Onground) || 
-            Physics.Raycast(raybackward, 0.6f, Onground) || Physics.Raycast(rayleft, 0.6f, Onground) || Physics.Raycast(rayright, 0.6f, Onground))
+        if (Physics.Raycast(rayCenter, out hit, 0.6f, Onground) || Physics.Raycast(rayforward, 0.6f, Onground) || 
+            Physics.Raycast(raybackward, 0.6f, Onground) || Physics.Raycast(rayleft, 0.6f, Onground) || Physics.Raycast(rayright, 0.6f, Onground))       
         {
+           
             myAnim.SetBool("OnAir", false);
+            jumpmotionTime = 0.0f;
             myAnim.SetBool("Jumping", false);
             myCharacterdata.isGround = true;
             myCharacterStat.JumpCount = 0;
@@ -245,8 +237,11 @@ public class KJH_Player : Character
         {
             if (myCharacterdata.isRoll == false)
             {
+                jumpmotionTime += Time.deltaTime * 0.3f;
+
                 myAnim.SetBool("OnAir", true);
-            }                       
+                myAnim.SetFloat("JumpTime", jumpmotionTime);
+            }
             myCharacterdata.isGround = false;
         }
     }
@@ -274,11 +269,11 @@ public class KJH_Player : Character
             //this.transform.LookAt(this.transform.position + moveDir);
             
         }
-        //움직일 때       
+        //움직일 때
         if (myCharacterdata.ismove && myCharacterdata.isRoll == false)
         {
-            if (!myCharacterdata.isAttack) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 10.0f); //RotRoutine = StartCoroutine(Rotating(myAnim.transform.position + moveDir));
-
+            if (!myCharacterdata.isAttack) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 10.0f);
+            if (myCharacterdata.isBorder) myCharacterStat.ApplySpeed = 0.0f;
             transform.position += myCharacterStat.ApplySpeed * Time.deltaTime * moveDir;
             //Debug.Log(myCharacterStat.ApplySpeed);
         }
@@ -364,19 +359,17 @@ public class KJH_Player : Character
     {
         myAnim.SetBool("OnAir", false);
         myCharacterdata.isRoll = true;
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 3.5f))
-        {
+        if (Physics.Raycast(transform.position + new Vector3(0.0f, 0.5f, 0.0f), dir, out RaycastHit hit, 3.5f, Onground))
+        {         
             myAnim.SetTrigger(Name);
-            //if (cooltime != null) StopCoroutine(cooltime);
-            //cooltime = StartCoroutine(Rolling(hit.point));
             transform.position = hit.point;
+            myCharacterdata.isRoll = false;       
         }
         else
         {           
-            myAnim.SetTrigger(Name);           
+            myAnim.SetTrigger(Name);
             if(Rollingtime != null) StopCoroutine(Rollingtime);
             Rollingtime = StartCoroutine(Rolling(dir * 3.5f));
-            //transform.position += moveDir * 5.0f;
         }
     }
     
@@ -386,7 +379,7 @@ public class KJH_Player : Character
         yield return new WaitForSeconds(0.1f);
         while (dist > Mathf.Epsilon)
         {
-            float delta = 20.0f * Time.deltaTime;
+            float delta = 15.0f * Time.deltaTime;
             myCharacterdata.isLookAround = false;               
             if (dist < delta)
             {
