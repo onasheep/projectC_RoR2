@@ -106,7 +106,7 @@ public class MJ_Item : MonoBehaviour
         
         if (this.gameObject.name.Contains("Glasses"))
         {            
-            //playerStat.myCharacterStat.critical += 0.1f; 
+            
 
             if (itemdata.equip[1] == 0)
             {
@@ -171,7 +171,8 @@ public class MJ_Item : MonoBehaviour
         }
 
         if (this.gameObject.name.Contains("Medkit"))
-        {            
+        {
+            C_playerStat.myCharacterStat.HP_Heal += 1;
             if (itemdata.equip[3] == 0)
             {
                 itemdata.equip[3]++;
@@ -265,7 +266,7 @@ public class MJ_Item : MonoBehaviour
 
         if (this.gameObject.name.Contains("Hopoo_Feather"))
         {
-            C_playerStat.myCharacterStat.JumpCount += 1;
+            C_playerStat.myCharacterStat.JumpItem += 1;
             if (itemdata.equip[6] == 0)
             {
                 itemdata.equip[6]++;
@@ -498,6 +499,7 @@ public class MJ_Item : MonoBehaviour
 
         if (this.gameObject.name.Contains("Medkit"))
         {
+            L_playerStat.myCharacterStat.HP_Heal += 1;
             if (itemdata.equip[3] == 0)
             {
                 itemdata.equip[3]++;
@@ -560,7 +562,8 @@ public class MJ_Item : MonoBehaviour
         if (this.gameObject.name.Contains("SyringeCluster"))
         {
 
-            L_playerStat.myCharacterStat.AttackDelay -= 0.02f;
+            L_playerStat.myCharacterStat.AttackDelay -= 0.01f;
+            if (L_playerStat.myCharacterStat.AttackDelay <= 0.05f) L_playerStat.myCharacterStat.AttackDelay = 0.05f;
             if (itemdata.equip[5] == 0)
             {
                 itemdata.equip[5]++;

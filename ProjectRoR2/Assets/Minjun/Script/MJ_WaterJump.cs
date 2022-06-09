@@ -8,7 +8,7 @@ public class MJ_WaterJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject waterJumpEff = Instantiate(Resources.Load("Effect/SmallSplash"), this.transform.position, Quaternion.identity) as GameObject;
+        
         player = GameObject.Find("mdlCommandoDualies (merge)");
         if (player == null)
         {
