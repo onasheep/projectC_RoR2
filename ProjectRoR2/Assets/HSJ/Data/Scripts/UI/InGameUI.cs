@@ -126,7 +126,14 @@ public class InGameUI : MonoBehaviour
             }
             else if(curHP <= 0)
             {
-                myLoader.ChangeState(Loader.STATE.DEAD);
+                if(DontDestroyobject.instance.CharSelected == 1)
+                {
+                    myCommando.ChangeState(KJH_Player.STATE.DEAD);
+                }
+                if (DontDestroyobject.instance.CharSelected == 2)
+                {
+                    myLoader.ChangeState(Loader.STATE.DEAD);
+                }
                 curHP = 0;
             }
         }
