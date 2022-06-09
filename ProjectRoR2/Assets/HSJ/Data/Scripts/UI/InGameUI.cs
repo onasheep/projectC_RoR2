@@ -15,6 +15,8 @@ public class InGameUI : MonoBehaviour
     public KJH_Player myCommando;
     public KJH_CameraArm myCamera;
     public AudioListener mySound;
+
+    GameObject CrossHair = null;
     // timer
     public TMPro.TMP_Text TimeText;
     float time;
@@ -165,6 +167,7 @@ public class InGameUI : MonoBehaviour
     {       
         if(EscActive == false)
         {
+            GameObject.Find("Crosshair(Clone)").SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Esc.SetActive(true);
@@ -185,6 +188,7 @@ public class InGameUI : MonoBehaviour
         }
         else if(EscActive == true)
         {
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Esc.SetActive(false);
