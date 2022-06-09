@@ -21,6 +21,9 @@ public class AttackSystem : MonoBehaviour
     public GameObject effectSource1 = null;
     private AudioSource audioSource;
     public LayerMask DamageMask;
+
+    public MJ_ItemData MJ_It;
+    public KJH_Player status;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -42,6 +45,9 @@ public class AttackSystem : MonoBehaviour
         myCharacterStat.curHP = myCharacterStat.maxHP;
         myCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
+
+        MJ_It = GameObject.Find("ItemDataBase").GetComponent<MJ_ItemData>();
+        status = GameObject.Find("mdlCommandoDualies (merge)").GetComponent<KJH_Player>();
     }
 
     // Update is called once per frame
@@ -102,8 +108,71 @@ public class AttackSystem : MonoBehaviour
             // 부모몬스터 공격시
             else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Parent"))
             {
-                hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
-                Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+                //안경 없고 씨앗 없음
+                if (MJ_It.equip[1] == 0 && MJ_It.equip[7] == 0)
+                {
+                    Debug.Log("안경 없고 씨앗 없음");
+                    hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
+                    Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+                }
+                //안경 없고 씨앗 있음
+                if (MJ_It.equip[1] == 0 && MJ_It.equip[7] != 0)
+                {
+                    Debug.Log("안경 없고 씨앗 있음");
+                    hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
+                    Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+                    status.myCharacterStat.curHP += 10 * MJ_It.equip[7];
+                    if (status.myCharacterStat.curHP >= status.myCharacterStat.maxHP) status.myCharacterStat.curHP = status.myCharacterStat.maxHP;
+                    Debug.Log("myCharacterStat.curHP=" + status.myCharacterStat.curHP);
+                }
+                //안경 있음
+                if (MJ_It.equip[1] != 0)
+                {
+                    int rnd = Random.Range(0, 10);
+                    //크리 발생
+                    if (rnd <= MJ_It.equip[1])
+                    {
+                        //씨앗 없음
+                        if (MJ_It.equip[7] == 0)
+                        {
+                            Debug.Log("안경 있고 씨앗 없음 크리티컬");
+                            hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage * 2);
+                            Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage * 2 + "만큼의 데미지");
+                        }
+                        //씨앗 있음
+                        else
+                        {
+                            Debug.Log("안경 있고 씨앗 없음 크리티컬");
+                            hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage * 2);
+                            Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage * 2 + "만큼의 데미지");
+                            status.myCharacterStat.curHP += 10 * MJ_It.equip[7];
+                            if (status.myCharacterStat.curHP >= status.myCharacterStat.maxHP) status.myCharacterStat.curHP = status.myCharacterStat.maxHP;
+                            Debug.Log("10회복");
+                        }
+
+                    }
+                    //크리 안터짐
+                    if (rnd > MJ_It.equip[1])
+                    {
+                        //씨앗 없음
+                        if (MJ_It.equip[7] == 0)
+                        {
+                            Debug.Log("안경 있고 씨앗 없음 크리 안터짐");
+                            hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
+                            Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+                        }
+                        //씨앗 있음
+                        else
+                        {
+                            Debug.Log("안경 있고 씨앗 있음 크리 안터짐");
+                            hit.transform.GetComponent<Parent>().HJSGetDamage(myBulletStat.BulletDamage);
+                            Debug.Log("부모몬스터 공격시" + myBulletStat.BulletDamage + "만큼의 데미지");
+                            status.myCharacterStat.curHP += 10 * MJ_It.equip[7];
+                            if (status.myCharacterStat.curHP >= status.myCharacterStat.maxHP) status.myCharacterStat.curHP = status.myCharacterStat.maxHP;
+                            Debug.Log("10회복");
+                        }
+                    }
+                }
             }
         }
         ShotBullet(attackDirection, BulletName, bulletSpawnPoint, attackRange);
