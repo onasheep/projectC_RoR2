@@ -17,14 +17,17 @@ public class MJ_Item : MonoBehaviour
     public MJ_ItemData itemdata;
     public Transform ItemContent;
 
-    public GameObject C_Head;   //아이템이 붙을 위치 
-    public GameObject C_RArm;
-    public GameObject C_LArm;
-    public GameObject C_RLeg;
-    public GameObject C_LLeg;
-    public GameObject C_Chest;
-    public GameObject C_Foot;
-    public GameObject C_Pelvis;
+    public Transform C_base;
+    public Transform L_base;
+
+    public Transform Head;   //아이템이 붙을 위치 
+    public Transform RArm;
+    public Transform LArm;
+    public Transform RLeg;
+    public Transform LLeg;
+    public Transform Chest;
+    public Transform Foot;
+    public Transform Pelvis;
 
     public string player_Type;  //플레이어가 로더인지 코만도인지 확인
 
@@ -39,25 +42,38 @@ public class MJ_Item : MonoBehaviour
         stat = GameObject.Find("mdlCommandoDualies (merge)");
         if (stat != null)
         {
+            C_base = stat.transform.Find("mdlCommandoDualies (merge)").Find("mdlCommandoDualies").Find("CommandoArmature").Find("ROOT").Find("base");
             C_playerStat = stat.GetComponent<KJH_Player>();
             atk = GameObject.Find("AttackSystem").GetComponent<AttackSystem>();
             player_Type = "Commando";
+
+            Head = C_base.Find("stomach").Find("chest").Find("head").Find("head_end");      //GameObject.Find("head_end");
+            RArm = C_base.Find("stomach").Find("chest").Find("upper_arm.r");          //GameObject.Find("upper_arm.r").transform;
+            LArm = C_base.Find("stomach").Find("chest").Find("upper_arm.l");          //GameObject.Find("upper_arm.l").transform;
+            RLeg = C_base.Find("pelvis").Find("thigh.r");                                                //GameObject.Find("thigh.r").transform;
+            LLeg = C_base.Find("pelvis").Find("thigh.l");                                                //GameObject.Find("thigh.l").transform;
+            Chest = C_base.Find("stomach").Find("chest");                                                //GameObject.Find("chest").transform;
+            Foot = C_base.Find("pelvis").Find("thigh.r").Find("calf.r");                                 //GameObject.Find("calf.r").transform;
+            Pelvis = C_base.Find("pelvis");                                                              //GameObject.Find("pelvis").transform;
         }
         if (stat == null)
         {
             stat = GameObject.Find("mdlLoader (merge)");
+            L_base = stat.transform.Find("mdlLoader (merge)").Find("mdlLoader").Find("LoaderArmature").Find("ROOT").Find("base");
             L_playerStat = stat.GetComponent<Loader>();
             player_Type = "Loader";
+
+            Head = L_base.Find("stomach").Find("chest").Find("neck").Find("head").Find("head_end");      //GameObject.Find("head_end");
+            RArm = L_base.Find("stomach").Find("chest").Find("clavicle.r").Find("upper_arm.r");          //GameObject.Find("upper_arm.r").transform;
+            LArm = L_base.Find("stomach").Find("chest").Find("clavicle.l").Find("upper_arm.l");          //GameObject.Find("upper_arm.l").transform;
+            RLeg = L_base.Find("pelvis").Find("thigh.r");                                                //GameObject.Find("thigh.r").transform;
+            LLeg = L_base.Find("pelvis").Find("thigh.l");                                                //GameObject.Find("thigh.l").transform;
+            Chest = L_base.Find("stomach").Find("chest");                                                //GameObject.Find("chest").transform;
+            Foot = L_base.Find("pelvis").Find("thigh.r").Find("calf.r");                                 //GameObject.Find("calf.r").transform;
+            Pelvis = L_base.Find("pelvis");                                                              //GameObject.Find("pelvis").transform;
         }
 
-        C_Head = GameObject.Find("head_end");
-        C_RArm = GameObject.Find("upper_arm.r");
-        C_LArm = GameObject.Find("upper_arm.l");
-        C_RLeg = GameObject.Find("thigh.r");
-        C_LLeg = GameObject.Find("thigh.l");
-        C_Chest = GameObject.Find("chest");
-        C_Foot = GameObject.Find("calf.r");
-        C_Pelvis = GameObject.Find("pelvis");
+        
     }
 
     // Update is called once per frame
@@ -81,10 +97,10 @@ public class MJ_Item : MonoBehaviour
                 myinven.AddItem(0, "Crowbar");
                 myinven.invenitemname.Add("Crowbar");
 
-                this.transform.parent = C_Chest.transform;
-                this.transform.rotation = Quaternion.Euler(C_Chest.transform.rotation.eulerAngles.x, C_Chest.transform.rotation.eulerAngles.y, C_Chest.transform.rotation.eulerAngles.z);
+                this.transform.parent = Chest.transform;
+                this.transform.rotation = Quaternion.Euler(Chest.transform.rotation.eulerAngles.x, Chest.transform.rotation.eulerAngles.y, Chest.transform.rotation.eulerAngles.z);
                 this.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-                this.transform.localPosition = C_Chest.transform.localPosition + new Vector3(0.001f,0.002f,-0.002f); //위치 세부 조정
+                this.transform.localPosition = Chest.transform.localPosition + new Vector3(0.001f,0.002f,-0.002f); //위치 세부 조정
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -113,11 +129,11 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[1]++;
                 myinven.AddItem(1, "Glasses");
                 myinven.invenitemname.Add("Glasses");
-                this.transform.rotation = Quaternion.Euler(C_Head.transform.rotation.eulerAngles.x, C_Head.transform.rotation.eulerAngles.y , C_Head.transform.rotation.eulerAngles.z); // 10,118,-10
-                Debug.Log(C_Head.transform.rotation.eulerAngles +""+ this.transform.rotation.eulerAngles);
-                this.transform.parent = C_Head.transform;
+                this.transform.rotation = Quaternion.Euler(Head.transform.rotation.eulerAngles.x, Head.transform.rotation.eulerAngles.y , Head.transform.rotation.eulerAngles.z); // 10,118,-10
+
+                this.transform.parent = Head.transform;
                 this.transform.localScale = new Vector3(1f, 1f, 1f);
-                this.gameObject.transform.localPosition = C_Head.transform.localPosition + new Vector3(0f, -0.003f, 0f);
+                this.gameObject.transform.localPosition = Head.transform.localPosition + new Vector3(0f, -0.003f, 0f);
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -148,10 +164,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[2]++;
                 myinven.AddItem(2, "Goat_Hoof");
                 myinven.invenitemname.Add("Goat_Hoof");
-                this.transform.localRotation = Quaternion.Euler(C_Foot.transform.rotation.eulerAngles.x, C_Foot.transform.rotation.eulerAngles.y, C_Foot.transform.rotation.eulerAngles.z); // 각도 조정
-                this.transform.parent = C_Foot.transform;
+                this.transform.localRotation = Quaternion.Euler(Foot.transform.rotation.eulerAngles.x, Foot.transform.rotation.eulerAngles.y, Foot.transform.rotation.eulerAngles.z); // 각도 조정
+                this.transform.parent = Foot.transform ;
                 this.transform.localScale = new Vector3(1.3f, 0.85f, 1.3f);
-                this.gameObject.transform.localPosition = C_Foot.transform.localPosition + new Vector3(0.00035f,-0.0015f,-0.00065f);
+                this.gameObject.transform.localPosition = Foot.transform.localPosition + new Vector3(0.00035f,-0.0015f,-0.00065f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -178,10 +194,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[3]++;
                 myinven.AddItem(3, "Medkit");
                 myinven.invenitemname.Add("Medkit");
-                this.transform.rotation = Quaternion.Euler(C_Pelvis.transform.rotation.eulerAngles.x, C_Pelvis.transform.rotation.eulerAngles.y, C_Pelvis.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Pelvis.transform;
+                this.transform.rotation = Quaternion.Euler(Pelvis.transform.rotation.eulerAngles.x, Pelvis.transform.rotation.eulerAngles.y, Pelvis.transform.rotation.eulerAngles.z);
+                this.transform.parent = Pelvis.transform;
                 this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                this.gameObject.transform.localPosition = C_Pelvis.transform.localPosition + new Vector3(0.002f, -0.0025f, 0f);
+                this.gameObject.transform.localPosition = Pelvis.transform.localPosition + new Vector3(0.002f, -0.0025f, 0f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -205,15 +221,15 @@ public class MJ_Item : MonoBehaviour
         {
 
             C_playerStat.myCharacterStat.maxHP += 25.0f;
-            if (itemdata.equip[4] >= 0)
+            if (itemdata.equip[4] == 0)
             {
                 itemdata.equip[4]++;
                 myinven.AddItem(4, "Steak");
                 myinven.invenitemname.Add("Steak");
-                this.transform.rotation = Quaternion.Euler(C_Chest.transform.rotation.eulerAngles.x, C_Chest.transform.rotation.eulerAngles.y, C_Chest.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Chest.transform;
+                this.transform.rotation = Quaternion.Euler(Chest.transform.rotation.eulerAngles.x, Chest.transform.rotation.eulerAngles.y, Chest.transform.rotation.eulerAngles.z);
+                this.transform.parent = Chest.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_Chest.transform.localPosition + new Vector3(0f,0.0005f,0.0023f);
+                this.gameObject.transform.localPosition = Chest.transform.localPosition + new Vector3(0f,0.0005f,0.0023f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -242,10 +258,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[5]++;
                 myinven.AddItem(5, "SyringeCluster");
                 myinven.invenitemname.Add("SyringeCluster");
-                this.transform.rotation = Quaternion.Euler(C_LLeg.transform.rotation.eulerAngles.x, C_LLeg.transform.rotation.eulerAngles.y, C_LLeg.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_LLeg.transform;
+                this.transform.rotation = Quaternion.Euler(LLeg.transform.rotation.eulerAngles.x, LLeg.transform.rotation.eulerAngles.y, LLeg.transform.rotation.eulerAngles.z);
+                this.transform.parent = LLeg.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_LLeg.transform.localPosition + new Vector3(0.002f,0,0);
+                this.gameObject.transform.localPosition = LLeg.transform.localPosition + new Vector3(0.002f,0,0);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -272,10 +288,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[6]++;
                 myinven.AddItem(6, "Hopoo_Feather");
                 myinven.invenitemname.Add("Hopoo_Feather");
-                this.transform.rotation = Quaternion.Euler(C_Head.transform.rotation.eulerAngles.x, C_Head.transform.rotation.eulerAngles.y, C_Head.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Head.transform;
+                this.transform.rotation = Quaternion.Euler(Head.transform.rotation.eulerAngles.x, Head.transform.rotation.eulerAngles.y, Head.transform.rotation.eulerAngles.z);
+                this.transform.parent = Head.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_Head.transform.localPosition + new Vector3(0f , -0.001f , 0f); //위치 세부 조정
+                this.gameObject.transform.localPosition = Head.transform.localPosition + new Vector3(0f , -0.001f , 0f); //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -301,10 +317,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[7]++;
                 myinven.AddItem(7, "Seed");
                 myinven.invenitemname.Add("Seed");
-                this.transform.rotation = Quaternion.Euler(C_Pelvis.transform.rotation.eulerAngles.x, C_Pelvis.transform.rotation.eulerAngles.y, C_Pelvis.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Pelvis.transform;
+                this.transform.rotation = Quaternion.Euler(Pelvis.transform.rotation.eulerAngles.x, Pelvis.transform.rotation.eulerAngles.y, Pelvis.transform.rotation.eulerAngles.z);
+                this.transform.parent = Pelvis.transform;
                 this.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-                this.gameObject.transform.localPosition = C_Pelvis.transform.localPosition + new Vector3(-0.0023f,-0.0025f,0); //위치 세부 조정
+                this.gameObject.transform.localPosition = Pelvis.transform.localPosition + new Vector3(-0.0023f,-0.0025f,0); //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -333,10 +349,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[8]++;
                 myinven.AddItem(8, "Titan_Knurl");
                 myinven.invenitemname.Add("Titan_Knurl");
-                this.transform.rotation = Quaternion.Euler(C_RArm.transform.rotation.eulerAngles.x, C_RArm.transform.rotation.eulerAngles.y, C_RArm.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_RArm.transform;
+                this.transform.rotation = Quaternion.Euler(RArm.transform.rotation.eulerAngles.x, RArm.transform.rotation.eulerAngles.y, RArm.transform.rotation.eulerAngles.z);
+                this.transform.parent = RArm.transform;
                 this.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-                this.gameObject.transform.localPosition = C_RArm.transform.localPosition + new Vector3(-0.0015f, 0.0032f, 0.002f);
+                this.gameObject.transform.localPosition = RArm.transform.localPosition + new Vector3(-0.0015f, 0.0032f, 0.002f);
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -369,9 +385,9 @@ public class MJ_Item : MonoBehaviour
                 myinven.AddItem(9, "LightningStrike");
                 myinven.invenitemname.Add("LightningStrike");
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                this.transform.parent = C_Chest.transform;
+                this.transform.parent = Chest.transform;
                 this.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                this.gameObject.transform.position = C_Chest.transform.position; //위치 세부 조정
+                this.gameObject.transform.position = Chest.transform.position; //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -408,10 +424,10 @@ public class MJ_Item : MonoBehaviour
                 myinven.AddItem(0, "Crowbar");
                 myinven.invenitemname.Add("Crowbar");
 
-                this.transform.parent = C_Chest.transform;
-                this.transform.rotation = Quaternion.Euler(C_Chest.transform.rotation.eulerAngles.x, C_Chest.transform.rotation.eulerAngles.y, C_Chest.transform.rotation.eulerAngles.z);
+                this.transform.parent = Chest.transform;
+                this.transform.rotation = Quaternion.Euler(Chest.transform.rotation.eulerAngles.x, Chest.transform.rotation.eulerAngles.y, Chest.transform.rotation.eulerAngles.z);
                 this.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-                this.transform.localPosition = C_Chest.transform.localPosition + new Vector3(0.001f, 0.002f, -0.002f); //위치 세부 조정
+                this.transform.localPosition = Chest.transform.localPosition + new Vector3(0.001f, 0.002f, -0.002f); //위치 세부 조정
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -440,11 +456,11 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[1]++;
                 myinven.AddItem(1, "Glasses");
                 myinven.invenitemname.Add("Glasses");
-                this.transform.rotation = Quaternion.Euler(C_Head.transform.rotation.eulerAngles.x, C_Head.transform.rotation.eulerAngles.y, C_Head.transform.rotation.eulerAngles.z); // 10,118,-10
-                Debug.Log(C_Head.transform.rotation.eulerAngles + "" + this.transform.rotation.eulerAngles);
-                this.transform.parent = C_Head.transform;
+                this.transform.rotation = Quaternion.Euler(Head.transform.rotation.eulerAngles.x, Head.transform.rotation.eulerAngles.y, Head.transform.rotation.eulerAngles.z); // 10,118,-10
+                
+                this.transform.parent = Head.transform;
                 this.transform.localScale = new Vector3(1f, 1f, 1f);
-                this.gameObject.transform.localPosition = C_Head.transform.localPosition + new Vector3(0f, -0.003f, 0f);
+                this.gameObject.transform.localPosition = Head.transform.localPosition + new Vector3(0f, -0.003f, 0f);
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -475,10 +491,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[2]++;
                 myinven.AddItem(2, "Goat_Hoof");
                 myinven.invenitemname.Add("Goat_Hoof");
-                this.transform.localRotation = Quaternion.Euler(C_Foot.transform.rotation.eulerAngles.x, C_Foot.transform.rotation.eulerAngles.y, C_Foot.transform.rotation.eulerAngles.z); // 각도 조정
-                this.transform.parent = C_Foot.transform;
+                this.transform.localRotation = Quaternion.Euler(Foot.transform.rotation.eulerAngles.x, Foot.transform.rotation.eulerAngles.y, Foot.transform.rotation.eulerAngles.z); // 각도 조정
+                this.transform.parent = Foot.transform;
                 this.transform.localScale = new Vector3(1.3f, 0.85f, 1.3f);
-                this.gameObject.transform.localPosition = C_Foot.transform.localPosition + new Vector3(0.00035f, -0.0015f, -0.00065f);
+                this.gameObject.transform.localPosition = Foot.transform.localPosition + new Vector3(0.00035f, -0.0015f, -0.00065f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -505,10 +521,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[3]++;
                 myinven.AddItem(3, "Medkit");
                 myinven.invenitemname.Add("Medkit");
-                this.transform.rotation = Quaternion.Euler(C_Pelvis.transform.rotation.eulerAngles.x, C_Pelvis.transform.rotation.eulerAngles.y, C_Pelvis.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Pelvis.transform;
+                this.transform.rotation = Quaternion.Euler(Pelvis.transform.rotation.eulerAngles.x, Pelvis.transform.rotation.eulerAngles.y, Pelvis.transform.rotation.eulerAngles.z);
+                this.transform.parent = Pelvis.transform;
                 this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                this.gameObject.transform.localPosition = C_Pelvis.transform.localPosition + new Vector3(0.002f, -0.0025f, 0f);
+                this.gameObject.transform.localPosition = Pelvis.transform.localPosition + new Vector3(0.002f, -0.0025f, 0f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -537,10 +553,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[4]++;
                 myinven.AddItem(4, "Steak");
                 myinven.invenitemname.Add("Steak");
-                this.transform.rotation = Quaternion.Euler(C_Chest.transform.rotation.eulerAngles.x, C_Chest.transform.rotation.eulerAngles.y, C_Chest.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Chest.transform;
+                this.transform.rotation = Quaternion.Euler(Chest.transform.rotation.eulerAngles.x, Chest.transform.rotation.eulerAngles.y, Chest.transform.rotation.eulerAngles.z);
+                this.transform.parent = Chest.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_Chest.transform.localPosition + new Vector3(0f, 0.0005f, 0.0023f);
+                this.gameObject.transform.localPosition = Chest.transform.localPosition + new Vector3(0f, 0.0005f, 0.0023f);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -569,10 +585,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[5]++;
                 myinven.AddItem(5, "SyringeCluster");
                 myinven.invenitemname.Add("SyringeCluster");
-                this.transform.rotation = Quaternion.Euler(C_LLeg.transform.rotation.eulerAngles.x, C_LLeg.transform.rotation.eulerAngles.y, C_LLeg.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_LLeg.transform;
+                this.transform.rotation = Quaternion.Euler(LLeg.transform.rotation.eulerAngles.x, LLeg.transform.rotation.eulerAngles.y, LLeg.transform.rotation.eulerAngles.z);
+                this.transform.parent = LLeg.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_LLeg.transform.localPosition + new Vector3(0.002f, 0, 0);
+                this.gameObject.transform.localPosition = LLeg.transform.localPosition + new Vector3(0.002f, 0, 0);
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -599,10 +615,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[6]++;
                 myinven.AddItem(6, "Hopoo_Feather");
                 myinven.invenitemname.Add("Hopoo_Feather");
-                this.transform.rotation = Quaternion.Euler(C_Head.transform.rotation.eulerAngles.x, C_Head.transform.rotation.eulerAngles.y, C_Head.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Head.transform;
+                this.transform.rotation = Quaternion.Euler(Head.transform.rotation.eulerAngles.x, Head.transform.rotation.eulerAngles.y, Head.transform.rotation.eulerAngles.z);
+                this.transform.parent = Head.transform;
                 this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                this.gameObject.transform.localPosition = C_Head.transform.localPosition + new Vector3(0f, -0.001f, 0f); //위치 세부 조정
+                this.gameObject.transform.localPosition = Head.transform.localPosition + new Vector3(0f, -0.001f, 0f); //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -628,10 +644,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[7]++;
                 myinven.AddItem(7, "Seed");
                 myinven.invenitemname.Add("Seed");
-                this.transform.rotation = Quaternion.Euler(C_Pelvis.transform.rotation.eulerAngles.x, C_Pelvis.transform.rotation.eulerAngles.y, C_Pelvis.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_Pelvis.transform;
+                this.transform.rotation = Quaternion.Euler(Pelvis.transform.rotation.eulerAngles.x, Pelvis.transform.rotation.eulerAngles.y, Pelvis.transform.rotation.eulerAngles.z);
+                this.transform.parent = Pelvis.transform;
                 this.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-                this.gameObject.transform.localPosition = C_Pelvis.transform.localPosition + new Vector3(-0.0023f, -0.0025f, 0); //위치 세부 조정
+                this.gameObject.transform.localPosition = Pelvis.transform.localPosition + new Vector3(-0.0023f, -0.0025f, 0); //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");
@@ -660,10 +676,10 @@ public class MJ_Item : MonoBehaviour
                 itemdata.equip[8]++;
                 myinven.AddItem(8, "Titan_Knurl");
                 myinven.invenitemname.Add("Titan_Knurl");
-                this.transform.rotation = Quaternion.Euler(C_RArm.transform.rotation.eulerAngles.x, C_RArm.transform.rotation.eulerAngles.y, C_RArm.transform.rotation.eulerAngles.z);
-                this.transform.parent = C_RArm.transform;
+                this.transform.rotation = Quaternion.Euler(RArm.transform.rotation.eulerAngles.x, RArm.transform.rotation.eulerAngles.y, RArm.transform.rotation.eulerAngles.z);
+                this.transform.parent = RArm.transform;
                 this.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-                this.gameObject.transform.localPosition = C_RArm.transform.localPosition + new Vector3(-0.0015f, 0.0032f, 0.002f);
+                this.gameObject.transform.localPosition = RArm.transform.localPosition + new Vector3(-0.0015f, 0.0032f, 0.002f);
 
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
@@ -696,9 +712,9 @@ public class MJ_Item : MonoBehaviour
                 myinven.AddItem(9, "LightningStrike");
                 myinven.invenitemname.Add("LightningStrike");
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                this.transform.parent = C_Chest.transform;
+                this.transform.parent = Chest.transform;
                 this.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                this.gameObject.transform.position = C_Chest.transform.position; //위치 세부 조정
+                this.gameObject.transform.position = Chest.transform.position; //위치 세부 조정
 
                 this.gameObject.GetComponent<MJ_Item>().enabled = false;
                 this.gameObject.GetComponentInChildren<MeshRenderer>().material.shader = Shader.Find("Standard");

@@ -69,11 +69,6 @@ public class InGameUI : MonoBehaviour
 
     void Start()
     {
-
-
-     
-        
-
         myHpbar.value = (float)myAttackSystem.myCharacterStat.curHP / (float)myAttackSystem.myCharacterStat.maxHP;
         myExpbar.value = (float)curExp / (float)maxExp;
         LevelText.text = "·¹º§ : " + Level;
@@ -100,12 +95,12 @@ public class InGameUI : MonoBehaviour
         Ray ray = Aimcamera.ScreenPointToRay(ScreenCenter);
         if (DontDestroyobject.instance.CharSelected == 1)
         {
-            GameObject Crosshair = Instantiate(Resources.Load("Prefeb/Crosshair"), Canvas) as GameObject;
+            CrossHair = Instantiate(Resources.Load("Prefeb/Crosshair"), Canvas) as GameObject;
 
         }
         if (DontDestroyobject.instance.CharSelected == 2)
         {
-            GameObject Crosshair = Instantiate(Resources.Load("Prefabs/UI/CrossHair"), Canvas) as GameObject;
+            CrossHair = Instantiate(Resources.Load("Prefabs/UI/CrossHair"), Canvas) as GameObject;
         }
 
     }
@@ -167,7 +162,7 @@ public class InGameUI : MonoBehaviour
     {       
         if(EscActive == false)
         {
-            GameObject.Find("Crosshair(Clone)").SetActive(false);
+            CrossHair.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Esc.SetActive(true);
@@ -188,7 +183,7 @@ public class InGameUI : MonoBehaviour
         }
         else if(EscActive == true)
         {
-            
+            CrossHair.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Esc.SetActive(false);

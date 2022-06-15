@@ -15,7 +15,8 @@ public class MenuSound : SoundProperty
 
 
         btn1.onClick.AddListener(MenuClick);
-        btn2.onClick.AddListener(MenuClick);
+        if (btn2 == null) return;
+        else btn2.onClick.AddListener(MenuClick);
         btn3.onClick.AddListener(MenuClick);
      
 

@@ -326,7 +326,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Charge: 0
+  Boss: {fileID: 459176233008999070, guid: 5677c82ec9a378741846d3a6d9662fba, type: 3}
+  obj: {fileID: 0}
   ChargeUI: {fileID: 3491280656238966104}
+  myGameOver: {fileID: 0}
+  state: 0
 --- !u!64 &4202332510821555070
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -24,6 +24,6 @@ public class MJ_WaterJump : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        player.GetComponent<Rigidbody>().AddForce(Vector3.up * 2000);
+        player.GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
     }
 }

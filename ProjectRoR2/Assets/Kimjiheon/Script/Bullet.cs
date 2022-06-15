@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     public float BulletSpeed;
     public LayerMask CrushMask;
-    Vector3 Checkdir = Vector3.zero;
     private void Update()
     {
         
@@ -16,7 +15,6 @@ public class Bullet : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, dir, out hit, 1f, CrushMask))
         {
-            Debug.Log("Hit");
             Destroy(this.gameObject);
         }
     }

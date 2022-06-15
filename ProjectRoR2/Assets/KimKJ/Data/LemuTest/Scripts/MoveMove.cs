@@ -64,7 +64,7 @@ public class MoveMove : MonoBehaviour
             Debug.Log(Dist);
             oldPos = this.transform.position;
             //Dist = Vector3.Distance(pos, this.transform.position) - Mar;
-          yield return null;
+            yield return null;
         }
           //  myAnim.SetBool("Running", true);
             myAnim.SetBool("Running", true);

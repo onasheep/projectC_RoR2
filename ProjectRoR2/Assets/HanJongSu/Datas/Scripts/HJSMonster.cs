@@ -15,7 +15,13 @@ public class HJSMonster : HJSProperty
         public float MoveSpeed;
         public float AttackSpeed;
         public float AttackRange;
+        public float GainGold;
+        public float GainExp;
     }
+    [SerializeField]protected AudioClip SpawnSound;
+    [SerializeField] protected AudioClip AtkSound;
+    [SerializeField] protected AudioClip DieSound;
+    [SerializeField] protected GameObject GetDamageEffect;
 
     Coroutine moveRoutine = null;
     Coroutine rotRoutine = null;
@@ -67,7 +73,7 @@ public class HJSMonster : HJSProperty
         float dist = 1.0f;
         while (dist > 0.0f)
         {
-            float delta = Time.deltaTime * 0.5f;
+            float delta = Time.deltaTime * 1.0f;
             this.transform.Translate(-Vector3.up * delta);
             dist -= delta;
             yield return null;

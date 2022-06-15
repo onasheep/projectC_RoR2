@@ -204,9 +204,9 @@ public class Lemurian : MoveMove, BattlecombatSystem
                 //    }
                 break;
             case STATE.BATTLE:
-             StopAllCoroutines();
+                StopAllCoroutines();
                 //타겟 감지에서 벗어나거나 죽으면 바로 뛰도록 
-               base.AttackTargetkkj(myperceptionlemus.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
+                base.AttackTargetkkj(myperceptionlemus.Target, LemuData.AttackRange, LemuData.AttackDelay, () => ChangeState(STATE.RUN));
                 Debug.Log("플레이어를감지했습니다. 공격 모드로 들어갑니다.");
                 //   Firekkj(myperceptionlemus.Target.transform, LemuData.AttackRange)
    

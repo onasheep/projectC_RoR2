@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-
     public MJ_Map1 Map1; 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +11,6 @@ public class DeadZone : MonoBehaviour
         {
             other.gameObject.GetComponent<KJH_Player>().transform.position = Map1.GetComponent<MJ_Map1>().StartPos;
         }
-
         if(DontDestroyobject.instance.CharSelected == 2)
         {
             other.gameObject.GetComponent<Loader>().transform.position = Map1.GetComponent<MJ_Map1>().StartPos;
