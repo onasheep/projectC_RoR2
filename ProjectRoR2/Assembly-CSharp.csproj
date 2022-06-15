@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HSJ\Data\Scripts\UI\SceneLoader.cs" />
@@ -131,7 +131,6 @@
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemCount.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\AIPerceptionGolem.cs" />
-    <Compile Include="Assets\Minjun\Script\MJ_Item.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\HJSMonster.cs" />

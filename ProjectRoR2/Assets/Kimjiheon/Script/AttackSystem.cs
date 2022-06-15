@@ -51,8 +51,8 @@ public class AttackSystem : MonoBehaviour
         myCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
 
-        MJ_It = GameObject.Find("ItemDataBase").GetComponent<MJ_ItemData>();
-        status = GameObject.Find("mdlCommandoDualies (merge)").GetComponent<KJH_Player>();
+        //MJ_It = GameObject.Find("ItemDataBase").GetComponent<MJ_ItemData>();
+        //status = GameObject.Find("mdlCommandoDualies (merge)").GetComponent<KJH_Player>();
     }
 
     // Update is called once per frame
