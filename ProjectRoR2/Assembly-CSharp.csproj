@@ -131,6 +131,7 @@
     <Compile Include="Assets\Kimjiheon\Script\Character.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemCount.cs" />
     <Compile Include="Assets\KimKJ\Data\LemuTest\Animation\Golem\Scripts\AIPerceptionGolem.cs" />
+    <Compile Include="Assets\Minjun\Script\MJ_Item.cs" />
     <Compile Include="Assets\Minjun\Script\MJ_ItemBox1T.cs" />
     <Compile Include="Assets\HSJ\Data\Scripts\Loader\GrappleFist.cs" />
     <Compile Include="Assets\HanJongSu\Datas\Scripts\HJSMonster.cs" />
